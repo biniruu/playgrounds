@@ -36,3 +36,48 @@ console.log(JSON.stringify(three)) // {"value":3,"done":true}
 const four = generator.next()
 console.log(four) // { value: undefined, done: true }
 console.log(JSON.stringify(four)) // {"done":true}
+
+console.log('🚀 --------------------------------')
+
+const generatorIsIterable = generatorSequence()
+
+// 제너레이터는 iterable한 함수다.
+for (const value of generatorIsIterable) {
+  console.log(value) // 1, 2
+}
+
+function* generatorSequenceWithoutReturn() {
+  yield 1
+  yield 2
+  yield 3
+}
+
+const generatorWithoutReturn = generatorSequenceWithoutReturn()
+
+// 그러나 done이 true가 되면 value를 반환하지 않기 때문에 3은 로그에 찍히지 않는다.
+// return을 yield로 바꾸고 나면 done이 false가 되므로 로그에 3까지 찍힌다.
+for (const value of generatorWithoutReturn) {
+  console.log(value) // 1, 2, 3
+}
+
+// 다른 반복문으로도 반복시킬 수 있을까?
+for (const value in generatorWithoutReturn) {
+  console.log(value) // 값 없음
+}
+
+// 안 된다. for문은?
+for (let i = 0; i < generatorWithoutReturn.length; i++) {
+  console.log(generatorWithoutReturn[i]) // nothing
+}
+
+// 안 된다. 설마 length도 없나?
+console.log(generatorWithoutReturn.length) // undefined
+
+// 없다. key도 당연히 없겠지?
+for (const key in generatorWithoutReturn) {
+  console.log(key) // 값 없음
+}
+
+// 없다. 근데 어떻게 for of문을 돌리면 값이 나오지?
+
+console.log('✨ --------------------------------')
