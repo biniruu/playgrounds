@@ -1,4 +1,4 @@
-# playground
+# Playground
 
 개인 학습용 코드 낙서.
 
