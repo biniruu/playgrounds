@@ -5,4 +5,5 @@
 - [x] generator
 - [x] closer
 - [x] top-level await
-- [ ] promise & promise apis
+- [ ] promise
+- [ ] promise apis
