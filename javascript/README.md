@@ -4,4 +4,4 @@
 
 - [x] generator
 - [x] closer
-- [ ] helper function
+- [x] top-level await
