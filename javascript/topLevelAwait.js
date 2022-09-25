@@ -1,11 +1,11 @@
 // resolve를 반환하는 promise 객체
 const resolve = new Promise(resolve => {
-  return resolve('🚀') // Promise {<fulfilled>: '🚀'}
+  resolve('🚀') // Promise {<fulfilled>: '🚀'}
 })
 
 // reject를 반환하는 promise 객체
 const reject = new Promise((resolve, reject) => {
-  return reject('😖') // Promise {<rejected>: '😖'}
+  reject('😖') // Promise {<rejected>: '😖'}
 })
 
 /**
