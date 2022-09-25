@@ -1,6 +1,6 @@
 /**
  * 학습 자료
- * 프라미스: https://ko.javascript.info/promise-basics
+ * 프라미스 : https://ko.javascript.info/promise-basics
  * 자바스크립트 Promise 쉽게 이해하기 : https://joshua1988.github.io/web-development/javascript/promise-for-beginners/#프로미스의-에러-처리-방법
  */
 
@@ -48,7 +48,7 @@ const logFire = new Promise((resolve, reject) => {
 console.log(promise) // Promise { <pending> }
 console.log(nothing) // Promise { <pending> }
 
-// then 메서드
+/* then 메서드 */
 
 // then은 result와 error 두 개의 인자를 받는다
 // 각 인자가 받는 콜백 함수를 통해 resolve와 reject를 처리한다
@@ -72,14 +72,7 @@ reject.then(
   error => console.log(error), // 💩
 )
 
-// catch
-
-// 작업이 성공적으로 이루어진 경우만 다루고 싶다면 then의 첫 번째 인자만 사용한다
-const resolveOnly = new Promise(resolve => {
-  resolve('🙆🏻‍♂️')
-})
-
-resolveOnly.then(result => console.log(result)) // 🙆🏻‍♂️
+/* catch */
 
 // 위에서 살펴본 대로 두 번째 인자로 받는 콜백은 에러 처리를 위한 것이 아니기 때문에
 // 에러 처리를 위해서는 catch 메서드를 사용해야 한다
@@ -88,7 +81,7 @@ const errorFire = new Promise((resolve, reject) => {
 })
 
 errorFire //
-  .then(result => console.log(result))
+  .then(result => console.log(result)) // 실행되지 않는다
   .catch(error => console.log(error)) // 에러 메시지 출력
 
-// finally
+/* finally */
