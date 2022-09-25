@@ -2,7 +2,7 @@
  * 봐도 봐도 명확한 이해가 어려운 그것, 클로저
  *
  * 학습 자료
- * 변수의 유효범위와 클로저: https://ko.javascript.info/closure
+ * 변수의 유효범위와 클로저 : https://ko.javascript.info/closure
  */
 
 /* 블록 */
