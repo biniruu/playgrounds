@@ -5,8 +5,8 @@
  * 하는 질문을 받고 찔려서 살펴보았습니다.
  *
  * 학습 자료
- * generator: https://ko.javascript.info/generators
- * yield: https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/yield
+ * generator : https://ko.javascript.info/generators
+ * yield : https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/yield
  */
 
 // 제너레이터 함수는 일반적인 함수구조인 function에 *이 붙은 function* 로 되어 있습니다.
