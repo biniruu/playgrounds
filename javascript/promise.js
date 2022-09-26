@@ -61,6 +61,9 @@ resolve.then(
   error => console.log(error), // 실행되지 않는다
 )
 
+// 프로미스와 상관없긴 하지만, 이렇게 해도 정상적으로 출력된다
+resolve.then(console.log, console.log) // 앞쪽 console.log는 🎉를 출력하고, 뒤쪽 console.log는 실행되지 않는다
+
 // 여기서 두 번째 인자로 받는 콜백은 Promise에서 발생된 에러를 처리하기 위해서가 아니라
 // reject를 처리하기 위해 사용하는 함수다
 const reject = new Promise(reject => {
@@ -72,16 +75,22 @@ reject.then(
   error => console.log(error), // 💩
 )
 
-/* catch */
+/* catch 메서드 */
 
 // 위에서 살펴본 대로 두 번째 인자로 받는 콜백은 에러 처리를 위한 것이 아니기 때문에
 // 에러 처리를 위해서는 catch 메서드를 사용해야 한다
-const errorFire = new Promise((resolve, reject) => {
-  reject(new Error('🤦🏻‍♂️'))
-})
+// const errorFire = new Promise((resolve, reject) => {
+//   reject(new Error('🤦🏻‍♂️'))
+// })
 
-errorFire //
-  .then(result => console.log(result)) // 실행되지 않는다
-  .catch(error => console.log(error)) // 에러 메시지 출력
+// errorFire //
+//   .then(result => console.log(result)) // 실행되지 않는다
+// .catch(error => console.log(error)) // 에러 메시지 출력
 
-/* finally */
+/* finally 메서드 */
+
+// finally는 프로미스의 결과와 에러를 동시에 전달한다
+// 따라서 체이닝 순서를 then과 catch보다 앞서 두어도 문제없다
+new Promise(resolve => resolve('🥕')) //
+  .finally(() => console.log('🍌')) // 🍌
+  .then(console.log) // 🥕
