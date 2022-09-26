@@ -81,3 +81,19 @@ for (const key in generatorWithoutReturn) {
 // 없다. 근데 어떻게 for of문을 돌리면 값이 나오지?
 
 console.log('✨ --------------------------------')
+
+// 제너레이터로 이터러블을 대체한다?
+// 다음 예시는 어떻게 동작하는지 구조를 알지 못하지만 신기하긴 하다
+// 다음에 다시 살펴봐야지
+const range = {
+  from: 1,
+  to: 5,
+  // [Symbol.iterator]: function* () 를 줄인 것
+  *[Symbol.iterator]() {
+    for (let value = this.from; value < this.to; value++) {
+      yield value
+    }
+  },
+}
+
+console.log([...range]) // [ 1, 2, 3, 4 ]
