@@ -4,13 +4,14 @@
 
 - promise chaining
 - promise apis
+- set
 
 ## 놀고 있네
 
 - generator
-- Map and Set
+- map
 
-## 또 놀아 줄 거지?
+## 또 놀아줄 거지?
 
 - closer
 - top-level await
