@@ -21,7 +21,7 @@ module.exports = {
     // 'prettier/@typescript-eslint', // eslint의 typescript 포매팅 기능을 제거 (eslint-config-prettier)
   ],
   // globals: { $nuxt: true },
-  // ignorePatterns: ['.eslintrc.js'], // The file does not match your project config: eslintrc.js 에러 해결을 위해 필요
+  ignorePatterns: ['.eslintrc.js', '.stylelintrc.js', 'jest.config.js'], // The file does not match your project config: eslintrc.js 에러 해결을 위해 필요
   // parser: '@typescript-eslint/parser',
   // parser: 'vue-eslint-parser',
   parser: '@babel/eslint-parser',
