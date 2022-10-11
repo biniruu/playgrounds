@@ -64,6 +64,31 @@ const mapHasCarrotKey = new Map()
 const returnedMap = mapHasCarrotKey.set('carrot', '🥕')
 console.log(returnedMap) // Map(1) { 'carrot' => '🥕' }
 
+// 따라서 Map.set 체이닝이 가능하다
+const chainMap = new Map()
+const mapChaining = chainMap.set(1, '1').set('apple', '🍎').set(true, 'true')
+console.log(mapChaining) // Map(3) { 1 => '1', 'apple' => '🍎', true => 'true' }
+
+// Map 자신이 아닌, 맵이 가진 key-value 쌍을 객체에 담아서 반환시킬 수 있을까?
+
+// entries()는 어떤 결과가 나올까?
+const keyValuePair = mapChaining.entries()
+console.log(keyValuePair) // [Map Entries] { [ 1, '1' ], [ 'apple', '🍎' ], [ true, 'true' ] }
+
+// 다른 방법은?
+const recipeMap = new Map([
+  ['cucumber', 500],
+  ['tomatoes', 350],
+  ['onion', 50],
+])
+const obj = {}
+for (const key of recipeMap.keys()) {
+  obj[key] = recipeMap.get(key)
+}
+console.log(obj) // { cucumber: 500, tomatoes: 350, onion: 50 }
+
+// 된다.😳 그런데 어떻게 Map() 안에 배열이 바로 들어갈 수 있지?
+
 // 맵이 키를 비교하는 방식은 일치 연산자와 다르다
 // NaN === NaN은 false지만, 맵에서는 NaN과 NaN을 동일하게 취급한다
 // 그런 까닭에 맵에서는 NaN을 key로 쓸 수 있다
