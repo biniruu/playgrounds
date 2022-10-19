@@ -1,1 +1,10 @@
-node_modules/
+# files
+**/*.js
+**/*.ts
+**/*.spec.js
+**/*.spec.ts
+**/*.test.js
+**/*.test.ts
+
+# paths
+**/node_modules/

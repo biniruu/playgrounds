@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * 제너레이터 함수
  *

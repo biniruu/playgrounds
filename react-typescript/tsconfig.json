@@ -3,8 +3,9 @@
     "baseUrl": "./src",
     "jsx": "react-jsx",
     "paths": {
-      "css": ["/assets/css"],
-      "components": ["/components"]
+      "_css": ["assets/css"],
+      "_components": ["components"],
+      "_temp": ["components/temp"]
     }
   },
   "extends": "../tsconfig.json" // 상속 받으려는 tsconfig 파일 경로 입력

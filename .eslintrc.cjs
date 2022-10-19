@@ -121,6 +121,9 @@ module.exports = {
   ], // 기존 lint 설정 덮어쓰기
   parser: '@babel/eslint-parser',
   parserOptions: {
+    babelOptions: {
+      presets: ['@babel/preset-react'],
+    },
     ecmaVersion: 'latest',
     requireConfigFile: false, // "no babel config file detected for ..." 에러 해결을 위해 필요
     sourceType: 'module', // 모듈 시스템 사용 시 필요
@@ -134,6 +137,7 @@ module.exports = {
     'computed-property-spacing': ['error', 'never', { enforceForClassMembers: false }],
     eqeqeq: 'error', // 일치 연산자 사용 필수
     'generator-star-spacing': 'off',
+    'import/namespace': ['error', { allowComputed: true }],
     'import/no-unresolved': 'off',
     'new-cap': 'error',
     'no-array-constructor': 'error',
