@@ -41,19 +41,35 @@ console.log(arr) // [ '🍎', '🥕' ]
 console.log(setArr) // Set(2) { '🍎', '🍌' }
 
 // depth가 깊은 iterable 객체도 모두 복사하나?
-// 셋은 얕은 복사를 한다
+// 셋은 얕은 복사를 한다. 직접 비교해 보자
+
+// 비교 대상이 되는 배열
 const arrDeep = ['🍎', ['🥕', ['🚀']]]
-console.log(arrDeep) // [ '🍎', [ '🥕', [ '🚀' ] ] ]
+
+// 얕은 복사를 이용해 arrDeep을 새로운 배열로 생성
 const arrDeepClone = [...arrDeep]
 console.log(arrDeepClone) // [ '🍎', [ '🥕', [ '🚀' ] ] ]
+
+// Set 생성
 const setArrDeep = new Set(arrDeep)
 console.log(setArrDeep) // Set(2) { '🍎', [ '🥕', [ '🚀' ] ] }
+
+// 깊은 복사를 이용해 arrDeep을 새로운 배열로 생성
 const trueDeepClone = JSON.parse(JSON.stringify(arrDeep))
 console.log(trueDeepClone) // [ '🍎', [ '🥕', [ '🚀' ] ] ]
 
+// 데이터 변경 시도
 arrDeep[0] = '🎊'
 arrDeep[1][1] = '🔥'
+
+// arrDeep은 당연히 변경됨
 console.log(arrDeep) // [ '🎊', [ '🥕', '🔥' ] ]
+
+// arrDeep의 얕은 복사는 arrDeep[0]만 변경되지 않고 다른 것은 변경됨
 console.log(arrDeepClone) // [ '🍎', [ '🥕', '🔥' ] ]
+
+// Set도 위와 동일
 console.log(setArrDeep) // Set(2) { '🍎', [ '🥕', '🔥' ] }
+
+// arrDeep의 깊은 복사만 아무 것도 변경되지 않음
 console.log(trueDeepClone) // [ '🍎', [ '🥕', [ '🚀' ] ] ]
