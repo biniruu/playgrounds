@@ -96,3 +96,39 @@
   // 역시 값이 추가되었다
   console.log(set) // Set(2) { { name: 'biniruu' }, { food: '🍕' } }
 }
+
+// 3️⃣ delete(value)
+{
+  const set = new Set()
+  set.add({ apple: '🍎' })
+  set.add({ banana: '🍌' })
+  console.log(set) // Set(2) { { apple: '🍎' }, { banana: '🍌' } }
+
+  // apple을 삭제하면
+  set.delete({ apple: '🍎' })
+
+  // 삭제가 안 된다
+  console.log(set) // Set(2) { { apple: '🍎' }, { banana: '🍌' } }
+
+  // delete는 실행 즉시 true 또는 false를 반환한다고 했는데
+  console.log(set.delete({ apple: '🍎' })) // false
+
+  // 혹시 iterable한 컬렉션이라 직접 삭제는 안 되나?
+  const newSet = new Set(set)
+  console.log(newSet) // Set(2) { { apple: '🍎' }, { banana: '🍌' } }
+
+  for (const value of newSet) {
+    newSet.delete(value)
+  }
+
+  // 예상이 맞았다
+  console.log(newSet) // Set(0) {}
+
+  // 그럼 value가 동일한 것만 삭제는 가능할까?
+  for (const value of set) {
+    value === { apple: '🍎' } && set.delete(value)
+  }
+
+  // 안 된다
+  console.log(set) // Set(2) { { apple: '🍎' }, { banana: '🍌' } }
+}
