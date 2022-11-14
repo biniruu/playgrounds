@@ -3,7 +3,6 @@ import { MouseEvent, useReducer } from 'react'
 import numberReducer from 'utils/reducer/numberReducer'
 
 function UseReducer() {
-  // const [value, setValue] = useState(0)
   const [number, dispatch] = useReducer(numberReducer, 0)
 
   const handleClick = (event: MouseEvent<HTMLElement>) => {
