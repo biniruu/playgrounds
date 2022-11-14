@@ -3,6 +3,8 @@
 ## 놀까 말까
 
 - useTransition
+- useHooks-ts
+- custom hooks
 
 ## 놀고 있네
 
