@@ -146,7 +146,7 @@ module.exports = {
     'react/no-unused-state': 'warn', // 사용되지 않는 state
     'react/prop-types': 'off', // typescript를 사용하면 필요없는 옵션
     'react/react-in-jsx-scope': 'off',
-    'react/self-closing-comp': ['warn', { component: true, html: false }],
+    'react/self-closing-comp': ['warn', { component: true, html: false }], // jsx 태그 안에 하위 태그가 없을 경우 self-closing 태그로 변환
     'react/static-property-placement': ['error', 'static public field'], // defaultProps를 클래스 내부에 정의하도록 허용
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': [
