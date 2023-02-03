@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import reportWebVitals from 'reportWebVitals'
-import store from 'store/store'
+import store from 'app/store'
 
 // eslint-disable-next-line prettier/prettier
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
