@@ -3,7 +3,7 @@
     "baseUrl": "./src",
     "jsx": "react-jsx",
     "paths": {
-      "_css": ["assets/css"],
+      "_css": ["src/assets/css"],
       "_components": ["components"],
       "_temp": ["components/temp"]
     }
