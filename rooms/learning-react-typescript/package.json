@@ -2,6 +2,14 @@
   "name": "learning-react-typescript",
   "version": "0.1.0",
   "private": true,
+  "workspaces": {
+    "nohoist": [
+      "eslint-plugin-jsx-a11y",
+      "eslint-plugin-jsx-a11y/**",
+      "eslint",
+      "eslint/**"
+    ]
+  },
   "scripts": {
     "start": "craco start",
     "build": "craco build",

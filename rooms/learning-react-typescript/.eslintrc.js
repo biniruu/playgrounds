@@ -43,7 +43,7 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 'error',
         '@typescript-eslint/restrict-plus-operands': 'warn',
         '@typescript-eslint/restrict-template-expressions': 'warn',
-        'prettier/prettier': 'off',
+        // 'prettier/prettier': 'off',
       },
     },
     // {

@@ -3,9 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "workspaces": [
-    "rooms/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "rooms/*"
+    ],
+    "nohoist": [
+      "**/eslint-plugin-jsx-a11y",
+      "**/eslint-plugin-jsx-a11y/**",
+      "**/eslint",
+      "**/eslint/**"
+    ]
+  },
   "scripts": {
     "test": "jest",
     "lint": "eslint ."
