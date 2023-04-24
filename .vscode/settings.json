@@ -16,18 +16,24 @@
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "autoimport.useSemiColon": false, // auto import 기능으로 import한 모듈에 세미콜론 삽입
+  "aws.codeWhisperer.shareCodeWhispererContentWithAWS": false,
+  "aws.telemetry": false,
   "bookmarks.saveBookmarksInProject": true,
   "bookmarks.keepBookmarksOnLineDelete": true,
   "breadcrumbs.enabled": true,
-  "color-highlight.markRuler": false, // minimap에서 color-highlight가 나오지 않도록 설정
-  "css.customData": ["./.vscode/css_custom_data.json"], // at-rule 등 css 관련 규칙을 사용자화 하여 이용하는 데 필요한 설정 파일을 연결하는 옵션
+  "color-highlight.markRuler": false, // minimap에서 color-highlight 활성화
+  "css.customData": ["./css_custom_data.json"], // at-rule 등 css 관련 규칙을 사용자화 하여 이용하는 데 필요한 설정 파일을 연결하는 옵션
   "css.lint.unknownAtRules": "ignore", // sass 등과 같은 css 전처리기에서 사용하는 at rule을 css 파일에서 사용했을 때 at-rule-no-unknown 경고가 발생하지 않도록 함. stylelint가 발생시키는 에러 처리는 해당 at rule을 .stylelintrc에서 'at-rule-no-unknown'에 ignoreAtRules 옵션으로 추가할 것
-  "css.lint.zeroUnits": "warning", // css에서 값이 0일 때 '0px'이나 '0em'처럼 단위를 붙이면 경고 발생
+  "css.lint.zeroUnits": "warning",
+  "docwriter.progress.trackClasses": true,
+  "docwriter.progress.trackTypes": true,
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.markdownlint": true,
-    "source.fixAll.stylelint": true
+    "source.fixAll.stylelint": true,
+    "source.organizeImports": true // 사용하지 않는 import 제거
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.definitionLinkOpensInPeek": true,
@@ -43,9 +49,9 @@
   "editor.renderWhitespace": "all",
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
-  // "editor.tokenColorCustomizations": {
-  //   "comments": "#fff"  // 주석 글자 색
-  // },
+  "editor.tokenColorCustomizations": {
+    // "comments": "#fff" // 주석 글자 색
+  },
   "editor.unfoldOnClickAfterEndOfLine": true,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact", // jsx 또는 js에서 emmet을 사용하는 옵션
@@ -61,11 +67,12 @@
   "emmet.triggerExpansionOnTab": true,
   "eslint.alwaysShowStatus": true,
   "eslint.format.enable": true,
+  "eslint.packageManager": "yarn",
   "eslint.workingDirectories": [{ "mode": "auto" }], // .eslintrc 파일 위치
   "explorer.autoReveal": false,
   "explorer.compactFolders": false, // 하위 폴더가 하나밖에 없을 때 폴더 정렬이 일렬로 나오지 않고 일반적인 방식으로 계층화 되도록 함
   "explorer.confirmDelete": false, // 파일 삭제 전 확인 모달 띄우기
-  "explorer.confirmDragAndDrop": false, // 파일 드래그 & 드롭 전 확인 모달 띄우기,
+  "explorer.confirmDragAndDrop": false, // 파일 드래그 & 드롭 전 확인 모달 띄우기
   "files.associations": {
     "*.css": "postcss"
   },
@@ -90,7 +97,7 @@
   "jest.autoRun": {
     "watch": true
   },
-  "jest.showTerminalOnLaunch": false, // jest 익스텐션을 실행했을 때 자동으로 콘솔 창을 띄우지 않기
+  "jest.showTerminalOnLaunch": false, // jest 익스텐션을 실행했을 때 자동으로 콘솔 창 띄우기
   "jest.testExplorer": {
     "enabled": true,
     "showClassicStatus": true,
@@ -101,6 +108,7 @@
   "liveServer.settings.ChromeDebuggingAttachment": true,
   "liveServer.settings.donotShowInfoMsg": true,
   "npm.keybindingsChangedWarningShown": true,
+  "git.mergeEditor": true, // conflict 시 diff 화면 스타일을 3-way merge로 표시
   "problems.autoReveal": false,
   "projectManager.git.baseFolders": ["/Users/biniruu/Projects", "/Users/biniruu/Learning"],
   "python.jediEnabled": false,
@@ -144,49 +152,105 @@
   "typescript.tsserver.pluginPaths": ["typescript-plugin-css-modules"],
   // "typescript.validate.enable": false, // typescript를 사용하지 않는 프로젝트에서 typescript 관련 오류가 발생할 때 활성화
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  // "workbench.colorCustomizations": {
-  //   "terminal.ansiBlack": "#000000",
-  //   "terminal.ansiBlue": "#c9a8fa",
-  //   "terminal.ansiBrightBlack": "#676767",
-  //   "terminal.ansiBrightBlue": "#c9a8fa",
-  //   "terminal.ansiBrightCyan": "#99ecfd",
-  //   "terminal.ansiBrightGreen": "#59f68d",
-  //   "terminal.ansiBrightMagenta": "#ff76ff",
-  //   "terminal.ansiBrightRed": "#ff6d67",
-  //   "terminal.ansiBrightWhite": "#feffff",
-  //   "terminal.ansiBrightYellow": "#f3f89d",
-  //   "terminal.ansiCyan": "#99ecfd",
-  //   "terminal.ansiGreen": "#59f68d",
-  //   "terminal.ansiMagneta": "#ff92d0",
-  //   "terminal.ansiRed": "#ff6d67",
-  //   "terminal.ansiWhite": "#c7c7c7",
-  //   "terminal.ansiYellow": "#f3f89d"
-  // }, // 다크 모드일 때 터미널 색상
+  "workbench.colorCustomizations": {
+    /* 다크 모드일 때 터미널 색상 */
+    /* "terminal.ansiBlack": "#000000",
+    "terminal.ansiBlue": "#c9a8fa",
+    "terminal.ansiBrightBlack": "#676767",
+    "terminal.ansiBrightBlue": "#c9a8fa",
+    "terminal.ansiBrightCyan": "#99ecfd",
+    "terminal.ansiBrightGreen": "#59f68d",
+    "terminal.ansiBrightMagenta": "#ff76ff",
+    "terminal.ansiBrightRed": "#ff6d67",
+    "terminal.ansiBrightWhite": "#feffff",
+    "terminal.ansiBrightYellow": "#f3f89d",
+    "terminal.ansiCyan": "#99ecfd",
+    "terminal.ansiGreen": "#59f68d",
+    "terminal.ansiMagneta": "#ff92d0",
+    "terminal.ansiRed": "#ff6d67",
+    "terminal.ansiWhite": "#c7c7c7",
+    "terminal.ansiYellow": "#f3f89d" */
+  }, // vscode 레이아웃 색상
   "workbench.editor.decorations.colors": false,
   "workbench.editorAssociations": {
     "git-rebase-todo": "gitlens.rebase" // git rebase -i 실행할 때 띄우는 ui 화면
   },
   "workbench.iconTheme": "material-icon-theme",
   "cSpell.words": [
+    "alefragnani",
+    "andys",
+    "Anson",
+    "atlascode",
+    "autoimport",
+    "autoplace",
     "biniruu",
     "blockless",
-    "craco",
+    "bradlc",
+    "Chakroun",
+    "Cheatsheet",
+    "cipchk",
+    "Craco",
+    "cssrem",
+    "dbaeumer",
+    "donjayamanne",
+    "dsznajder",
+    "eamodio",
+    "ecmel",
+    "errorlens",
+    "esbenp",
+    "estree",
+    "Expt",
+    "flexbugs",
+    "formulahendry",
+    "githistory",
     "gridcell",
+    "Gruntfuggly",
+    "hedinne",
+    "hollowtree",
     "Immer",
+    "Intelli",
+    "intellicode",
+    "jalisimo",
     "jsxdev",
+    "kohler",
     "lcov",
     "listbox",
+    "mhutchie",
+    "Natizyskunk",
+    "naumovs",
+    "nicoespeon",
     "nocheck",
+    "nocomment",
     "noninteractive",
+    "octref",
+    "Orta",
+    "Polacode",
+    "pranaygp",
     "radiogroup",
     "reduxjs",
+    "rtlcheatsheet",
+    "sdras",
+    "steoates",
+    "syler",
+    "syncyarnlock",
     "tablist",
     "tailwindcss",
+    "Toptal",
     "treegrid",
     "treeitem",
     "TTFB",
-    "unmocked"
-  ],
-  "javascript.preferences.importModuleSpecifier": "non-relative",
-  "eslint.packageManager": "yarn"
+    "typeahead",
+    "unmocked",
+    "usernamehw",
+    "vanillajs",
+    "Vetur",
+    "vscodeintellicode",
+    "Waka",
+    "wakatime",
+    "wayou",
+    "willnemo",
+    "xabikos",
+    "yzhang",
+    "Zignd"
+  ]
 }
