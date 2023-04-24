@@ -1,17 +1,14 @@
-import '_css/style.css'
 import '_/App.css'
+import '_css/style.css'
 
-import Counter from 'components/redux/Counter'
-import UseImmer from 'components/immer/UseImmer'
-import UseReducer from 'components/useReducer/UseReducer'
+import Header from 'components/header/Header'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   return (
     <div>
-      <p className="bold App">Lorem ipsum dolor sit</p>
-      <UseImmer />
-      <UseReducer />
-      <Counter></Counter>
+      <Header />
+      <Outlet></Outlet>
     </div>
   )
 }
