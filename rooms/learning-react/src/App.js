@@ -1,6 +1,6 @@
 import './App.css'
 
-import ContextApi from '../components/ContextApi'
+import ContextApi from './components/ContextApi'
 import logo from './logo.svg'
 
 function App() {
