@@ -1,5 +1,9 @@
 function UseState() {
-  return <div>UseState</div>
+  return (
+    <div>
+      <h1>UseState</h1>
+    </div>
+  )
 }
 
 export default UseState
