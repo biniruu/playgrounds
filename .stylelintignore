@@ -2,9 +2,13 @@
 **/*.js
 **/*.ts
 **/*.spec.js
+**/*.spec.jsx
 **/*.spec.ts
+**/*.spec.tsx
 **/*.test.js
+**/*.test.jsx
 **/*.test.ts
+**/*.test.tsx
 
 # paths
 **/node_modules/

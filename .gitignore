@@ -1,8 +1,16 @@
-# Created by https://www.toptal.com/developers/gitignore/api/git,node,yarn,macos,react,vuejs,dotenv,nextjs,nuxtjs,windows,visualstudiocode,intellij,webstorm
-# Edit at https://www.toptal.com/developers/gitignore?templates=git,node,yarn,macos,react,vuejs,dotenv,nextjs,nuxtjs,windows,visualstudiocode,intellij,webstorm
+# Created by https://www.toptal.com/developers/gitignore/api/git,node,yarn,macos,react,vuejs,dotenv,nextjs,nuxtjs,windows,intellij,webstorm,visualstudiocode,gatsby,wordpress
+# Edit at https://www.toptal.com/developers/gitignore?templates=git,node,yarn,macos,react,vuejs,dotenv,nextjs,nuxtjs,windows,intellij,webstorm,visualstudiocode,gatsby,wordpress
 
 ### dotenv ###
 .env
+
+### Gatsby ###
+node_modules/
+
+.cache/
+public
+
+src/gatsby-types.d.ts
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
@@ -238,7 +246,6 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
 jspm_packages/
 
 # Snowpack dependency directory (https://snowpack.dev/)
@@ -289,7 +296,6 @@ out
 dist
 
 # Gatsby files
-.cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
@@ -479,6 +485,51 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+### WordPress ###
+# Core
+#
+# Note: if you want to stage/commit WP core files
+# you can delete this whole section/until Configuration.
+/wp-admin/
+/wp-content/index.php
+/wp-content/languages
+/wp-content/plugins/index.php
+/wp-content/themes/index.php
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-*.php
+/xmlrpc.php
+
+# Configuration
+wp-config.php
+
+# Example themes
+/wp-content/themes/twenty*/
+
+# Example plugin
+/wp-content/plugins/hello.php
+
+# Uploads
+/wp-content/uploads/
+
+# Log files
+
+# htaccess
+/.htaccess
+
+# All plugins
+# Note: If you wish to whitelist plugins,
+# uncomment the next line
+#/wp-content/plugins
+
+# All themes
+# Note: If you wish to whitelist themes,
+# uncomment the next line
+#/wp-content/themes
+
+
 ### yarn ###
 # https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
 
@@ -496,4 +547,4 @@ $RECYCLE.BIN/
 # and uncomment the following lines
 # .pnp.*
 
-# End of https://www.toptal.com/developers/gitignore/api/git,node,yarn,macos,react,vuejs,dotenv,nextjs,nuxtjs,windows,visualstudiocode,intellij,webstorm
+# End of https://www.toptal.com/developers/gitignore/api/git,node,yarn,macos,react,vuejs,dotenv,nextjs,nuxtjs,windows,intellij,webstorm,visualstudiocode,gatsby,wordpress
