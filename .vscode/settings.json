@@ -91,7 +91,7 @@
     "vue": false,
     "yaml": false
   },
-  "githubNotificationsBell.oauthToken": "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",
+  "githubNotificationsBell.oauthToken": "${env:GITHUB_NOTIFICATIONS_BELL}",
   "gitlens.gitCommands.search.showResultsInSideBar": true,
   "html-css-class-completion.enableEmmetSupport": true,
   "jest.autoRun": {
@@ -155,22 +155,22 @@
   "window.commandCenter": true, // vscode 상단 검색창 활성화
   "workbench.colorCustomizations": {
     /* 다크 모드일 때 터미널 색상 */
-    /* "terminal.ansiBlack": "#000000",
-    "terminal.ansiBlue": "#c9a8fa",
-    "terminal.ansiBrightBlack": "#676767",
-    "terminal.ansiBrightBlue": "#c9a8fa",
-    "terminal.ansiBrightCyan": "#99ecfd",
-    "terminal.ansiBrightGreen": "#59f68d",
-    "terminal.ansiBrightMagenta": "#ff76ff",
-    "terminal.ansiBrightRed": "#ff6d67",
-    "terminal.ansiBrightWhite": "#feffff",
-    "terminal.ansiBrightYellow": "#f3f89d",
-    "terminal.ansiCyan": "#99ecfd",
-    "terminal.ansiGreen": "#59f68d",
-    "terminal.ansiMagneta": "#ff92d0",
-    "terminal.ansiRed": "#ff6d67",
-    "terminal.ansiWhite": "#c7c7c7",
-    "terminal.ansiYellow": "#f3f89d" */
+    // "terminal.ansiBlack": "#000000",
+    // "terminal.ansiBlue": "#c9a8fa",
+    // "terminal.ansiBrightBlack": "#676767",
+    // "terminal.ansiBrightBlue": "#c9a8fa",
+    // "terminal.ansiBrightCyan": "#99ecfd",
+    // "terminal.ansiBrightGreen": "#59f68d",
+    // "terminal.ansiBrightMagenta": "#ff76ff",
+    // "terminal.ansiBrightRed": "#ff6d67",
+    // "terminal.ansiBrightWhite": "#feffff",
+    // "terminal.ansiBrightYellow": "#f3f89d",
+    // "terminal.ansiCyan": "#99ecfd",
+    // "terminal.ansiGreen": "#59f68d",
+    // "terminal.ansiMagneta": "#ff92d0",
+    // "terminal.ansiRed": "#ff6d67",
+    // "terminal.ansiWhite": "#c7c7c7",
+    // "terminal.ansiYellow": "#f3f89d"
   }, // vscode 레이아웃 색상
   "workbench.colorTheme": "Default Dark+ Experimental",
   "workbench.editor.decorations.colors": false,
@@ -206,34 +206,5 @@
     "vscodeintellicode",
     "Waka",
     "wakatime"
-  ],
-  "yaml.customTags": [
-    "!And",
-    "!And sequence",
-    "!If",
-    "!If sequence",
-    "!Not",
-    "!Not sequence",
-    "!Equals",
-    "!Equals sequence",
-    "!Or",
-    "!Or sequence",
-    "!FindInMap",
-    "!FindInMap sequence",
-    "!Base64",
-    "!Join",
-    "!Join sequence",
-    "!Cidr",
-    "!Ref",
-    "!Sub",
-    "!Sub sequence",
-    "!GetAtt",
-    "!GetAZs",
-    "!ImportValue",
-    "!ImportValue sequence",
-    "!Select",
-    "!Select sequence",
-    "!Split",
-    "!Split sequence"
   ]
 }
