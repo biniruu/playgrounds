@@ -5,13 +5,6 @@
 
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-standard-scss', 'stylelint-config-prettier'], // stylelint-config-prettier는 항상 마지막에 추가할 것. 이전 확장 규칙을 덮어쓰기 함으로써 prettier와 stylelint끼리 충돌하는 상황을 무마할 수 있다
-  overrides: [
-    {
-      customSyntax: 'postcss-html', // postcss를 사용하는 환경에서 stylelint(CssSyntaxError) 에러 발생 방지
-      // customSyntax: '@stylelint/postcss-css-in-js',
-      files: ['**/*.{html,jsx,svg,tsx}'],
-    },
-  ],
   plugins: ['stylelint-scss', 'stylelint-order'],
   rules: {
     'alpha-value-notation': 'number', // rgb()에서 opacity 표현 형식을 %나 숫자 중에서 선택
@@ -33,7 +26,6 @@ module.exports = {
     'comment-whitespace-inside': 'always', // 주석 안에서 문장 앞뒤로 공백을 둘지 여부
     'custom-property-empty-line-before': ['always', { except: ['after-custom-property', 'first-nested'] }], // custom property 앞에 한 줄 여백 강제 여부
     'declaration-empty-line-before': ['always', { except: ['after-comment', 'after-declaration', 'first-nested'] }], // 속성 선언 앞에 한 줄 여백 강제 여부
-    'declaration-property-value-no-unknown': true, // 올바르지 않은 키-값에 대한 에러 발생 여부
     'font-family-name-quotes': 'always-where-recommended', // 폰트 이름에 따옴표를 어떻게 쓸지 선택
     'function-name-case': 'lower', // 함수명 표기 방식을 소문자나 대문자 중에서 선택
     'function-url-quotes': 'always', // url() 안에 따옴표 사용 여부
@@ -43,7 +35,7 @@ module.exports = {
     'number-no-trailing-zeros': true, // 소수점 이하를 0으로 끝낼 수 없음
     'order/properties-alphabetical-order': true, // 속성을 알파벳 순으로 정렬할지 여부
     'rule-empty-line-before': ['always-multi-line', { except: ['after-single-line-comment', 'first-nested'] }], // rule 앞에 한 줄 여백 강제 여부
-    'scss/at-rule-no-unknown': [true, { ignoreAtRules: ['tailwind'] }], // scss 기본 문법 이외에 다른 @ 문법 사용 시 에러 발생
+    'at-rule-no-unknown': [true, { ignoreAtRules: ['tailwind'] }], // scss 기본 문법 이외에 다른 @ 문법 사용 시 에러 발생
     'selector-attribute-quotes': 'always', // 셀렉터 속성에서 따옴표 사용 여부 ('never'로 하면 "Unclosed string (CssSyntaxError)" 에러 발생. 아마도 eslint의 rule과 충돌하는 듯)
     'selector-nested-pattern': '^&?', // nested 문법 안에서 사용할 패턴 (regex 또는 string)
     'selector-pseudo-class-no-unknown': [true, { ignorePseudoClasses: ['export'] }], // 알려지지 않은 가상 클래스 사용 금지
