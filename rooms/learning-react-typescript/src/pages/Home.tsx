@@ -7,7 +7,7 @@ function Home() {
     <div>
       <UseImmer />
       <UseReducer />
-      <Counter></Counter>
+      <Counter />
     </div>
   )
 }
