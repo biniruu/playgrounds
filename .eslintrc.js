@@ -1,5 +1,5 @@
 /**
- * Eslint documentation
+ * Documentation
  * {@link https://eslint.org/docs/latest/}
  */
 
@@ -94,7 +94,7 @@ module.exports = {
     requireConfigFile: false, // "no babel config file detected for ..." 에러 해결을 위해 필요
     sourceType: 'module', // 모듈 시스템 사용 시 필요
   },
-  plugins: ['import', 'jsx-a11y', 'react', 'react-hooks', 'prettier'], // prettier는 항상 마지막에 추가. eslint와 prettier 설정이 겹칠 경우 prettier 규칙으로 eslint 규칙을 덮어쓰기 위함
+  plugins: ['import', 'jsx-a11y', 'react', 'react-hooks'],
   root: true, // 현재 설정 파일이 root임을 명시하는 옵션. true로 설정하면 상위 설정 파일 찾기를 여기서 멈춘다.
   rules: {
     /**
@@ -104,7 +104,7 @@ module.exports = {
      * array-bracket-spacing: 대괄호 안에서 간격 허용 여부
      * camelcase: 카멜 케이스 작명 방식 강제
      * comma-dangle: trailing commas 사용 여부
-     * computed-property-spacing: 계산된 인자(obj[property]) 표시 시 괄호 안에 띄어쓰기 허용 여부
+     * computed-property-spacing: 계산된 인자(obj[property]) 표시 시 괄호 안에 공백문자 허용 여부
      * eqeqeq: 일치 연산자(===) 사용 강제. 동등 연산자(==) 사용 금지
      * generator-star-spacing: 제네레이터 함수에서 별표의 위치를 강제
      * new-cap: 'new' 연산자로 인스턴스 생성 시 constructor 함수명의 첫 글자를 대문자로 강제
@@ -126,7 +126,9 @@ module.exports = {
      * prefer-const: 재할당이 이루어지지 않는 변수에 let을 사용했을 경우 const로 변경하도록 강제
      * prefer-rest-params: 함수의 parameter에서 arguments 객체 대신 rest parameter를 사용하도록 강제. e.g. function (...args) {}
      * quotes: 따옴표를 작은따옴표, 큰따옴표, 백틱 중 한 가지만 사용하도록 강제
-     * sort-imports: import 정렬
+     * sort-imports: import 정렬. ignoreDeclarationSort는 항상 true로 할 것. false로 하면 import 정렬 관련 경고가 발생하는데, 이 경고를 해결할 방법이 없다.
+     * sort-keys: 객체 property를 key 기준으로 정렬
+     * sort-vars: 변수를 내림차순으로 정렬
      * space-before-function-paren: 함수 선언 시 함수명과 괄호 사이에 간격 추가를 강제
      */
     'array-bracket-spacing': 'warn',
@@ -154,7 +156,16 @@ module.exports = {
     'prefer-const': 'error',
     'prefer-rest-params': 'error',
     quotes: ['warn', 'single', { allowTemplateLiterals: true }],
-    'sort-imports': ['warn', { allowSeparatedGroups: true, ignoreCase: true }],
+    'sort-imports': [
+      'warn',
+      {
+        allowSeparatedGroups: true,
+        ignoreCase: true,
+        ignoreDeclarationSort: true,
+      },
+    ],
+    'sort-keys': ['warn', 'asc', { caseSensitive: false, natural: true }],
+    'sort-vars': ['warn', { ignoreCase: true }],
     'space-before-function-paren': ['warn', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
     /**
      * eslint-config-prettier options
@@ -162,32 +173,32 @@ module.exports = {
      *
      * 공식 문서에서는 옵션 설정을 추천하지 않는다. prettier-vscode 확장 프로그램이 .prettierrc 파일을 읽고 이곳에 있는 옵션은 무시하는데, 이 때문에 예상치 못한 문제가 발생할 수도 있기 때문.
      *
-     * prettier/prettier: 이곳에 설정한 옵션은 .prettier 파일에 있는 옵션을 덮어쓴다.
+     * prettier: 이곳에 설정한 옵션은 .prettier 파일에 있는 옵션을 덮어쓴다.
      */
     'prettier/prettier': 'warn',
     /**
      * eslint-plugin-import rules
      * {@link https://github.com/import-js/eslint-plugin-import#rules}
      *
-     * import/no-unresolved: import한 파일/모듈이 unresolved 되는 일이 없도록 방지
-     * import/order: import 순서 정렬. vscode 설정에서 source.organizeImports를 true로 설정하면 정렬과 동시에 사용하지 않는 import까지 삭제할 수 있다.
+     * no-unresolved: import한 파일/모듈이 unresolved 되는 일이 없도록 방지
+     * newline-after-import: import 다음에 한 줄 띄기
+     * order: import 자동 정렬. warnOnUnassignedImports는 항상 default값(false)로 놔둘 것. true로 할 경우 import 정렬 관련 경고가 발생하는데, 이 문제는 import/order 또는 sort-import 설정만으로는 해결 불가
      */
     'import/no-unresolved': 'off',
+    'import/newline-after-import': ['warn', { considerComments: true }],
     'import/order': [
       'warn',
       {
         alphabetize: { caseInsensitive: true, order: 'asc', orderImportKind: 'asc' },
-        'newlines-between': 'always-and-inside-groups',
-        warnOnUnassignedImports: true,
       },
     ],
     /**
      * eslint-plugin-jsx-a11y supported rules
      * {@link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#supported-rules}
      *
-     * jsx-a11y/label-has-associated-control: 기본 html 태그가 아닌 custom component에서 웹 접근성 관련 에러 발생 방지
-     * jsx-a11y/no-noninteractive-element-interactions: (웹 접근성 문제로)상호작용하지 않는 태그(li, div 등)에 onClick 등과 같은 이벤트를 연결할 때 필요
-     * jsx-a11y/no-noninteractive-element-to-interactive-role: (웹 접근성 문제로)상호작용하지 않는 태그에 onClick 등과 같은 이벤트를 연결하고 해당 태그의 사용 목적을 role 속성으로 명시할 때 필요
+     * label-has-associated-control: 기본 html 태그가 아닌 custom component에서 웹 접근성 관련 에러 발생 방지
+     * no-noninteractive-element-interactions: (웹 접근성 문제로)상호작용하지 않는 태그(li, div 등)에 onClick 등과 같은 이벤트를 연결할 때 필요
+     * no-noninteractive-element-to-interactive-role: (웹 접근성 문제로)상호작용하지 않는 태그에 onClick 등과 같은 이벤트를 연결하고 해당 태그의 사용 목적을 role 속성으로 명시할 때 필요
      */
     'jsx-a11y/label-has-associated-control': [
       'warn',
@@ -218,22 +229,22 @@ module.exports = {
      * eslint-plugin-react rules
      * {@link https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules}
      *
-     * react/destructuring-assignment: state, prop 등에 구조분해 할당 적용
-     * react/jsx-curly-brace-presence: jsx 내 불필요한 중괄호 금지
-     * react/jsx-curly-spacing
-     * react/jsx-key: 반복문으로 생성하는 요소에 key 속성 강제. 'react/recommended' 설정 시 활성화
-     * react/jsx-no-useless-fragment: 불필요한 fragment 금지
-     * react/jsx-pascal-case: 컴포넌트 이름을 PascalCase로 강제
-     * react/jsx-no-bind: JSX에서 .bind() 또는 화살표 함수 사용 금지
-     * react/jsx-uses-react: react를 import한 후 JSX 사용 강제. 'react/recommended' 설정 시 활성화. 'no-unused-vars'가 활성화 된 경우 효과 발생
-     * react/jsx-uses-vars: JSX를 import한 후 해당 JSX 사용 강제. 'no-unused-vars'가 활성화 된 경우 효과 발생
-     * react/no-direct-mutation-state: state 직접 수정 금지. 'react/recommended' 설정 시 활성화
-     * react/no-unescaped-entities: JSX 안에서 escape 되지 않은 entity 코드 사용 금지. 'react/recommended' 설정 시 활성화
-     * react/no-unused-state: 사용하지 않는 state가 있을 시 경고 발생
-     * react/prop-types: prop의 type을 정의하도록 강제. 'react/recommended' 설정 시 활성화. typescript를 사용하면 필요없는 옵션
-     * react/react-in-jsx-scope: component에서 React를 import하지 않을 경우 오류 발생. 'react/recommended' 설정 시 활성화
-     * react/self-closing-comp: JSX 태그 안에 하위 태그가 없을 경우 self-closing 태그로 변환
-     * react/static-property-placement: 클래스에서 childContextTypes, contextTypes, contextType, defaultProps, displayName, propTypes를 정의하도록 강제. default: 'static public field'
+     * destructuring-assignment: state, prop 등에 구조분해 할당 적용
+     * jsx-curly-brace-presence: jsx 내 불필요한 중괄호 금지
+     * jsx-curly-spacing
+     * jsx-key: 반복문으로 생성하는 요소에 key 속성 강제. 'react/recommended' 설정 시 활성화
+     * jsx-no-useless-fragment: 불필요한 fragment 금지
+     * jsx-pascal-case: 컴포넌트 이름을 PascalCase로 강제
+     * jsx-no-bind: JSX에서 .bind() 또는 화살표 함수 사용 금지
+     * jsx-uses-react: react를 import한 후 JSX 사용 강제. 'react/recommended' 설정 시 활성화. 'no-unused-vars'가 활성화 된 경우 효과 발생
+     * jsx-uses-vars: JSX를 import한 후 해당 JSX 사용 강제. 'no-unused-vars'가 활성화 된 경우 효과 발생
+     * no-direct-mutation-state: state 직접 수정 금지. 'react/recommended' 설정 시 활성화
+     * no-unescaped-entities: JSX 안에서 escape 되지 않은 entity 코드 사용 금지. 'react/recommended' 설정 시 활성화
+     * no-unused-state: 사용하지 않는 state가 있을 시 경고 발생
+     * prop-types: prop의 type을 정의하도록 강제. 'react/recommended' 설정 시 활성화. typescript를 사용하면 필요없는 옵션
+     * react-in-jsx-scope: component에서 React를 import하지 않을 경우 오류 발생. 'react/recommended' 설정 시 활성화
+     * self-closing-comp: JSX 태그 안에 하위 태그가 없을 경우 self-closing 태그로 변환
+     * static-property-placement: 클래스에서 childContextTypes, contextTypes, contextType, defaultProps, displayName, propTypes를 정의하도록 강제. default: 'static public field'
      * react-hooks/rules-of-hooks: react hooks 공식 문서에서 제공하는 규칙을 준수하도록 강제. {@link https://reactjs.org/docs/hooks-rules.html Roles of Hooks 공식 문서}
      * react-hooks/exhaustive-deps: useEffect 안에서 사용하는 함수나 변수를 dependency로 등록하지 않았을 때 경고 발생
      */
@@ -266,7 +277,7 @@ module.exports = {
      * eslint-plugin-import resolvers
      * {@link https://github.com/import-js/eslint-plugin-import#resolvers}
      *
-     * ['import/resolver'].node.extensions: react 사용 시 활성화 필요. jsx를 import할 때 import/no-unresolved 에러가 발생하지 않도록 함
+     * resolver.node.extensions: react 사용 시 활성화 필요. jsx를 import할 때 import/no-unresolved 에러가 발생하지 않도록 함
      */
     'import/resolver': {
       node: {
