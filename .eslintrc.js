@@ -127,8 +127,6 @@ module.exports = {
      * prefer-rest-params: 함수의 parameter에서 arguments 객체 대신 rest parameter를 사용하도록 강제. e.g. function (...args) {}
      * quotes: 따옴표를 작은따옴표, 큰따옴표, 백틱 중 한 가지만 사용하도록 강제
      * sort-imports: import 정렬. ignoreDeclarationSort는 항상 true로 할 것. false로 하면 import 정렬 관련 경고가 발생하는데, 이 경고를 해결할 방법이 없다.
-     * sort-keys: 객체 property를 key 기준으로 정렬
-     * sort-vars: 변수를 내림차순으로 정렬
      * space-before-function-paren: 함수 선언 시 함수명과 괄호 사이에 간격 추가를 강제
      */
     'array-bracket-spacing': 'warn',
@@ -164,8 +162,6 @@ module.exports = {
         ignoreDeclarationSort: true,
       },
     ],
-    'sort-keys': ['warn', 'asc', { caseSensitive: false, natural: true }],
-    'sort-vars': ['warn', { ignoreCase: true }],
     'space-before-function-paren': ['warn', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
     /**
      * eslint-config-prettier options
