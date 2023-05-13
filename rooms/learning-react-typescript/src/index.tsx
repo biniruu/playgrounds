@@ -8,6 +8,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+
 import reportWebVitals from 'reportWebVitals'
 
 // eslint-disable-next-line prettier/prettier
