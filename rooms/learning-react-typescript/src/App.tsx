@@ -7,8 +7,12 @@ import { Outlet } from 'react-router-dom'
 function App() {
   return (
     <div>
-      <Header />
-      <Outlet />
+      <header className="mb-8">
+        <Header />
+      </header>
+      <main>
+        <Outlet />
+      </main>
     </div>
   )
 }
