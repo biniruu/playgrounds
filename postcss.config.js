@@ -1,18 +1,18 @@
 /**
  * syntaxes
- * https://github.com/postcss/postcss#syntaxes
+ * {@link https://github.com/postcss/postcss#syntaxes}
  *
  * plugins
- * https://github.com/postcss/postcss#plugins
+ * {@link https://github.com/postcss/postcss#plugins}
  *
  * postcss-preset-env options
- * https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env
+ * {@link https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env}
  *
  * postcss-preset-env features
- * https://preset-env.cssdb.org/features/
+ * {@link https://preset-env.cssdb.org/features/}
  *
  * additional options in autoprefixer
- * https://github.com/postcss/autoprefixer#options
+ * {@link https://github.com/postcss/autoprefixer#options}
  */
 
 module.exports = {
@@ -26,6 +26,6 @@ module.exports = {
         'nesting-rules': true,
       },
     },
-    // tailwindcss: {}, // tailwindcss 사용 시 필요
+    tailwindcss: {}, // tailwindcss 사용 시 필요
   },
 }
