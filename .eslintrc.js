@@ -5,20 +5,43 @@
 
 module.exports = {
   env: { browser: true, es6: true, node: true },
+  /**
+   * extends
+   *
+   * eslint:recommended: eslint 추천 rule set
+   * plugin:import/recommended: eslint-plugin-import 추천 rule set
+   * plugin:jsx-a11y/recommended: 웹 접근성 관련 추천 rule set
+   * plugin:prettier/recommended: eslint-config-prettier 추천 rule set
+   * plugin:react-hooks/recommended
+   * plugin:react/jsx-runtime: If you are using the new JSX transform from React 17, you should enable this
+   * plugin:react/recommended
+   * react-app: eslint-config-react-app으로 eslint 설정 덮어쓰기
+   */
   extends: [
     'eslint:recommended',
-    'plugin:import/recommended', // eslint-plugin-import 추천 정렬
-    'plugin:jsx-a11y/recommended', // 웹 접근성 관련 jsx 규칙
-    'plugin:prettier/recommended', // eslint-config-prettier 추천 설정
+    'plugin:import/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:prettier/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:react/jsx-runtime', // If you are using the new JSX transform from React 17, you should enable this
+    'plugin:react/jsx-runtime',
     'plugin:react/recommended',
+    'react-app',
   ],
   overrides: [
+    /**
+     * Typescript
+     */
     {
+      /**
+       * extends
+       *
+       * plugin:import/typescript: eslint-plugin-import 플러그인
+       * plugin:@typescript-eslint/recommended: 타입스크립트 추천 룰셋
+       * plugin:@typescript-eslint/recommended-requiring-type-checking
+       */
       extends: [
         'plugin:import/typescript',
-        'plugin:@typescript-eslint/recommended', // 타입스크립트 추천 룰셋
+        'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
       ],
       files: ['*.ts', '*.tsx'],
@@ -29,7 +52,6 @@ module.exports = {
           // './next.config.js', // next 프로젝트 시 필요
         ],
       },
-      plugins: ['@typescript-eslint'],
       rules: {
         /**
          * typescript-eslint supported rules
@@ -74,14 +96,22 @@ module.exports = {
         /**
          * eslint-config-prettier options
          * {@link https://github.com/prettier/eslint-plugin-prettier#options}
+         *
+         * prettier: 타입스크립트에서는 알 수 없는 이유로 에러를 발생시키는 경우가 잦아 off로 설정해 두었다.
          */
-        'prettier/prettier': 'off', // 타입스크립트에서는 알 수 없는 이유로 에러를 발생시키는 경우가 많아 off로 설정해 두었다.
+        'prettier/prettier': 'off',
       },
     },
+    /**
+     * Jest
+     */
     {
-      extends: ['plugin:jest/recommended'],
+      /**
+       * plugin:jest/recommended: eslint-plugin-jest 추천 rule set
+       * react-app/jest: jest 규칙 설정을 위한 eslint-config-react-app 확장
+       */
+      extends: ['plugin:jest/recommended', 'react-app/jest'],
       files: ['*.spec.js', '*.spec.ts', '*.test.js', '*.test.ts'],
-      plugins: ['jest'],
     },
   ],
   parser: '@babel/eslint-parser',
@@ -94,7 +124,6 @@ module.exports = {
     requireConfigFile: false, // "no babel config file detected for ..." 에러 해결을 위해 필요
     sourceType: 'module', // 모듈 시스템 사용 시 필요
   },
-  plugins: ['import', 'jsx-a11y', 'react', 'react-hooks'],
   root: true, // 현재 설정 파일이 root임을 명시하는 옵션. true로 설정하면 상위 설정 파일 찾기를 여기서 멈춘다.
   rules: {
     /**
