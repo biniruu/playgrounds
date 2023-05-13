@@ -3,12 +3,13 @@ import 'index.css'
 import App from 'App'
 import store from 'app/store'
 import Home from 'pages/Home'
+
+import UseImmer from 'pages/UseImmer'
 import UseState from 'pages/UseState'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
-
 import reportWebVitals from 'reportWebVitals'
 
 // eslint-disable-next-line prettier/prettier
@@ -21,6 +22,8 @@ root.render(
           <Route element={<App />}>
             <Route path="/" element={<Home />} />
             <Route path="/state" element={<UseState />} />
+            <Route path="/immer" element={<UseImmer />} />
+            <Route path="/immer" element={<UseImmer />} />
           </Route>
         </Routes>
       </Router>
