@@ -14,6 +14,9 @@ function Header() {
           <li className="mx-4">
             <NavLink to="/immer">useImmer</NavLink>
           </li>
+          <li className="mx-4">
+            <NavLink to="/reducer">useReducer</NavLink>
+          </li>
         </ul>
       </nav>
     </header>

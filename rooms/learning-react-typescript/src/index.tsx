@@ -5,6 +5,7 @@ import store from 'app/store'
 import Home from 'pages/Home'
 
 import UseImmer from 'pages/UseImmer'
+import UseReducer from 'pages/UseReducer'
 import UseState from 'pages/UseState'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
@@ -23,7 +24,7 @@ root.render(
             <Route path="/" element={<Home />} />
             <Route path="/state" element={<UseState />} />
             <Route path="/immer" element={<UseImmer />} />
-            <Route path="/immer" element={<UseImmer />} />
+            <Route path="/reducer" element={<UseReducer />} />
           </Route>
         </Routes>
       </Router>
