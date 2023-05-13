@@ -1,9 +1,7 @@
-import Counter from 'components/redux/Counter'
-
 function Home() {
   return (
-    <div>
-      <Counter />
+    <div className="flex h-screen place-content-center place-items-center">
+      <h1 className="text-4xl">Home</h1>
     </div>
   )
 }

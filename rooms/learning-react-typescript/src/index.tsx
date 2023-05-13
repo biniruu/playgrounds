@@ -4,6 +4,7 @@ import App from 'App'
 import store from 'app/store'
 import Home from 'pages/Home'
 
+import Redux from 'pages/Redux'
 import UseImmer from 'pages/UseImmer'
 import UseReducer from 'pages/UseReducer'
 import UseState from 'pages/UseState'
@@ -25,6 +26,7 @@ root.render(
             <Route path="/state" element={<UseState />} />
             <Route path="/immer" element={<UseImmer />} />
             <Route path="/reducer" element={<UseReducer />} />
+            <Route path="/redux" element={<Redux />} />
           </Route>
         </Routes>
       </Router>
