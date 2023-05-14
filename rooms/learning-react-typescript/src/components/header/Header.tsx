@@ -11,6 +11,9 @@ function Header() {
           <NavLink to="/state">useState</NavLink>
         </li>
         <li className="mx-4">
+          <NavLink to="/effect">useEffect</NavLink>
+        </li>
+        <li className="mx-4">
           <NavLink to="/immer">useImmer</NavLink>
         </li>
         <li className="mx-4">
