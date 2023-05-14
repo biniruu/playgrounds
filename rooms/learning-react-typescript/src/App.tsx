@@ -10,7 +10,7 @@ function App() {
       <header className="mb-8">
         <Header />
       </header>
-      <main>
+      <main className="flex h-screen place-content-center place-items-center">
         <Outlet />
       </main>
     </div>

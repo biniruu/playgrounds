@@ -1,6 +1,6 @@
 function Home() {
   return (
-    <div className="flex h-screen place-content-center place-items-center">
+    <div>
       <h1 className="text-4xl">Home</h1>
     </div>
   )
