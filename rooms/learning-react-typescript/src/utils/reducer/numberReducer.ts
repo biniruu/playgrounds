@@ -6,15 +6,14 @@ const numberReducer = (number: number, action: Action) => {
   switch (action.type) {
     case 'plus':
       return number + 1
-      break
     case 'minus':
+      if (number <= 0) {
+        return number
+      }
       return number - 1
-      break
-
     default:
-      throw Error(`Unexpected type ${action.type}`)
-
-      break
+      console.error(`Received an unexpected type.`)
+      return number
   }
 }
 
