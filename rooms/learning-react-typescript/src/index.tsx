@@ -5,6 +5,7 @@ import store from 'app/store'
 import Home from 'pages/Home'
 
 import Redux from 'pages/Redux'
+import UseContext from 'pages/UseContext'
 import UseEffect from 'pages/UseEffect'
 import UseImmer from 'pages/UseImmer'
 import UseReducer from 'pages/UseReducer'
@@ -28,6 +29,7 @@ root.render(
             <Route path="/effect" element={<UseEffect />} />
             <Route path="/immer" element={<UseImmer />} />
             <Route path="/reducer" element={<UseReducer />} />
+            <Route path="/context" element={<UseContext />} />
             <Route path="/redux" element={<Redux />} />
           </Route>
         </Routes>
