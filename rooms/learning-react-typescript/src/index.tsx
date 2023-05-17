@@ -4,6 +4,7 @@ import App from 'App'
 import store from 'app/store'
 import CustomHooks from 'pages/CustomHooks'
 
+import ForwardRef from 'pages/ForwardRef'
 import Home from 'pages/Home'
 import Redux from 'pages/Redux'
 import UseContext from 'pages/UseContext'
@@ -31,6 +32,7 @@ root.render(
             <Route path="/immer" element={<UseImmer />} />
             <Route path="/reducer" element={<UseReducer />} />
             <Route path="/context" element={<UseContext />} />
+            <Route path="/forward-ref" element={<ForwardRef />} />
             <Route path="/custom" element={<CustomHooks />} />
             <Route path="/redux" element={<Redux />} />
           </Route>
