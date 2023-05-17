@@ -2,8 +2,9 @@ import 'index.css'
 
 import App from 'App'
 import store from 'app/store'
-import Home from 'pages/Home'
+import CustomHooks from 'pages/CustomHooks'
 
+import Home from 'pages/Home'
 import Redux from 'pages/Redux'
 import UseContext from 'pages/UseContext'
 import UseEffect from 'pages/UseEffect'
@@ -30,6 +31,7 @@ root.render(
             <Route path="/immer" element={<UseImmer />} />
             <Route path="/reducer" element={<UseReducer />} />
             <Route path="/context" element={<UseContext />} />
+            <Route path="/custom" element={<CustomHooks />} />
             <Route path="/redux" element={<Redux />} />
           </Route>
         </Routes>

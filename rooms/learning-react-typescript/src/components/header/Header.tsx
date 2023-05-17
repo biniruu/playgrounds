@@ -23,6 +23,9 @@ function Header() {
           <NavLink to="/context">useContext</NavLink>
         </li>
         <li className="mx-4">
+          <NavLink to="/custom">customHooks</NavLink>
+        </li>
+        <li className="mx-4">
           <NavLink to="/redux">Redux</NavLink>
         </li>
       </ul>
