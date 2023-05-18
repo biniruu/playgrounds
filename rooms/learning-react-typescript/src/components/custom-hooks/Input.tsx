@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-import { useInput } from 'utils/customHooks/useInput'
+import { useInput } from 'utils/custom-hooks/useInput'
 
 function Input() {
   const [inputValue, handleInputChange] = useInput('')
@@ -21,7 +21,7 @@ function Input() {
   }, [])
 
   return (
-    <div>
+    <div className="mb-8">
       <h1 className="mb-4 text-xl">Input</h1>
       <input ref={ref} type="text" value={inputValue} className="border" onChange={handleInputChange} />
       <button className="mr-2 rounded-full bg-sky-600 px-4 py-2 text-center text-white" onClick={handleSubmit}>
