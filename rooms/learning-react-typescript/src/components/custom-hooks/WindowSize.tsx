@@ -1,13 +1,13 @@
 import useWindowSize from 'utils/custom-hooks/useWindowSize'
 
 function WindowSize() {
-  const { width, height } = useWindowSize()
+  const { windowSize, currentDevice } = useWindowSize()
 
   return (
     <div>
       <h1 className="mb-4 text-xl">WindowSize</h1>
-      <p>width: {width}</p>
-      <p>height: {height}</p>
+      <p>width: {windowSize.width}</p>
+      <p>current device: {currentDevice}</p>
     </div>
   )
 }
