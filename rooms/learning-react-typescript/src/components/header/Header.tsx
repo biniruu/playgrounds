@@ -32,6 +32,9 @@ function Header() {
           <NavLink to="/transition">useTransition</NavLink>
         </li>
         <li className="mx-4">
+          <NavLink to="/deferred-value">useDeferredValue</NavLink>
+        </li>
+        <li className="mx-4">
           <NavLink to="/redux">Redux</NavLink>
         </li>
       </ul>

@@ -8,6 +8,7 @@ import ForwardRef from 'pages/ForwardRef'
 import Home from 'pages/Home'
 import Redux from 'pages/Redux'
 import UseContext from 'pages/UseContext'
+import UseDeferredValue from 'pages/UseDeferredValue'
 import UseEffect from 'pages/UseEffect'
 import UseImmer from 'pages/UseImmer'
 import UseReducer from 'pages/UseReducer'
@@ -36,6 +37,7 @@ root.render(
             <Route path="/forward-ref" element={<ForwardRef />} />
             <Route path="/custom" element={<CustomHooks />} />
             <Route path="/transition" element={<UseTransition />} />
+            <Route path="/deferred-value" element={<UseDeferredValue />} />
             <Route path="/redux" element={<Redux />} />
           </Route>
         </Routes>
