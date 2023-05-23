@@ -12,6 +12,7 @@ import UseEffect from 'pages/UseEffect'
 import UseImmer from 'pages/UseImmer'
 import UseReducer from 'pages/UseReducer'
 import UseState from 'pages/UseState'
+import UseTransition from 'pages/UseTransition'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
@@ -34,6 +35,7 @@ root.render(
             <Route path="/context" element={<UseContext />} />
             <Route path="/forward-ref" element={<ForwardRef />} />
             <Route path="/custom" element={<CustomHooks />} />
+            <Route path="/transition" element={<UseTransition />} />
             <Route path="/redux" element={<Redux />} />
           </Route>
         </Routes>

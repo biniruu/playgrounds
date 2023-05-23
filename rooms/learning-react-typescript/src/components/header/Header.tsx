@@ -29,6 +29,9 @@ function Header() {
           <NavLink to="/custom">customHooks</NavLink>
         </li>
         <li className="mx-4">
+          <NavLink to="/transition">useTransition</NavLink>
+        </li>
+        <li className="mx-4">
           <NavLink to="/redux">Redux</NavLink>
         </li>
       </ul>
