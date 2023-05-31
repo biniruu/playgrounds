@@ -37,7 +37,8 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.definitionLinkOpensInPeek": true,
-  "editor.fontFamily": "D2Coding, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "D2Coding ligature, D2Coding, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
   "editor.fontSize": 16,
   "editor.formatOnSave": true, // 저장할 때마다 포맷을 자동으로 교정
   "editor.hover.delay": 600,
@@ -74,6 +75,7 @@
   "explorer.confirmDelete": false, // 파일 삭제 전 확인 모달 띄우기
   "explorer.confirmDragAndDrop": false, // 파일 드래그 & 드롭 전 확인 모달 띄우기
   "files.associations": {
+    // "*.css": "css" // postcss를 이용하지 않을 때 활성화
     "*.css": "postcss"
   },
   "files.exclude": {
