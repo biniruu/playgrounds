@@ -23,6 +23,10 @@
   "bookmarks.keepBookmarksOnLineDelete": true,
   "breadcrumbs.enabled": true,
   "color-highlight.markRuler": false, // minimap에서 color-highlight 활성화
+  "compile-hero.disable-compile-files-on-did-save-code": false, // 저장 시 파일 자동 변환 방지
+  "compile-hero.ignore": ["node_modules/**/*"],
+  "compile-hero.scss-output-directory": "../css", // .css로 변환된 .scss 파일이 저장될 폴더 경로
+  "compile-hero.watch": ["scss/*"], // 저장 시 자동으로 변환할 파일 목록
   "css.customData": ["./css_custom_data.json"], // at-rule 등 css 관련 규칙을 사용자화 하여 이용하는 데 필요한 설정 파일을 연결하는 옵션
   "css.lint.unknownAtRules": "ignore", // sass 등과 같은 css 전처리기에서 사용하는 at rule을 css 파일에서 사용했을 때 at-rule-no-unknown 경고가 발생하지 않도록 함. stylelint가 발생시키는 에러 처리는 해당 at rule을 .stylelintrc에서 'at-rule-no-unknown'에 ignoreAtRules 옵션으로 추가할 것
   "css.lint.zeroUnits": "warning",
@@ -37,8 +41,8 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.definitionLinkOpensInPeek": true,
-  "editor.fontFamily": "D2Coding ligature, D2Coding, Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontLigatures": true,
+  "editor.fontFamily": "'D2Coding ligature', D2Coding, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true, // ligature 폰트 사용. false로 설정하면 font family에 ligature 폰트를 추가해도 반영되지 않는다
   "editor.fontSize": 16,
   "editor.formatOnSave": true, // 저장할 때마다 포맷을 자동으로 교정
   "editor.hover.delay": 600,
@@ -57,6 +61,8 @@
   "emmet.includeLanguages": {
     "javascript": "javascriptreact", // jsx 또는 js에서 emmet을 사용하는 옵션
     "postcss": "css" // postcss 문법을 사용하기 위한 옵션
+    // "vue": "html", // vue 키의 값을 css로 하면 html 대신 css emmet을 사용할 수 있다
+    // "vue-html": "html"
   },
   "emmet.preferences": {
     "css.color.short": true
@@ -75,8 +81,8 @@
   "explorer.confirmDelete": false, // 파일 삭제 전 확인 모달 띄우기
   "explorer.confirmDragAndDrop": false, // 파일 드래그 & 드롭 전 확인 모달 띄우기
   "files.associations": {
-    // "*.css": "css" // postcss를 이용하지 않을 때 활성화
-    "*.css": "postcss"
+    // "*.css": "css", // postcss를 사용하지 않을 때 활성화
+    "*.css": "postcss" // postcss를 사용할 때 활성화
   },
   "files.exclude": {
     "**/.git": false
@@ -120,6 +126,7 @@
   "stylelint.validate": [
     "css",
     "html",
+    "javascriptreact",
     "less",
     "postcss",
     "sass",
@@ -129,7 +136,6 @@
     "styled-css",
     "sugarss",
     "svelte",
-    "typescript",
     "typescriptreact",
     "vue",
     "vue-html",
@@ -174,7 +180,7 @@
     // "terminal.ansiWhite": "#c7c7c7",
     // "terminal.ansiYellow": "#f3f89d"
   }, // vscode 레이아웃 색상
-  "workbench.colorTheme": "Default Dark+ Experimental",
+  "workbench.colorTheme": "Default Dark+",
   "workbench.editor.decorations.colors": false,
   "workbench.editorAssociations": {
     "git-rebase-todo": "gitlens.rebase" // git rebase -i 실행할 때 띄우는 ui 화면
@@ -184,6 +190,7 @@
     "atlascode",
     "autoimport",
     "autoplace",
+    "craco",
     "cssrem",
     "dbaeumer",
     "errorlens",
