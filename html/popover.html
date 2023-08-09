@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popover</title>
+    <style>
+      .btn {
+        text-transform: capitalize;
+      }
+      .my-popover::backdrop {
+        background: rgb(0 0 0 / 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" popovertarget="my-popover" class="btn">click</button>
+    <div popover id="my-popover" class="my-popover">
+      <p>This is my-popover</p>
+    </div>
+  </body>
+</html>
