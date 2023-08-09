@@ -2,27 +2,4 @@
 
 개인 학습용 코드 낙서.
 
-## 설치 모듈
-
-```bash
-## Eslint & Prettier
-
-$ yarn add -D @babel/eslint-parser eslint eslint-config-prettier eslint-plugin-import eslint-plugin-prettier eslint-webpack-plugin prettier
-
-## Jest
-
-$ yarn add -D @babel/plugin-transform-modules-commonjs @babel/plugin-transform-runtime @types/jest eslint-plugin-jest jest
-
-## Lodash
-
-$ yarn add lodash-es
-$ yarn add -D @types/lodash-es
-
-## Sass loader
-
-$ yarn add -D sass sass-loader
-
-## Stylelint
-
-$ yarn add -D @stylelint/postcss-css-in-js postcss-syntax stylelint stylelint-config-prettier stylelint-config-standard stylelint-order stylelint-scss
-```
+개발에 필요한 패키지를 테스트해보거나 각 언어별로 학습 과정에서 실제로 구현해봐야 하는 코드를 작성해보는 곳이에요.
