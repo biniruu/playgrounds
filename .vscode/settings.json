@@ -1,20 +1,7 @@
 {
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.autoClosingBrackets": "always",
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.tabSize": 4
   },
   "autoimport.useSemiColon": false, // auto import 기능으로 import한 모듈에 세미콜론 삽입
   "aws.codeWhisperer.shareCodeWhispererContentWithAWS": false,
@@ -24,7 +11,7 @@
   "breadcrumbs.enabled": true,
   "color-highlight.markRuler": false, // minimap에서 color-highlight 활성화
   "compile-hero.disable-compile-files-on-did-save-code": false, // 저장 시 파일 자동 변환 방지
-  "compile-hero.ignore": ["node_modules/**/*"],
+  "compile-hero.ignore": ["**/node_modules/*"],
   "compile-hero.scss-output-directory": "../css", // .css로 변환된 .scss 파일이 저장될 폴더 경로
   "compile-hero.watch": ["scss/*"], // 저장 시 자동으로 변환할 파일 목록
   "css.customData": ["./css_custom_data.json"], // at-rule 등 css 관련 규칙을 사용자화 하여 이용하는 데 필요한 설정 파일을 연결하는 옵션
@@ -41,10 +28,11 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.definitionLinkOpensInPeek": true,
-  "editor.fontFamily": "'D2Coding ligature', D2Coding, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "D2Coding, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true, // ligature 폰트 사용. false로 설정하면 font family에 ligature 폰트를 추가해도 반영되지 않는다
   "editor.fontSize": 16,
-  "editor.formatOnSave": true, // 저장할 때마다 포맷을 자동으로 교정
+  "editor.formatOnPaste": true, // 붙여넣기 할 때마다 포맷에 맞춰 코드 변경
+  "editor.formatOnSave": true, // 저장할 때마다 포맷에 맞춰 코드 변경
   "editor.hover.delay": 600,
   "editor.inlineSuggest.enabled": true,
   "editor.linkedEditing": true,
@@ -74,7 +62,6 @@
   "emmet.triggerExpansionOnTab": true,
   "eslint.alwaysShowStatus": true,
   "eslint.format.enable": true,
-  "eslint.packageManager": "yarn",
   "eslint.workingDirectories": [{ "mode": "auto" }], // .eslintrc 파일 위치
   "explorer.autoReveal": false,
   "explorer.compactFolders": false, // 하위 폴더가 하나밖에 없을 때 폴더 정렬이 일렬로 나오지 않고 일반적인 방식으로 계층화 되도록 함
@@ -99,7 +86,7 @@
     "vue": false,
     "yaml": false
   },
-  "githubNotificationsBell.oauthToken": "${env:GITHUB_NOTIFICATIONS_BELL}",
+  "githubNotificationsBell.oauthToken": "",
   "gitlens.gitCommands.search.showResultsInSideBar": true,
   "html-css-class-completion.enableEmmetSupport": true,
   "jest.autoRun": {
@@ -107,8 +94,6 @@
   },
   "jest.showTerminalOnLaunch": false, // jest 익스텐션을 실행했을 때 자동으로 콘솔 창 띄우기
   "jest.testExplorer": {
-    "enabled": true,
-    "showClassicStatus": true,
     "showInlineError": true
   },
   "jestTestExplorer.flattenExplorer": true,
@@ -118,7 +103,12 @@
   "npm.keybindingsChangedWarningShown": true,
   "git.mergeEditor": true, // conflict 시 diff 화면 스타일을 3-way merge로 표시
   "problems.autoReveal": false,
-  "projectManager.git.baseFolders": ["/Users/biniruu/Projects", "/Users/biniruu/Learning"],
+  "projectManager.git.baseFolders": [
+    "/Users/biniruu/Projects",
+    "/Users/biniruu/Learning"
+  ],
+  "puglint.enable": true,
+  "python.formatting.provider": "black",
   "python.jediEnabled": false,
   "pythonPreview.codeFooterDocs.fontSize": 13,
   "quokka.automaticRestart": true,
@@ -143,12 +133,12 @@
     "xml",
     "xsl"
   ], // stylelint로 유효성을 검증할 언어만 선택
-  "turboConsoleLog.logMessagePrefix": "📝",
-  "turboConsoleLog.quote": "'",
+  "turboConsoleLog.delimiterInsideMessage": "🕺🏻",
   "turboConsoleLog.includeFileNameAndLineNum": false,
-  "turboConsoleLog.delimiterInsideMessage": "--",
-  "turboConsoleLog.insertEnclosingFunction": false,
   "turboConsoleLog.insertEnclosingClass": false,
+  "turboConsoleLog.insertEnclosingFunction": false,
+  "turboConsoleLog.logMessagePrefix": "💃🏻",
+  "turboConsoleLog.quote": "'",
   "terminal.integrated.defaultProfile.linux": "/bin/zsh",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.fontFamily": "D2Coding, Menlo, Monaco, 'Courier New', monospace",
