@@ -5,18 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Popover</title>
     <style>
-      .btn {
+      body *::first-letter {
         text-transform: capitalize;
       }
-      .my-popover::backdrop {
+      .btn {
+        margin: 0 0.25rem;
+      }
+      .popover::backdrop {
         background: rgb(0 0 0 / 0.5);
+      }
+      .flex {
+        display: flex;
       }
     </style>
   </head>
   <body>
-    <button type="button" popovertarget="my-popover" class="btn">click</button>
-    <div popover id="my-popover" class="my-popover">
-      <p>This is my-popover</p>
+    <div class="flex">
+      <button type="button" popovertarget="my-popover" class="btn">
+        click
+      </button>
+      <button type="button" popovertarget="my-menu" class="btn">
+        toggle menu
+      </button>
     </div>
+    <div popover id="my-popover" class="popover">
+      <p>this is my-popover</p>
+    </div>
+    <div role="menu" popover id="my-menu" class="popover">
+      <button
+        onclick="doThing()"
+        role="menuitem"
+        tabindex="-1"
+        class="btn"
+        autofocus
+      >
+        do thing
+      </button>
+      <button
+        onclick="doAnotherThing()"
+        role="menuitem"
+        tabindex="-1"
+        class="btn"
+      >
+        do another thing
+      </button>
+    </div>
+    <script>
+      const doThing = () => alert("Do thing is fired.");
+      const doAnotherThing = () => alert("Do anotherThing is fired.");
+    </script>
   </body>
 </html>
