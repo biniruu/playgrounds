@@ -9,6 +9,7 @@ module.exports = {
    * Extends
    *
    * eslint:recommended : eslint 추천 rule set
+   * plugin:@typescript-eslint/recommended : 타입스크립트 추천 룰셋 {@link https://typescript-eslint.io/linting/typed-linting/}
    * plugin:@typescript-eslint/recommended-requiring-type-checking : 타입스크립트 추천 룰셋 {@link https://typescript-eslint.io/linting/typed-linting/}
    * plugin:import/recommended : eslint-plugin-import 추천 rule set
    * plugin:import/typescript : eslint-plugin-import 플러그인
@@ -112,7 +113,7 @@ module.exports = {
     'no-new-object': 'warn',
     'no-undef': 'error',
     'no-underscore-dangle': 'error',
-    'no-unused-vars': ['error', { args: 'after-used' }],
+    'no-unused-vars': 'off',
     'no-useless-escape': 'warn',
     'no-var': 'error',
     'object-curly-spacing': ['warn', 'always'],
@@ -140,7 +141,7 @@ module.exports = {
      * no-unsafe-assignment : any 타입 사용 시 알림을 띄움
      * no-unsafe-call
      * no-unsafe-member-access
-     * no-unused-vars : no-unused-vars와 동일. no-unused-vars를 비활성화 한 후에 사용할 것
+     * no-unused-vars : eslint에서 제공하는 no-unused-vars와 동일. no-unused-vars를 비활성화 한 후에 사용할 것
      * no-var-requires
      * restrict-plus-operands
      * restrict-template-expressions
@@ -161,7 +162,7 @@ module.exports = {
     '@typescript-eslint/no-unsafe-assignment': 'error',
     '@typescript-eslint/no-unsafe-call': 'error',
     '@typescript-eslint/no-unsafe-member-access': 'error',
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': ['error', { args: 'all' }],
     '@typescript-eslint/no-var-requires': 'error',
     '@typescript-eslint/restrict-plus-operands': 'warn',
     '@typescript-eslint/restrict-template-expressions': 'warn',
