@@ -18,7 +18,6 @@ module.exports = {
    * plugin:react-hooks/recommended
    * plugin:react/jsx-runtime : If you are using the new JSX transform from React 17, you should enable this
    * plugin:react/recommended
-   * plugin:storybook/recommended : 스토리북 추천 rule set
    * react-app : eslint-config-react-app으로 eslint 설정 덮어쓰기
    */
   extends: [
@@ -32,7 +31,6 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react/recommended',
-    'plugin:storybook/recommended',
     'react-app',
   ],
   overrides: [
