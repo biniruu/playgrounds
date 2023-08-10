@@ -10,8 +10,7 @@ module.exports = {
    *
    * eslint:recommended : eslint 추천 rule set
    * plugin:@tanstack/eslint-plugin-query/recommended : tanstack query (react query) 추천 rule set
-   * plugin:@typescript-eslint/recommended : 타입스크립트 추천 룰셋
-   * plugin:@typescript-eslint/recommended-requiring-type-checking
+   * plugin:@typescript-eslint/recommended-requiring-type-checking : 타입스크립트 추천 룰셋 {@link https://typescript-eslint.io/linting/typed-linting/}
    * plugin:import/recommended : eslint-plugin-import 추천 rule set
    * plugin:import/typescript : eslint-plugin-import 플러그인
    * plugin:jsx-a11y/recommended : 웹 접근성 관련 추천 rule set
@@ -24,7 +23,6 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@tanstack/eslint-plugin-query/recommended',
-    'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:import/recommended',
     'plugin:import/typescript',
@@ -60,8 +58,10 @@ module.exports = {
      * {@link https://typescript-eslint.io/packages/parser}
      *
      * project : tsconfig.json 경로 설정. true로 설정하면 각 소스파일에서 가장 가까운 경로에 있는 tsconfig.json 파일을 자동으로 찾는다.
+     * tsconfigRootDir : project에서 제공한 tsconfig의 상대 경로에 대한 루트 디렉토리 제공
      */
     project: true,
+    tsconfigRootDir: __dirname,
   },
   root: true, // 현재 설정 파일이 root임을 명시하는 옵션. true로 설정하면 상위 설정 파일 찾기를 여기서 멈춘다.
   rules: {
