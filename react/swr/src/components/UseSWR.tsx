@@ -40,8 +40,6 @@ interface News {
 }
 
 const fetcher = (url: string) => {
-  // eslint-disable-next-line no-console
-  console.log('fetcher in useSWR fired🔥')
   return fetch(url).then(res => res.json())
 }
 

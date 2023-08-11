@@ -40,8 +40,6 @@ interface News {
 }
 
 const fetcher = (url: string) => {
-  // eslint-disable-next-line no-console
-  console.log('fetcher in RefreshInterval fired🔥')
   return fetch(url).then(response => response.json())
 }
 
