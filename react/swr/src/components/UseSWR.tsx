@@ -2,9 +2,7 @@ import useSWR from 'swr'
 
 import type { News } from '../types/news.d'
 
-const fetcher = (url: string) => {
-  return fetch(url).then(res => res.json())
-}
+const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 function SWR() {
   const { data } = useSWR<News>('/channel/rightbar?officeId=296', fetcher)
