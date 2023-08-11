@@ -1,18 +1,21 @@
 /**
- * syntaxes
+ * Syntaxes
  * {@link https://github.com/postcss/postcss#syntaxes}
  *
- * plugins
+ * Plugins
  * {@link https://github.com/postcss/postcss#plugins}
  *
- * postcss-preset-env options
+ * Postcss-preset-env options
  * {@link https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env}
  *
- * postcss-preset-env features
+ * Postcss-preset-env features
  * {@link https://preset-env.cssdb.org/features/}
  *
- * additional options in autoprefixer
+ * Additional options in autoprefixer
  * {@link https://github.com/postcss/autoprefixer#options}
+ *
+ * Optimising tailwindcss for production
+ * {@link https://tailwindcss.com/docs/optimizing-for-production}
  */
 
 module.exports = {
@@ -27,5 +30,6 @@ module.exports = {
       },
     },
     tailwindcss: {}, // tailwindcss 사용 시 필요
+    ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {}), // production 환경에서 css minify 구현
   },
 }
