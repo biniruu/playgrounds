@@ -31,9 +31,6 @@ module.exports = {
     },
   ],
   parser: '@babel/eslint-parser',
-  plugins: [
-    // 'pug',
-  ],
   root: true, // 현재 설정 파일이 root임을 명시하는 옵션. true로 설정하면 상위 설정 파일 찾기를 여기서 멈춘다.
   rules: {
     /**
@@ -69,14 +66,30 @@ module.exports = {
      * space-before-function-paren : 함수 선언 시 함수명과 괄호 사이에 간격 추가를 강제
      */
     'array-bracket-spacing': 'warn',
-    camelcase: ['error', { properties: 'never' }],
+    camelcase: [
+      'error',
+      {
+        properties: 'never',
+      },
+    ],
     'comma-dangle': ['warn', 'always-multiline'],
-    'computed-property-spacing': ['warn', 'never', { enforceForClassMembers: false }],
+    'computed-property-spacing': [
+      'warn',
+      'never',
+      {
+        enforceForClassMembers: false,
+      },
+    ],
     eqeqeq: 'error',
     'generator-star-spacing': ['warn', 'after'],
     'new-cap': 'error',
     'no-array-constructor': 'error',
-    'no-console': ['warn', { allow: ['warn', 'error'] }],
+    'no-console': [
+      'warn',
+      {
+        allow: ['warn', 'error'],
+      },
+    ],
     'no-debugger': process.env.NODE_ENV === 'development' ? 'warn' : 'error',
     'no-duplicate-imports': 'error',
     'no-inner-declarations': 'warn',
@@ -85,13 +98,24 @@ module.exports = {
     'no-new-object': 'warn',
     'no-undef': 'error',
     'no-underscore-dangle': 'error',
-    'no-unused-vars': ['error', { args: 'all' }],
+    'no-unused-vars': [
+      'error',
+      {
+        args: 'all',
+      },
+    ],
     'no-useless-escape': 'warn',
     'no-var': 'error',
     'object-curly-spacing': ['warn', 'always'],
     'prefer-const': 'error',
     'prefer-rest-params': 'error',
-    quotes: ['warn', 'single', { allowTemplateLiterals: true }],
+    quotes: [
+      'warn',
+      'single',
+      {
+        allowTemplateLiterals: true,
+      },
+    ],
     semi: ['error', 'never'],
     'sort-imports': [
       'warn',
@@ -101,7 +125,14 @@ module.exports = {
         ignoreDeclarationSort: true,
       },
     ],
-    'space-before-function-paren': ['warn', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
+    'space-before-function-paren': [
+      'warn',
+      {
+        anonymous: 'always',
+        named: 'never',
+        asyncArrow: 'always',
+      },
+    ],
     /**
      * Eslint-config-prettier options
      * {@link https://github.com/prettier/eslint-plugin-prettier#options}
@@ -121,12 +152,22 @@ module.exports = {
      * order : import 자동 정렬. warnOnUnassignedImports는 항상 default값(false)로 놔둘 것. true로 할 경우 import 정렬 관련 경고가 발생하는데, 이 문제는 import/order 또는 sort-import 설정만으로는 해결 불가
      */
     'import/newline-after-import': 'warn',
-    'import/no-anonymous-default-export': ['warn', { allowArray: true, allowObject: true }],
+    'import/no-anonymous-default-export': [
+      'warn',
+      {
+        allowArray: true,
+        allowObject: true,
+      },
+    ],
     'import/no-unresolved': 'off',
     'import/order': [
       'warn',
       {
-        alphabetize: { caseInsensitive: true, order: 'asc', orderImportKind: 'asc' },
+        alphabetize: {
+          caseInsensitive: true,
+          order: 'asc',
+          orderImportKind: 'asc',
+        },
         'newlines-between': 'always',
       },
     ],
