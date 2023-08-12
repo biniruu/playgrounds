@@ -1,7 +1,8 @@
 // import RefreshInterval from 'components/RefreshInterval'
 // import UseSWR from 'components/UseSWR'
-import MultipleArguments from 'components/MultipleArguments'
-import RefreshIntervalWithMultipleArguments from 'components/RefreshIntervalWithMultipleArguments'
+// import MultipleArguments from 'components/MultipleArguments'
+// import RefreshIntervalWithMultipleArguments from 'components/RefreshIntervalWithMultipleArguments'
+import PassingObjects from 'components/PassingObjects'
 import './App.css'
 
 function App() {
@@ -9,8 +10,9 @@ function App() {
     <div className="App">
       {/* <UseSWR /> */}
       {/* <RefreshInterval /> */}
-      <MultipleArguments />
-      <RefreshIntervalWithMultipleArguments />
+      {/* <MultipleArguments />
+      <RefreshIntervalWithMultipleArguments /> */}
+      <PassingObjects />
     </div>
   )
 }
