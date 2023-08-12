@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const num = [2, 5, 4]
 
 const func = (num1, num2, num3) => `num1 = ${num1}, num2 = ${num2}, num3 = ${num3}`

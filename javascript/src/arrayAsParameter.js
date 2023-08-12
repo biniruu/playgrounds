@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const callbackFunc = (str, num) => `I have an ${str}. Just ${num}.`
 
 const func = ([str, num], callback) => callback(str, num)
