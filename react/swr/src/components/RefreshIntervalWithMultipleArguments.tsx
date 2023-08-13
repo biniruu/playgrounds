@@ -1,3 +1,4 @@
+import useNews from 'hooks/useNews'
 import useSWR from 'swr'
 
 import type { News } from '../types/news.d'
@@ -13,8 +14,9 @@ function RefreshIntervalWithMultipleArguments() {
     ([url, token]: [string, string]) => fetchWithToken(url, token),
     { refreshInterval: 3000 },
   )
+  const news = useNews(data)
 
-  return <NewsList heading="RefreshIntervalWithMultipleArguments" data={data} />
+  return <NewsList heading="RefreshIntervalWithMultipleArguments" news={news} />
 }
 
 export default RefreshIntervalWithMultipleArguments
