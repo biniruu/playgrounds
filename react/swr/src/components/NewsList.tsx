@@ -1,42 +1,22 @@
-import { useLayoutEffect, useState } from 'react'
-import type { List, News } from 'types/news'
-import { User } from 'types/user'
+import type { List } from 'types/news'
 
 interface Props {
-  data?: News | User
+  news?: List[]
+  user?: string
   heading: string
 }
 
-const initialStateOfNews = [
-  {
-    thumb: '',
-    name: '',
-    url: '',
-  },
-]
-
-function NewsList({ data, heading }: Props) {
-  const [news, setNews] = useState(initialStateOfNews)
-  const [user, setUser] = useState('')
-
-  useLayoutEffect(() => {
-    if (data && 'result' in data) {
-      setNews(data.result.premiumContent.list as List[])
-      return
-    }
-    setUser(data?.data.email as string)
-  }, [data])
-
+function NewsList({ user, news, heading }: Props) {
   return (
     <>
       <h1 className="text-4xl mb-7 font-bold">{heading}</h1>
       <ul>
+        {user || null}
         {news?.map(item => (
           <li key={item.name} className="text-lg mb-4">
             {item.name}
           </li>
         )) || null}
-        {user || null}
       </ul>
     </>
   )
