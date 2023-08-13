@@ -7,7 +7,7 @@ import NewsList from './NewsList'
 
 const fetcher = async (url: string) => fetch(url).then(response => response.json())
 
-function Pagenation() {
+function Pagination() {
   const [pageIdx, setPageIdx] = useState(2)
   const [user, setUser] = useState('')
   const [nextUser, setNextUser] = useState('')
@@ -22,9 +22,9 @@ function Pagenation() {
 
   return (
     <>
-      <NewsList heading="Pagenation" user={user} />
+      <NewsList heading="Pagination" user={user} />
       <div className="hidden">
-        <NewsList heading="Pagenation" user={nextUser} />
+        <NewsList heading="Pagination" user={nextUser} />
       </div>
       <div className="flex justify-center mt-4">
         <button type="button" className="px-4" onClick={() => setPageIdx(pageIdx - 1)}>
@@ -38,4 +38,4 @@ function Pagenation() {
   )
 }
 
-export default Pagenation
+export default Pagination
