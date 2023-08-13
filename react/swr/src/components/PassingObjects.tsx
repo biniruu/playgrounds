@@ -1,3 +1,4 @@
+import useNews from 'hooks/useNews'
 import useSWR from 'swr'
 import { News } from 'types/news'
 
@@ -27,14 +28,15 @@ const fetchWithUser = (url: string, id: number) => {
 
 function PassingObjects() {
   const { data: user } = useSWR<User>('https://reqres.in/api/users/2', fetching)
-
   const { data } = useSWR<News>(
     // user.data.id === 2
     user?.data.id ? ['/channel/rightbar?officeId=296', user.data.id] : null,
     ([url, id]: [string, number]) => fetchWithUser(url, id),
   )
 
-  return <NewsList heading="PassingObjects" data={data} />
+  const news = useNews(data)
+
+  return <NewsList heading="PassingObjects" news={news} />
 }
 
 export default PassingObjects
