@@ -9,8 +9,8 @@ function Queries() {
 
   return (
     <>
-      <h1>Queries</h1>
-      <p>{data?.data.email || 'no data'}</p>
+      <h1 className="text-4xl font-bold mt-4">Queries</h1>
+      <p className="mt-8">{data?.data.email || 'no data'}</p>
     </>
   )
 }
