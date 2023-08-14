@@ -3,11 +3,11 @@ import type { List } from 'types/news'
 interface Props {
   news?: List[]
   user?: string
-  userList?: string[]
+  newsList?: List[]
   heading: string
 }
 
-function NewsList({ user, news, heading, userList }: Props) {
+function NewsList({ user, news, heading, newsList }: Props) {
   return (
     <>
       <h1 className="text-4xl mb-7 font-bold">{heading}</h1>
@@ -18,9 +18,9 @@ function NewsList({ user, news, heading, userList }: Props) {
             {item.name}
           </li>
         )) || null}
-        {userList?.map(item => (
-          <li key={item} className="text-lg mb-4">
-            {item}
+        {newsList?.map((item, idx) => (
+          <li key={`${item.name}${idx}`} className="text-lg mb-4">
+            {item.name}
           </li>
         )) || null}
       </ul>
