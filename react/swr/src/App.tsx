@@ -3,7 +3,8 @@
 // import MultipleArguments from 'components/MultipleArguments'
 // import RefreshIntervalWithMultipleArguments from 'components/RefreshIntervalWithMultipleArguments'
 // import PassingObjects from 'components/PassingObjects'
-import Pagination from 'components/Pagination'
+// import Pagination from 'components/Pagination'
+import InfiniteLoading from 'components/InfiniteLoading'
 import './App.css'
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
       {/* <MultipleArguments />
       <RefreshIntervalWithMultipleArguments /> */}
       {/* <PassingObjects /> */}
-      <Pagination />
+      {/* <Pagination /> */}
+      <InfiniteLoading />
     </div>
   )
 }
