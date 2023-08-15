@@ -5,7 +5,7 @@ import { List, News } from 'types/news'
 
 import NewsList from './NewsList'
 
-const fetcher = async (url: string) => fetch(url).then(response => response.json())
+const fetcher = (url: string) => fetch(url).then(response => response.json())
 
 function InfiniteLoading() {
   const [count, setCount] = useState(296)

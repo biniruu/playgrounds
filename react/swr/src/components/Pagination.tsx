@@ -5,7 +5,7 @@ import type { User } from '../types/user'
 
 import NewsList from './NewsList'
 
-const fetcher = async (url: string) => fetch(url).then(response => response.json())
+const fetcher = (url: string) => fetch(url).then(response => response.json())
 
 function Pagination() {
   const [pageIdx, setPageIdx] = useState(2)
