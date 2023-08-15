@@ -25,10 +25,7 @@ module.exports = {
     //   files: ['**/*.{html,jsx,tsx}'],
     // },
   ],
-  plugins: [
-    // 'stylelint-scss', // scss 사용 시 활성화
-    'stylelint-order',
-  ],
+  plugins: ['stylelint-order'],
   rules: {
     /**
      * Rules
