@@ -97,12 +97,7 @@ module.exports = {
       },
     ],
     'number-max-precision': 10,
-    'rule-empty-line-before': [
-      'always-multi-line',
-      {
-        except: ['after-single-line-comment', 'first-nested'],
-      },
-    ],
+    'rule-empty-line-before': 'never-multi-line',
     'selector-attribute-quotes': 'always',
     'selector-nested-pattern': '^&?',
     'selector-pseudo-class-no-unknown': [
