@@ -181,6 +181,7 @@
     "autoimport",
     "autoplace",
     "blockless",
+    "capitalise",
     "craco",
     "cssnano",
     "cssrem",
