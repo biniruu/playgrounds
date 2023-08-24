@@ -7,4 +7,5 @@
 const username = 'biniruu'
 const first2Str = username.slice(0, 2)
 const maskUsername = first2Str.padEnd(username.length, '*')
-console.log('💃🏻 🕺🏻 maskUsername:', maskUsername)
+
+console.log(maskUsername) // bi*****

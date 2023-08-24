@@ -8,4 +8,5 @@ const phoneNumber = '010-1234-5678'
 const phoneNumberWithoutDash = phoneNumber.replaceAll('-', '')
 const last4Digits = phoneNumberWithoutDash.slice(-4)
 const maskPhoneNumber = last4Digits.padStart(phoneNumberWithoutDash.length, '*')
-console.log('💃🏻 🕺🏻 maskPhoneNumber:', maskPhoneNumber)
+
+console.log(maskPhoneNumber) // *******5678
