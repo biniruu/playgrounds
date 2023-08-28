@@ -1,0 +1,83 @@
+/* Applied classes */
+.fade-out {
+  animation: fade-out 0.25s forwards;
+}
+
+.spin-out {
+  animation: spin-and-delete 1s ease-in forwards;
+}
+
+/* Keyframe animations */
+@keyframes fade-out {
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+/* Rest of the demo */
+@keyframes spin-and-delete {
+  0% {
+    filter: hue-rotate(0);
+    transform: rotateY(0);
+  }
+
+  80% {
+    filter: hue-rotate(180deg);
+    opacity: 1;
+    transform: rotateY(360deg);
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+@layer base {
+  body {
+    display: grid;
+    height: 90dvh;
+    place-items: center;
+  }
+
+  .card {
+    aspect-ratio: 2/3;
+    background-color: tan;
+    border-radius: 1rem;
+    display: block;
+    max-width: 220px;
+    position: relative;
+    width: 100%;
+  }
+
+  .delete-btn {
+    background: white;
+    border: 2px solid;
+    border-radius: 100%;
+    height: 3rem;
+    padding: 0.5rem;
+    position: absolute;
+    right: -0.5rem;
+    top: -0.5rem;
+    width: 3rem;
+
+    &:hover,
+    &:focus {
+      background: lightgray;
+    }
+  }
+
+  .sr-only {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
