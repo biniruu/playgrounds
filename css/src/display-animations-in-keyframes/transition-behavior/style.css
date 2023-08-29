@@ -1,0 +1,84 @@
+/* Applied transition */
+.card {
+  transition:
+    opacity 0.25s,
+    display 0.25s;
+  transition-behavior: allow-discrete;
+}
+
+.fade-out {
+  display: none;
+  opacity: 0;
+}
+
+/* Etc. */
+
+@layer base {
+  body {
+    display: grid;
+    height: 90dvh;
+    padding: 2rem;
+    place-items: center;
+  }
+
+  .cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    max-width: 1000px;
+    padding: 0;
+    width: 100%;
+  }
+
+  .card {
+    aspect-ratio: 2/3;
+    background-color: tan;
+    border-radius: 1rem;
+    display: block;
+    max-width: 220px;
+    position: relative;
+    width: 100%;
+  }
+
+  .card:nth-child(2) {
+    background-color: khaki;
+  }
+
+  .card:nth-child(3) {
+    background-color: thistle;
+  }
+
+  .card:nth-child(4) {
+    background-color: wheat;
+  }
+
+  .delete-btn {
+    background: steelblue;
+    border: 4px solid;
+    border-radius: 100%;
+    bottom: -0.75rem;
+    color: white;
+    height: 3rem;
+    padding: 0.5rem;
+    position: absolute;
+    right: -0.75rem;
+    width: 3rem;
+
+    & img {
+      filter: invert();
+    }
+  }
+
+  .sr-only {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
