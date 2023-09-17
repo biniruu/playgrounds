@@ -16,12 +16,16 @@ async function main() {
   const typeDefs = `#graphql
     type Query {
       hello: String
+      haha: String
     }
   `
   const resolvers = {
     Query: {
       hello() {
-        return 'world'
+        return 'world🗺️'
+      },
+      haha() {
+        return 'hoho'
       },
     },
   }
