@@ -13,18 +13,16 @@ module.exports = {
    * Extends
    *
    * eslint:recommended : eslint 추천 rule set
-   * plugin:@typescript-eslint/recommended-requiring-type-checking : 타입스크립트 추천 룰셋 {@link https://typescript-eslint.io/linting/typed-linting/}
+   * plugin:@typescript-eslint/recommended-type-checked : 타입스크립트 추천 룰셋 {@link https://typescript-eslint.io/linting/typed-linting/}
    * plugin:import/recommended : eslint-plugin-import 추천 rule set
    * plugin:import/typescript : eslint-plugin-import 플러그인
-   * plugin:jsx-a11y/recommended : 웹 접근성 관련 추천 rule set
    * plugin:prettier/recommended : eslint-config-prettier 추천 rule set
    */
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:import/recommended',
     'plugin:import/typescript',
-    'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
   ],
   overrides: [
@@ -42,6 +40,15 @@ module.exports = {
          * {@link https://github.com/jest-community/eslint-plugin-jest#rules}
          */
       },
+    },
+    {
+      /**
+       * TS Configs
+       *
+       * plugin:@typescript-eslint/disable-type-checked : turn off type-aware linting on specific subsets of files with a disabled-type-checked config {@link https://typescript-eslint.io/linting/typed-linting/#how-can-i-disable-type-aware-linting-for-a-subset-of-files}
+       */
+      files: ['*.js', '*.cjs'],
+      extends: ['plugin:@typescript-eslint/disable-type-checked'],
     },
   ],
   parser: '@typescript-eslint/parser',
@@ -166,7 +173,7 @@ module.exports = {
      * no-unsafe-call
      * no-unsafe-member-access
      * no-unused-vars : eslint에서 제공하는 no-unused-vars와 동일. no-unused-vars를 비활성화 한 후에 사용할 것
-     * no-var-requires
+     * no-var-requires : require 문을 변수에 할당 금지. 특정 모듈 문법에 구애 받지 않는 상황이라면 비활성화 할 것
      * restrict-plus-operands
      * restrict-template-expressions
      * space-before-function-paren : *공식 문서에서는 사용하지 말 것을 적극 권고한다* space-before-function-paren과 동일. space-before-function-paren을 비활성화 한 후에 사용할 것
@@ -197,7 +204,7 @@ module.exports = {
         args: 'all',
       },
     ],
-    '@typescript-eslint/no-var-requires': 'error',
+    '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/restrict-plus-operands': 'warn',
     '@typescript-eslint/restrict-template-expressions': 'warn',
     '@typescript-eslint/space-before-function-paren': [
@@ -240,39 +247,6 @@ module.exports = {
       {
         // alphabetize: { caseInsensitive: true, order: 'asc', orderImportKind: 'asc' },
         'newlines-between': 'always',
-      },
-    ],
-    /**
-     * Eslint-plugin-jsx-a11y supported rules
-     * {@link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#supported-rules}
-     *
-     * label-has-associated-control : 기본 html 태그가 아닌 custom component에서 웹 접근성 관련 에러 발생 방지
-     * no-noninteractive-element-interactions : (웹 접근성 문제로)상호작용하지 않는 태그(li, div 등)에 onClick 등과 같은 이벤트를 연결할 때 필요
-     * no-noninteractive-element-to-interactive-role : (웹 접근성 문제로)상호작용하지 않는 태그에 onClick 등과 같은 이벤트를 연결하고 해당 태그의 사용 목적을 role 속성으로 명시할 때 필요
-     */
-    'jsx-a11y/label-has-associated-control': [
-      'warn',
-      {
-        labelComponents: ['label'],
-        labelAttributes: ['htmlFor'],
-        controlComponents: ['Input'],
-        depth: 1,
-      },
-    ],
-    'jsx-a11y/no-noninteractive-element-interactions': [
-      'warn',
-      {
-        handlers: ['onClick', 'onMouseDown', 'onMouseUp', 'onKeyPress', 'onKeyDown', 'onKeyUp'],
-      },
-    ],
-    'jsx-a11y/no-noninteractive-element-to-interactive-role': [
-      'warn',
-      {
-        ul: ['listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid'],
-        ol: ['listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid'],
-        li: ['button', 'menuitem', 'option', 'row', 'tab', 'treeitem'],
-        table: ['grid'],
-        td: ['gridcell'],
       },
     ],
   },

@@ -4,6 +4,10 @@
 **/.stylelintrc.cjs
 **/jest.config.js
 **/tsconfig.json
+# **/webpack.common.js
+# **/webpack.prod.js
+# **/webpack.dev.js
+**/tailwind.config.js
 
 # paths
 **/node_modules/*
