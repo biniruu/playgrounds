@@ -4,12 +4,16 @@
  */
 
 module.exports = {
-  env: { browser: true, es6: true, node: true },
+  env: {
+    browser: true,
+    es6: true,
+    node: true,
+  },
   /**
    * Extends
    *
    * eslint:recommended : eslint 추천 rule set
-   * plugin:@typescript-eslint/recommended : 타입스크립트 추천 룰셋 {@link https://typescript-eslint.io/linting/typed-linting/}
+   * next/core-web-vitals : create next app으로 프로젝트 시작 시 기본 설정
    * plugin:@typescript-eslint/recommended-requiring-type-checking : 타입스크립트 추천 룰셋 {@link https://typescript-eslint.io/linting/typed-linting/}
    * plugin:import/recommended : eslint-plugin-import 추천 rule set
    * plugin:import/typescript : eslint-plugin-import 플러그인
@@ -18,10 +22,10 @@ module.exports = {
    * plugin:react-hooks/recommended
    * plugin:react/jsx-runtime : If you are using the new JSX transform from React 17, you should enable this
    * plugin:react/recommended
-   * react-app : eslint-config-react-app으로 eslint 설정 덮어쓰기
    */
   extends: [
     'eslint:recommended',
+    'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:import/recommended',
     'plugin:import/typescript',
@@ -30,7 +34,6 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react/recommended',
-    'react-app',
   ],
   overrides: [
     {
@@ -38,9 +41,8 @@ module.exports = {
        * Jest
        *
        * plugin:jest/recommended : eslint-plugin-jest 추천 rule set
-       * react-app/jest : jest 규칙 설정을 위한 eslint-config-react-app 확장
        */
-      extends: ['plugin:jest/recommended', 'react-app/jest'],
+      extends: ['plugin:jest/recommended'],
       files: ['*.spec.js', '*.spec.ts', '*.test.js', '*.test.ts'],
       rules: {
         /**
@@ -62,7 +64,8 @@ module.exports = {
     project: true,
     tsconfigRootDir: __dirname,
   },
-  root: true, // 현재 설정 파일이 root임을 명시하는 옵션. true로 설정하면 상위 설정 파일 찾기를 여기서 멈춘다.
+  root: true,
+  // 현재 설정 파일이 root임을 명시하는 옵션. true로 설정하면 상위 설정 파일 찾기를 여기서 멈춘다.
   rules: {
     /**
      * Rules reference
@@ -93,18 +96,36 @@ module.exports = {
      * prefer-rest-params : 함수의 parameter에서 arguments 객체 대신 rest parameter를 사용하도록 강제. e.g. function (...args) {}
      * quotes : 따옴표를 작은따옴표, 큰따옴표, 백틱 중 한 가지만 사용하도록 강제
      * semi : 세미콜론 사용 여부. 'never' 옵션은 semicolon before self-invoking function을 제외한 모든 세미콜론 사용 금지
-     * sort-imports : import 정렬. ignoreDeclarationSort는 항상 true로 할 것. false로 하면 import 정렬 관련 경고가 발생하는데, 이 경고를 해결할 방법이 없다.
+     * sort-imports : import 정렬
+     * sort-imports > ignoreCase의 값은 항상 default값(false)으로 놔둘 것. true로 했을 때 가끔 다른 import 정렬 관련 rule과 충돌 발생
+     * sort-imports > ignoreDeclarationSort는 항상 true로 할 것. false로 하면 import 정렬 관련 경고 발생 시 해결 불가
      * space-before-function-paren : 함수 선언 시 함수명과 괄호 사이에 간격 추가를 강제
      */
     'array-bracket-spacing': 'warn',
-    camelcase: ['error', { properties: 'never' }],
+    camelcase: [
+      'error',
+      {
+        properties: 'never',
+      },
+    ],
     'comma-dangle': ['warn', 'always-multiline'],
-    'computed-property-spacing': ['warn', 'never', { enforceForClassMembers: false }],
+    'computed-property-spacing': [
+      'warn',
+      'never',
+      {
+        enforceForClassMembers: false,
+      },
+    ],
     eqeqeq: 'error',
     'generator-star-spacing': ['warn', 'after'],
     'new-cap': 'error',
     'no-array-constructor': 'error',
-    'no-console': ['warn', { allow: ['warn', 'error'] }],
+    'no-console': [
+      'warn',
+      {
+        allow: ['warn', 'error'],
+      },
+    ],
     'no-debugger': process.env.NODE_ENV === 'development' ? 'warn' : 'error',
     'no-duplicate-imports': 'error',
     'no-inner-declarations': 'warn',
@@ -119,17 +140,29 @@ module.exports = {
     'object-curly-spacing': ['warn', 'always'],
     'prefer-const': 'error',
     'prefer-rest-params': 'error',
-    quotes: ['warn', 'single', { allowTemplateLiterals: true }],
+    quotes: [
+      'warn',
+      'single',
+      {
+        allowTemplateLiterals: true,
+      },
+    ],
     semi: ['error', 'never'],
     'sort-imports': [
       'warn',
       {
         allowSeparatedGroups: true,
-        ignoreCase: true,
         ignoreDeclarationSort: true,
       },
     ],
-    'space-before-function-paren': ['warn', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
+    'space-before-function-paren': [
+      'warn',
+      {
+        anonymous: 'always',
+        named: 'never',
+        asyncArrow: 'always',
+      },
+    ],
     /**
      * Typescript-eslint supported rules
      * {@link https://typescript-eslint.io/rules/}
@@ -156,19 +189,33 @@ module.exports = {
         'ts-check': 'allow-with-description',
       },
     ],
-    '@typescript-eslint/no-explicit-any': ['error', { ignoreRestArgs: true }],
+    '@typescript-eslint/no-explicit-any': [
+      'error',
+      {
+        ignoreRestArgs: true,
+      },
+    ],
     '@typescript-eslint/no-floating-promises': 'warn',
     '@typescript-eslint/no-unsafe-argument': 'error',
     '@typescript-eslint/no-unsafe-assignment': 'error',
     '@typescript-eslint/no-unsafe-call': 'error',
     '@typescript-eslint/no-unsafe-member-access': 'error',
-    '@typescript-eslint/no-unused-vars': ['error', { args: 'all' }],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        args: 'all',
+      },
+    ],
     '@typescript-eslint/no-var-requires': 'error',
     '@typescript-eslint/restrict-plus-operands': 'warn',
     '@typescript-eslint/restrict-template-expressions': 'warn',
     '@typescript-eslint/space-before-function-paren': [
       'warn',
-      { anonymous: 'always', named: 'never', asyncArrow: 'always' },
+      {
+        anonymous: 'always',
+        named: 'never',
+        asyncArrow: 'always',
+      },
     ],
     /**
      * Eslint-config-prettier options
@@ -186,15 +233,26 @@ module.exports = {
      * newline-after-import : import 다음에 한 줄 띄기
      * no-anonymous-default-export : 익명 default export 금지
      * no-unresolved : import한 파일/모듈이 unresolved 되는 일이 없도록 방지
-     * order : import 자동 정렬. warnOnUnassignedImports는 항상 default값(false)로 놔둘 것. true로 할 경우 import 정렬 관련 경고가 발생하는데, 이 문제는 import/order 또는 sort-import 설정만으로는 해결 불가
+     * order : import 자동 정렬
+     * order > warnOnUnassignedImports는 항상 default값(false)으로 놔둘 것. true로 할 경우 import 정렬 관련 경고가 발생하는데, 이 문제는 import/order 또는 sort-import 설정만으로는 해결 불가
+     * order > caseInsensitive의 값은 항상 default값(false)으로 놔둘 것. true로 했을 때 가끔 다른 import 정렬 관련 rule과 충돌 발생
      */
     'import/newline-after-import': 'warn',
-    'import/no-anonymous-default-export': ['warn', { allowArray: true, allowObject: true }],
+    'import/no-anonymous-default-export': [
+      'warn',
+      {
+        allowArray: true,
+        allowObject: true,
+      },
+    ],
     'import/no-unresolved': 'off',
     'import/order': [
       'warn',
       {
-        alphabetize: { caseInsensitive: true, order: 'asc', orderImportKind: 'asc' },
+        alphabetize: {
+          order: 'asc',
+          orderImportKind: 'asc',
+        },
         'newlines-between': 'always',
       },
     ],
@@ -252,16 +310,25 @@ module.exports = {
      * react-in-jsx-scope : component에서 React를 import하지 않을 경우 오류 발생. 'react/recommended' 설정 시 활성화. react v17 이후 필요없어짐 {@link https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint How to Upgrade to the New JSX Transform}
      * self-closing-comp : JSX 태그 안에 하위 태그가 없을 경우 self-closing 태그로 변환
      * static-property-placement : 클래스에서 childContextTypes, contextTypes, contextType, defaultProps, displayName, propTypes를 정의하도록 강제. default : 'static public field'
-     * react-hooks/rules-of-hooks : react hooks 공식 문서에서 제공하는 규칙을 준수하도록 강제. {@link https://legacy.reactjs.org/docs/hooks-rules.html Roles of Hooks}
-     * react-hooks/exhaustive-deps : useEffect 안에서 사용하는 함수나 변수를 dependency로 등록하지 않았을 때 경고 발생
      */
     'react/destructuring-assignment': 'warn',
     'react/jsx-curly-brace-presence': 'warn',
     // 'react/jsx-curly-spacing': ['warn', { when: 'always', children: true, objectLiterals: 'never' }], // prettier와 충돌하여 사용할 수 없음
     'react/jsx-key': 'error',
-    'react/jsx-no-useless-fragment': ['warn', { allowExpressions: true }],
+    'react/jsx-no-useless-fragment': [
+      'warn',
+      {
+        allowExpressions: true,
+      },
+    ],
     'react/jsx-pascal-case': 'warn',
-    'react/jsx-no-bind': ['error', { allowArrowFunctions: true, allowFunctions: true }],
+    'react/jsx-no-bind': [
+      'error',
+      {
+        allowArrowFunctions: true,
+        allowFunctions: true,
+      },
+    ],
     'react/jsx-uses-react': 'off',
     'react/jsx-uses-vars': 'error',
     'react/no-direct-mutation-state': 'error',
@@ -275,15 +342,23 @@ module.exports = {
     'react/no-unused-state': 'warn',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react/self-closing-comp': ['warn', { component: true, html: false }],
-    'react/static-property-placement': 'warn',
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': [
+    'react/self-closing-comp': [
       'warn',
-      // {
-      //   additionHooks: '(useRecoilCallback|useRecoilTransaction_UNSTABLE)', // recoil 사용 시 필요
-      // },
+      {
+        component: true,
+        html: false,
+      },
     ],
+    'react/static-property-placement': 'warn',
+    /**
+     * Eslint-plugin-react-hooks rules
+     * {@link https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks}
+     *
+     * react-hooks/rules-of-hooks : react hooks 공식 문서에서 제공하는 규칙을 준수하도록 강제. {@link https://legacy.reactjs.org/docs/hooks-rules.html Roles of Hooks}
+     * react-hooks/exhaustive-deps : useEffect 안에서 사용하는 함수나 변수를 dependency로 등록하지 않았을 때 경고 발생
+     */
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'off',
   },
   settings: {
     /**
@@ -313,6 +388,8 @@ module.exports = {
      *
      * 'detect' automatically picks the version you have installed.
      */
-    react: { version: 'detect' },
+    react: {
+      version: 'detect',
+    },
   },
 }

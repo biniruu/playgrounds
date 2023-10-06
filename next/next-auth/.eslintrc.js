@@ -96,7 +96,9 @@ module.exports = {
      * prefer-rest-params : 함수의 parameter에서 arguments 객체 대신 rest parameter를 사용하도록 강제. e.g. function (...args) {}
      * quotes : 따옴표를 작은따옴표, 큰따옴표, 백틱 중 한 가지만 사용하도록 강제
      * semi : 세미콜론 사용 여부. 'never' 옵션은 semicolon before self-invoking function을 제외한 모든 세미콜론 사용 금지
-     * sort-imports : import 정렬. ignoreDeclarationSort는 항상 true로 할 것. false로 하면 import 정렬 관련 경고가 발생하는데, 이 경고를 해결할 방법이 없다.
+     * sort-imports : import 정렬
+     * sort-imports > ignoreCase의 값은 항상 default값(false)으로 놔둘 것. true로 했을 때 가끔 다른 import 정렬 관련 rule과 충돌 발생
+     * sort-imports > ignoreDeclarationSort는 항상 true로 할 것. false로 하면 import 정렬 관련 경고 발생 시 해결 불가
      * space-before-function-paren : 함수 선언 시 함수명과 괄호 사이에 간격 추가를 강제
      */
     'array-bracket-spacing': 'warn',
@@ -150,7 +152,6 @@ module.exports = {
       'warn',
       {
         allowSeparatedGroups: true,
-        ignoreCase: true,
         ignoreDeclarationSort: true,
       },
     ],
@@ -232,7 +233,9 @@ module.exports = {
      * newline-after-import : import 다음에 한 줄 띄기
      * no-anonymous-default-export : 익명 default export 금지
      * no-unresolved : import한 파일/모듈이 unresolved 되는 일이 없도록 방지
-     * order : import 자동 정렬. warnOnUnassignedImports는 항상 default값(false)로 놔둘 것. true로 할 경우 import 정렬 관련 경고가 발생하는데, 이 문제는 import/order 또는 sort-import 설정만으로는 해결 불가
+     * order : import 자동 정렬
+     * order > warnOnUnassignedImports는 항상 default값(false)으로 놔둘 것. true로 할 경우 import 정렬 관련 경고가 발생하는데, 이 문제는 import/order 또는 sort-import 설정만으로는 해결 불가
+     * order > caseInsensitive의 값은 항상 default값(false)으로 놔둘 것. true로 했을 때 가끔 다른 import 정렬 관련 rule과 충돌 발생
      */
     'import/newline-after-import': 'warn',
     'import/no-anonymous-default-export': [
@@ -247,7 +250,6 @@ module.exports = {
       'warn',
       {
         alphabetize: {
-          caseInsensitive: true,
           order: 'asc',
           orderImportKind: 'asc',
         },
@@ -308,8 +310,6 @@ module.exports = {
      * react-in-jsx-scope : component에서 React를 import하지 않을 경우 오류 발생. 'react/recommended' 설정 시 활성화. react v17 이후 필요없어짐 {@link https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint How to Upgrade to the New JSX Transform}
      * self-closing-comp : JSX 태그 안에 하위 태그가 없을 경우 self-closing 태그로 변환
      * static-property-placement : 클래스에서 childContextTypes, contextTypes, contextType, defaultProps, displayName, propTypes를 정의하도록 강제. default : 'static public field'
-     * react-hooks/rules-of-hooks : react hooks 공식 문서에서 제공하는 규칙을 준수하도록 강제. {@link https://reactjs.org/docs/hooks-rules.html Roles of Hooks 공식 문서}
-     * react-hooks/exhaustive-deps : useEffect 안에서 사용하는 함수나 변수를 dependency로 등록하지 않았을 때 경고 발생
      */
     'react/destructuring-assignment': 'warn',
     'react/jsx-curly-brace-presence': 'warn',
@@ -350,15 +350,16 @@ module.exports = {
       },
     ],
     'react/static-property-placement': 'warn',
+    /**
+     * Eslint-plugin-react-hooks rules
+     * {@link https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks}
+     *
+     * react-hooks/rules-of-hooks : react hooks 공식 문서에서 제공하는 규칙을 준수하도록 강제. {@link https://legacy.reactjs.org/docs/hooks-rules.html Roles of Hooks}
+     * react-hooks/exhaustive-deps : useEffect 안에서 사용하는 함수나 변수를 dependency로 등록하지 않았을 때 경고 발생
+     */
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': [
-      'warn',
-      // {
-      //   additionHooks: '(useRecoilCallback|useRecoilTransaction_UNSTABLE)', // recoil 사용 시 필요
-      // },
-    ],
+    'react-hooks/exhaustive-deps': 'off',
   },
-
   settings: {
     /**
      * Eslint-plugin-import resolvers

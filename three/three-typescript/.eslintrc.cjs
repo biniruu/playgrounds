@@ -13,43 +13,17 @@ module.exports = {
    * Extends
    *
    * eslint:recommended : eslint 추천 rule set
-   * plugin:@typescript-eslint/recommended-type-checked : 타입스크립트 추천 룰셋 {@link https://typescript-eslint.io/linting/typed-linting/}
+   * plugin:@typescript-eslint/recommended-requiring-type-checking : 타입스크립트 추천 룰셋 {@link https://typescript-eslint.io/linting/typed-linting/}
    * plugin:import/recommended : eslint-plugin-import 추천 rule set
    * plugin:import/typescript : eslint-plugin-import 플러그인
    * plugin:prettier/recommended : eslint-config-prettier 추천 rule set
    */
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended-type-checked',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:import/recommended',
     'plugin:import/typescript',
     'plugin:prettier/recommended',
-  ],
-  overrides: [
-    {
-      /**
-       * Jest
-       *
-       * plugin:jest/recommended : eslint-plugin-jest 추천 rule set
-       */
-      extends: ['plugin:jest/recommended'],
-      files: ['*.spec.js', '*.spec.ts', '*.test.js', '*.test.ts'],
-      rules: {
-        /**
-         * Rules
-         * {@link https://github.com/jest-community/eslint-plugin-jest#rules}
-         */
-      },
-    },
-    {
-      /**
-       * TS Configs
-       *
-       * plugin:@typescript-eslint/disable-type-checked : turn off type-aware linting on specific subsets of files with a disabled-type-checked config {@link https://typescript-eslint.io/linting/typed-linting/#how-can-i-disable-type-aware-linting-for-a-subset-of-files}
-       */
-      files: ['*.js', '*.cjs'],
-      extends: ['plugin:@typescript-eslint/disable-type-checked'],
-    },
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -94,7 +68,9 @@ module.exports = {
      * prefer-rest-params : 함수의 parameter에서 arguments 객체 대신 rest parameter를 사용하도록 강제. e.g. function (...args) {}
      * quotes : 따옴표를 작은따옴표, 큰따옴표, 백틱 중 한 가지만 사용하도록 강제
      * semi : 세미콜론 사용 여부. 'never' 옵션은 semicolon before self-invoking function을 제외한 모든 세미콜론 사용 금지
-     * sort-imports : import 정렬. ignoreDeclarationSort는 항상 true로 할 것. false로 하면 import 정렬 관련 경고가 발생하는데, 이 경고를 해결할 방법이 없다.
+     * sort-imports : import 정렬
+     * sort-imports > ignoreCase의 값은 항상 default값(false)으로 놔둘 것. true로 했을 때 가끔 다른 import 정렬 관련 rule과 충돌 발생
+     * sort-imports > ignoreDeclarationSort는 항상 true로 할 것. false로 하면 import 정렬 관련 경고 발생 시 해결 불가
      * space-before-function-paren : 함수 선언 시 함수명과 괄호 사이에 간격 추가를 강제
      */
     'array-bracket-spacing': 'warn',
@@ -148,9 +124,7 @@ module.exports = {
       'warn',
       {
         allowSeparatedGroups: true,
-        ignoreCase: true,
         ignoreDeclarationSort: true,
-        ignoreMemberSort: true,
       },
     ],
     'space-before-function-paren': [
@@ -173,7 +147,7 @@ module.exports = {
      * no-unsafe-call
      * no-unsafe-member-access
      * no-unused-vars : eslint에서 제공하는 no-unused-vars와 동일. no-unused-vars를 비활성화 한 후에 사용할 것
-     * no-var-requires : require 문을 변수에 할당 금지. 특정 모듈 문법에 구애 받지 않는 상황이라면 비활성화 할 것
+     * no-var-requires
      * restrict-plus-operands
      * restrict-template-expressions
      * space-before-function-paren : *공식 문서에서는 사용하지 말 것을 적극 권고한다* space-before-function-paren과 동일. space-before-function-paren을 비활성화 한 후에 사용할 것
@@ -204,7 +178,7 @@ module.exports = {
         args: 'all',
       },
     ],
-    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-var-requires': 'error',
     '@typescript-eslint/restrict-plus-operands': 'warn',
     '@typescript-eslint/restrict-template-expressions': 'warn',
     '@typescript-eslint/space-before-function-paren': [
@@ -231,7 +205,9 @@ module.exports = {
      * newline-after-import : import 다음에 한 줄 띄기
      * no-anonymous-default-export : 익명 default export 금지
      * no-unresolved : import한 파일/모듈이 unresolved 되는 일이 없도록 방지
-     * order : import 자동 정렬. warnOnUnassignedImports는 항상 default값(false)로 놔둘 것. true로 할 경우 import 정렬 관련 경고가 발생하는데, 이 문제는 import/order 또는 sort-import 설정만으로는 해결 불가
+     * order : import 자동 정렬
+     * order > warnOnUnassignedImports는 항상 default값(false)으로 놔둘 것. true로 할 경우 import 정렬 관련 경고가 발생하는데, 이 문제는 import/order 또는 sort-import 설정만으로는 해결 불가
+     * order > caseInsensitive의 값은 항상 default값(false)으로 놔둘 것. true로 했을 때 가끔 다른 import 정렬 관련 rule과 충돌 발생
      */
     'import/newline-after-import': 'warn',
     'import/no-anonymous-default-export': [
@@ -245,7 +221,10 @@ module.exports = {
     'import/order': [
       'warn',
       {
-        // alphabetize: { caseInsensitive: true, order: 'asc', orderImportKind: 'asc' },
+        alphabetize: {
+          order: 'asc',
+          orderImportKind: 'asc',
+        },
         'newlines-between': 'always',
       },
     ],
@@ -262,15 +241,6 @@ module.exports = {
       node: {
         extensions: ['*.js', '*.jsx', '*.ts', '*.tsx'],
       },
-    },
-    /**
-     * Jest version setting
-     * {@link https://github.com/jest-community/eslint-plugin-jest#jest-version-setting}
-     *
-     * fetch the installed version of Jest
-     */
-    jest: {
-      version: require('jest/package.json').version,
     },
   },
 }

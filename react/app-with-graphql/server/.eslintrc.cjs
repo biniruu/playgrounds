@@ -68,7 +68,9 @@ module.exports = {
      * prefer-rest-params : 함수의 parameter에서 arguments 객체 대신 rest parameter를 사용하도록 강제. e.g. function (...args) {}
      * quotes : 따옴표를 작은따옴표, 큰따옴표, 백틱 중 한 가지만 사용하도록 강제
      * semi : 세미콜론 사용 여부. 'never' 옵션은 semicolon before self-invoking function을 제외한 모든 세미콜론 사용 금지
-     * sort-imports : import 정렬. ignoreDeclarationSort는 항상 true로 할 것. false로 하면 import 정렬 관련 경고가 발생하는데, 이 경고를 해결할 방법이 없다.
+     * sort-imports : import 정렬
+     * sort-imports > ignoreCase의 값은 항상 default값(false)으로 놔둘 것. true로 했을 때 가끔 다른 import 정렬 관련 rule과 충돌 발생
+     * sort-imports > ignoreDeclarationSort는 항상 true로 할 것. false로 하면 import 정렬 관련 경고 발생 시 해결 불가
      * space-before-function-paren : 함수 선언 시 함수명과 괄호 사이에 간격 추가를 강제
      */
     'array-bracket-spacing': 'warn',
@@ -122,9 +124,7 @@ module.exports = {
       'warn',
       {
         allowSeparatedGroups: true,
-        ignoreCase: true,
         ignoreDeclarationSort: true,
-        ignoreMemberSort: true,
       },
     ],
     'space-before-function-paren': [
@@ -205,7 +205,9 @@ module.exports = {
      * newline-after-import : import 다음에 한 줄 띄기
      * no-anonymous-default-export : 익명 default export 금지
      * no-unresolved : import한 파일/모듈이 unresolved 되는 일이 없도록 방지
-     * order : import 자동 정렬. warnOnUnassignedImports는 항상 default값(false)로 놔둘 것. true로 할 경우 import 정렬 관련 경고가 발생하는데, 이 문제는 import/order 또는 sort-import 설정만으로는 해결 불가
+     * order : import 자동 정렬
+     * order > warnOnUnassignedImports는 항상 default값(false)으로 놔둘 것. true로 할 경우 import 정렬 관련 경고가 발생하는데, 이 문제는 import/order 또는 sort-import 설정만으로는 해결 불가
+     * order > caseInsensitive의 값은 항상 default값(false)으로 놔둘 것. true로 했을 때 가끔 다른 import 정렬 관련 rule과 충돌 발생
      */
     'import/newline-after-import': 'warn',
     'import/no-anonymous-default-export': [
@@ -220,7 +222,6 @@ module.exports = {
       'warn',
       {
         alphabetize: {
-          caseInsensitive: true,
           order: 'asc',
           orderImportKind: 'asc',
         },
