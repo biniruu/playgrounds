@@ -276,7 +276,7 @@ module.exports = {
       },
     ],
     'react/no-unused-state': 'warn',
-    'react/prop-types': 'warn',
+    'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/self-closing-comp': [
       'warn',
@@ -287,12 +287,7 @@ module.exports = {
     ],
     'react/static-property-placement': 'warn',
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': [
-      'warn',
-      // {
-      //   additionHooks: '(useRecoilCallback|useRecoilTransaction_UNSTABLE)', // recoil 사용 시 필요
-      // },
-    ],
+    'react-hooks/exhaustive-deps': 'off',
   },
   settings: {
     /**
