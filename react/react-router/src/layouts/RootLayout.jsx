@@ -1,25 +1,33 @@
-import { useEffect, useState } from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { useLayoutEffect, useState } from 'react'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 
+function PrivateRoute({ isLoggedIn }) {
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  useLayoutEffect(() => {
+    const paths = ['/about', '/contact']
+    const needsAuth = !isLoggedIn && paths.includes(location.pathname)
+
+    if (needsAuth) {
+      navigate('/login')
+    }
+  }, [location])
+
+  return <Outlet context={{ isLoggedIn }} />
+}
+
 function RootLayout() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    if (!isLoggedIn) {
-      navigate('/auth')
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [navigate])
 
   return (
     <>
       <Header />
       <main style={{ marginTop: '2rem', marginBottom: '3rem' }}>
-        <Outlet />
+        <PrivateRoute isLoggedIn={isLoggedIn} />
       </main>
       <Footer />
     </>
