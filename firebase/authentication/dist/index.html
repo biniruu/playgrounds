@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authentication</title>
+    <style>
+      .submit-email-account {
+        text-transform: capitalize;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Authentication with firebase</h1>
+    <h2>Email</h2>
+    <form onclick="handleSubmitWithEmail()">
+      <input type="email" name="email" id="email" placeholder="email" required />
+      <input type="password" name="password" id="password" placeholder="password" required />
+      <button type="submit" value="signin" class="submit-email-account">sign up</button>
+    </form>
+    <script src="main.js"></script>
+  </body>
+</html>
