@@ -30,7 +30,7 @@
   "editor.definitionLinkOpensInPeek": true,
   "editor.fontFamily": "D2Coding, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true, // ligature 폰트 사용. false로 설정하면 font family에 ligature 폰트를 추가해도 반영되지 않는다
-  "editor.fontSize": 16,
+  "editor.fontSize": 14,
   "editor.formatOnPaste": true, // 붙여넣기 할 때마다 포맷에 맞춰 코드 변경
   "editor.formatOnSave": true, // 저장할 때마다 포맷에 맞춰 코드 변경
   "editor.hover.delay": 600,
@@ -142,7 +142,7 @@
   "terminal.integrated.defaultProfile.linux": "/bin/zsh",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.fontFamily": "D2Coding, Menlo, Monaco, 'Courier New', monospace",
-  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.fontSize": 14,
   "terminal.integrated.lineHeight": 1.4,
   "testExplorer.useNativeTesting": true,
   "todo-tree.tree.showScanModeButton": false,
