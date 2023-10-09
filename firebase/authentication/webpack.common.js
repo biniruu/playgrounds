@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/client/client.ts'),
+  entry: path.resolve(__dirname, 'src/index.ts'),
   module: {
     rules: [
       {
@@ -9,16 +10,11 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
       },
-      {
-        exclude: /node_modules/,
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
-      },
     ],
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist/client'),
+    path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
