@@ -1,14 +1,6 @@
 # files
-**/.eslintrc.cjs
-**/.prettierrc.cjs
-**/.stylelintrc.cjs
-**/jest.config.js
 **/tsconfig.json
-# **/webpack.common.js
-# **/webpack.prod.js
-# **/webpack.dev.js
-**/tailwind.config.js
 
 # paths
-**/node_modules/*
-src/dist/*
+node_modules/
+dist/

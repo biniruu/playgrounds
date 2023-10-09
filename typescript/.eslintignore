@@ -6,5 +6,5 @@
 **/tsconfig.json
 
 # paths
-**/node_modules/*
-src/dist/*
+node_modules/
+dist/
