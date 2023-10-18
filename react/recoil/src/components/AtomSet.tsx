@@ -5,9 +5,8 @@ import text from 'recoil/text'
 function AtomSet() {
   const setText = useSetRecoilState(text)
 
-  const handleChange = (e: ChangeEvent) => {
-    const target = e.target as typeof e.target & { text: { value: string } }
-    const value = target.text.value
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
     setText(value)
   }
 
