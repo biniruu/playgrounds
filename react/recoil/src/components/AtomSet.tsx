@@ -1,14 +1,14 @@
 import { ChangeEvent } from 'react'
 import { useSetRecoilState } from 'recoil'
-import atomTestAtom from 'recoil/atomTest'
+import text from 'recoil/text'
 
 function AtomSet() {
-  const setAtomTest = useSetRecoilState(atomTestAtom)
+  const setText = useSetRecoilState(text)
 
   const handleChange = (e: ChangeEvent) => {
     const target = e.target as typeof e.target & { text: { value: string } }
     const value = target.text.value
-    setAtomTest(value)
+    setText(value)
   }
 
   return (
