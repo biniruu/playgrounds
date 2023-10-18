@@ -1,6 +1,6 @@
 import { selector } from 'recoil'
 
-import textAtom from './atom'
+import textAtom from './text'
 
 const textWithSuffix = selector({
   key: 'textWithSuffix',

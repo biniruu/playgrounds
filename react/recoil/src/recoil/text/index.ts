@@ -1,4 +1,4 @@
-import textAtom from './atom'
+import textAtom from './text'
 import withSuffix from './withSuffix'
 
 export { withSuffix }
