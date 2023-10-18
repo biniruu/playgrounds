@@ -14,7 +14,9 @@ module.exports = {
    *
    * eslint:recommended : eslint 추천 rule set
    * next/core-web-vitals : create next app으로 프로젝트 시작 시 기본 설정
-   * plugin:@typescript-eslint/recommended-requiring-type-checking : 타입스크립트 추천 룰셋 {@link https://typescript-eslint.io/linting/typed-linting/}
+   * plugin:@typescript-eslint/recommended-type-checked : typescript-eslint v6 이상 추천 룰셋
+   * {@link https://typescript-eslint.io/linting/typed-linting/}
+   * {@link https://typescript-eslint.io/blog/announcing-typescript-eslint-v6/#user-facing-breaking-changes}
    * plugin:import/recommended : eslint-plugin-import 추천 rule set
    * plugin:import/typescript : eslint-plugin-import 플러그인
    * plugin:jsx-a11y/recommended : 웹 접근성 관련 추천 rule set
@@ -26,7 +28,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'next/core-web-vitals',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:import/recommended',
     'plugin:import/typescript',
     'plugin:jsx-a11y/recommended',
@@ -38,18 +40,13 @@ module.exports = {
   overrides: [
     {
       /**
-       * Jest
+       * Specifying TSConfigs
+       * {@link https://typescript-eslint.io/linting/typed-linting/#specifying-tsconfigs}
        *
-       * plugin:jest/recommended : eslint-plugin-jest 추천 rule set
+       * plugin:@typescript-eslint/disable-type-checked : turn off type-aware linting on specific subsets of files with a disabled-type-checked config {@link https://typescript-eslint.io/linting/typed-linting/#how-can-i-disable-type-aware-linting-for-a-subset-of-files}
        */
-      extends: ['plugin:jest/recommended'],
-      files: ['*.spec.js', '*.spec.ts', '*.test.js', '*.test.ts'],
-      rules: {
-        /**
-         * Rules
-         * {@link https://github.com/jest-community/eslint-plugin-jest#rules}
-         */
-      },
+      files: ['*.js', '*.cjs', '*.config.ts'],
+      extends: ['plugin:@typescript-eslint/disable-type-checked'],
     },
   ],
   parser: '@typescript-eslint/parser',
@@ -64,8 +61,7 @@ module.exports = {
     project: true,
     tsconfigRootDir: __dirname,
   },
-  root: true,
-  // 현재 설정 파일이 root임을 명시하는 옵션. true로 설정하면 상위 설정 파일 찾기를 여기서 멈춘다.
+  root: true, // 현재 설정 파일이 root임을 명시하는 옵션. true로 설정하면 상위 설정 파일 찾기를 여기서 멈춘다.
   rules: {
     /**
      * Rules reference
@@ -175,7 +171,7 @@ module.exports = {
      * no-unsafe-call
      * no-unsafe-member-access
      * no-unused-vars : eslint에서 제공하는 no-unused-vars와 동일. no-unused-vars를 비활성화 한 후에 사용할 것
-     * no-var-requires
+     * no-var-requires : require 문을 변수에 할당 금지. 특정 모듈 문법에 구애 받지 않는 상황이라면 비활성화 할 것
      * restrict-plus-operands
      * restrict-template-expressions
      * space-before-function-paren : *공식 문서에서는 사용하지 말 것을 적극 권고한다* space-before-function-paren과 동일. space-before-function-paren을 비활성화 한 후에 사용할 것
@@ -206,7 +202,7 @@ module.exports = {
         args: 'all',
       },
     ],
-    '@typescript-eslint/no-var-requires': 'error',
+    '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/restrict-plus-operands': 'warn',
     '@typescript-eslint/restrict-template-expressions': 'warn',
     '@typescript-eslint/space-before-function-paren': [
@@ -230,19 +226,35 @@ module.exports = {
      * Eslint-plugin-import rules
      * {@link https://github.com/import-js/eslint-plugin-import#rules}
      *
+     * consistent-type-specifier-style : type-only import를 inline과 top-level 중 하나로만 사용하도록 강제
      * newline-after-import : import 다음에 한 줄 띄기
      * no-anonymous-default-export : 익명 default export 금지
+     * no-duplicates : 동일한 모듈에서 import를 여러 번 할 경우 모든 import를 inline 또는 top-level로 강제
+     * no-unresolved : import한 파일/모듈이 unresolved 되는 일이 없도록 방지inline 또는 top-level로 강제
      * no-unresolved : import한 파일/모듈이 unresolved 되는 일이 없도록 방지
      * order : import 자동 정렬
      * order > warnOnUnassignedImports는 항상 default값(false)으로 놔둘 것. true로 할 경우 import 정렬 관련 경고가 발생하는데, 이 문제는 import/order 또는 sort-import 설정만으로는 해결 불가
      * order > caseInsensitive의 값은 항상 default값(false)으로 놔둘 것. true로 했을 때 가끔 다른 import 정렬 관련 rule과 충돌 발생
      */
+    'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
     'import/newline-after-import': 'warn',
     'import/no-anonymous-default-export': [
       'warn',
       {
         allowArray: true,
         allowObject: true,
+      },
+    ],
+    'import/no-duplicates': [
+      'error',
+      {
+        'prefer-inline': true,
+      },
+    ],
+    'import/no-unresolved': 'off',
+      'error',
+      {
+        'prefer-inline': true,
       },
     ],
     'import/no-unresolved': 'off',
@@ -372,15 +384,6 @@ module.exports = {
       node: {
         extensions: ['*.js', '*.jsx', '*.ts', '*.tsx'],
       },
-    },
-    /**
-     * Jest version setting
-     * {@link https://github.com/jest-community/eslint-plugin-jest#jest-version-setting}
-     *
-     * fetch the installed version of Jest
-     */
-    jest: {
-      version: require('jest/package.json').version,
     },
     /**
      * Eslint-plugin-react configuration

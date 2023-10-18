@@ -2,4 +2,4 @@
 **/tsconfig.json
 
 # paths
-node_modules/*
+node_modules/

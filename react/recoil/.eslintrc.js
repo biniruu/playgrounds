@@ -4,12 +4,16 @@
  */
 
 module.exports = {
-  env: { browser: true, es6: true, node: true },
+  env: {
+    browser: true,
+    es6: true,
+    node: true,
+  },
   /**
    * Extends
    *
    * eslint:recommended : eslint 추천 rule set
-   * plugin:@typescript-eslint/recommended-requiring-type-checking : 타입스크립트 추천 룰셋 {@link https://typescript-eslint.io/linting/typed-linting/}
+   * plugin:@typescript-eslint/recommended : typescript-eslint v5 추천 rule set
    * plugin:import/recommended : eslint-plugin-import 추천 rule set
    * plugin:import/typescript : eslint-plugin-import 플러그인
    * plugin:jsx-a11y/recommended : 웹 접근성 관련 추천 rule set
@@ -21,7 +25,7 @@ module.exports = {
    */
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:@typescript-eslint/recommended',
     'plugin:import/recommended',
     'plugin:import/typescript',
     'plugin:jsx-a11y/recommended',
@@ -47,16 +51,6 @@ module.exports = {
          * {@link https://github.com/jest-community/eslint-plugin-jest#rules}
          */
       },
-    },
-    {
-      /**
-       * Specifying TSConfigs
-       * {@link https://typescript-eslint.io/linting/typed-linting/#specifying-tsconfigs}
-       *
-       * plugin:@typescript-eslint/disable-type-checked : turn off type-aware linting on specific subsets of files with a disabled-type-checked config {@link https://typescript-eslint.io/linting/typed-linting/#how-can-i-disable-type-aware-linting-for-a-subset-of-files}
-       */
-      files: ['*.js', '*.cjs', '*.config.ts'],
-      extends: ['plugin:@typescript-eslint/disable-type-checked'],
     },
   ],
   parser: '@typescript-eslint/parser',
@@ -140,12 +134,7 @@ module.exports = {
     'no-new-object': 'warn',
     'no-undef': 'error',
     'no-underscore-dangle': 'error',
-    'no-unused-vars': [
-      'error',
-      {
-        args: 'all',
-      },
-    ],
+    'no-unused-vars': 'off',
     'no-useless-escape': 'warn',
     'no-var': 'error',
     'object-curly-spacing': ['warn', 'always'],
@@ -186,7 +175,7 @@ module.exports = {
      * no-unsafe-call
      * no-unsafe-member-access
      * no-unused-vars : eslint에서 제공하는 no-unused-vars와 동일. no-unused-vars를 비활성화 한 후에 사용할 것
-     * no-var-requires
+     * no-var-requires : require 문을 변수에 할당 금지. 특정 모듈 문법에 구애 받지 않는 상황이라면 비활성화 할 것
      * restrict-plus-operands
      * restrict-template-expressions
      * space-before-function-paren : *공식 문서에서는 사용하지 말 것을 적극 권고한다* space-before-function-paren과 동일. space-before-function-paren을 비활성화 한 후에 사용할 것
@@ -217,7 +206,7 @@ module.exports = {
         args: 'all',
       },
     ],
-    '@typescript-eslint/no-var-requires': 'error',
+    '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/restrict-plus-operands': 'warn',
     '@typescript-eslint/restrict-template-expressions': 'warn',
     '@typescript-eslint/space-before-function-paren': [
@@ -241,19 +230,28 @@ module.exports = {
      * Eslint-plugin-import rules
      * {@link https://github.com/import-js/eslint-plugin-import#rules}
      *
+     * consistent-type-specifier-style : type-only import를 inline과 top-level 중 하나로만 사용하도록 강제
      * newline-after-import : import 다음에 한 줄 띄기
      * no-anonymous-default-export : 익명 default export 금지
+     * no-duplicates : 동일한 모듈에서 import를 여러 번 할 경우 모든 import를 inline 또는 top-level로 강제
      * no-unresolved : import한 파일/모듈이 unresolved 되는 일이 없도록 방지
      * order : import 자동 정렬
      * order > warnOnUnassignedImports는 항상 default값(false)으로 놔둘 것. true로 할 경우 import 정렬 관련 경고가 발생하는데, 이 문제는 import/order 또는 sort-import 설정만으로는 해결 불가
      * order > caseInsensitive의 값은 항상 default값(false)으로 놔둘 것. true로 했을 때 가끔 다른 import 정렬 관련 rule과 충돌 발생
      */
+    'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
     'import/newline-after-import': 'warn',
     'import/no-anonymous-default-export': [
       'warn',
       {
         allowArray: true,
         allowObject: true,
+      },
+    ],
+    'import/no-duplicates': [
+      'error',
+      {
+        'prefer-inline': true,
       },
     ],
     'import/no-unresolved': 'off',
@@ -361,6 +359,15 @@ module.exports = {
       },
     ],
     'react/static-property-placement': 'warn',
+    /**
+     * Eslint-plugin-react-hooks rules
+     * {@link https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks}
+     *
+     * react-hooks/rules-of-hooks : react hooks 공식 문서에서 제공하는 규칙을 준수하도록 강제. {@link https://legacy.reactjs.org/docs/hooks-rules.html Roles of Hooks}
+     * react-hooks/exhaustive-deps : useEffect 안에서 사용하는 함수나 변수를 dependency로 등록하지 않았을 때 경고 발생
+     */
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'off',
   },
   settings: {
     /**

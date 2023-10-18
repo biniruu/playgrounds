@@ -13,19 +13,36 @@ module.exports = {
    * Extends
    *
    * eslint:recommended : eslint 추천 rule set
-   * plugin:@typescript-eslint/recommended-requiring-type-checking : 타입스크립트 추천 룰셋 {@link https://typescript-eslint.io/linting/typed-linting/}
+   * plugin:@typescript-eslint/recommended-type-checked : typescript-eslint v6 이상 추천 룰셋
+   * {@link https://typescript-eslint.io/linting/typed-linting/}
+   * {@link https://typescript-eslint.io/blog/announcing-typescript-eslint-v6/#user-facing-breaking-changes}
    * plugin:import/recommended : eslint-plugin-import 추천 rule set
    * plugin:import/typescript : eslint-plugin-import 플러그인
    * plugin:prettier/recommended : eslint-config-prettier 추천 rule set
    */
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:import/recommended',
     'plugin:import/typescript',
     'plugin:prettier/recommended',
   ],
   overrides: [
+    {
+      /**
+       * Jest
+       *
+       * plugin:jest/recommended : eslint-plugin-jest 추천 rule set
+       */
+      extends: ['plugin:jest/recommended'],
+      files: ['*.spec.js', '*.spec.ts', '*.test.js', '*.test.ts'],
+      rules: {
+        /**
+         * Rules
+         * {@link https://github.com/jest-community/eslint-plugin-jest#rules}
+         */
+      },
+    },
     {
       /**
        * Specifying TSConfigs
@@ -160,7 +177,7 @@ module.exports = {
      * no-unsafe-call
      * no-unsafe-member-access
      * no-unused-vars : eslint에서 제공하는 no-unused-vars와 동일. no-unused-vars를 비활성화 한 후에 사용할 것
-     * no-var-requires
+     * no-var-requires : require 문을 변수에 할당 금지. 특정 모듈 문법에 구애 받지 않는 상황이라면 비활성화 할 것
      * restrict-plus-operands
      * restrict-template-expressions
      * space-before-function-paren : *공식 문서에서는 사용하지 말 것을 적극 권고한다* space-before-function-paren과 동일. space-before-function-paren을 비활성화 한 후에 사용할 것
@@ -191,7 +208,7 @@ module.exports = {
         args: 'all',
       },
     ],
-    '@typescript-eslint/no-var-requires': 'error',
+    '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/restrict-plus-operands': 'warn',
     '@typescript-eslint/restrict-template-expressions': 'warn',
     '@typescript-eslint/space-before-function-paren': [
@@ -233,7 +250,12 @@ module.exports = {
         allowObject: true,
       },
     ],
-    'import/no-duplicates': ['error', { 'prefer-inline': true }],
+    'import/no-duplicates': [
+      'error',
+      {
+        'prefer-inline': true,
+      },
+    ],
     'import/no-unresolved': 'off',
     'import/order': [
       'warn',
@@ -258,6 +280,15 @@ module.exports = {
       node: {
         extensions: ['*.js', '*.jsx', '*.ts', '*.tsx'],
       },
+    },
+    /**
+     * Jest version setting
+     * {@link https://github.com/jest-community/eslint-plugin-jest#jest-version-setting}
+     *
+     * fetch the installed version of Jest
+     */
+    jest: {
+      version: require('jest/package.json').version,
     },
   },
 }

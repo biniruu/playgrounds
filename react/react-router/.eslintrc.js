@@ -161,19 +161,28 @@ module.exports = {
      * Eslint-plugin-import rules
      * {@link https://github.com/import-js/eslint-plugin-import#rules}
      *
+     * consistent-type-specifier-style : type-only import를 inline과 top-level 중 하나로만 사용하도록 강제
      * newline-after-import : import 다음에 한 줄 띄기
      * no-anonymous-default-export : 익명 default export 금지
+     * no-duplicates : 동일한 모듈에서 import를 여러 번 할 경우 모든 import를 inline 또는 top-level로 강제
      * no-unresolved : import한 파일/모듈이 unresolved 되는 일이 없도록 방지
      * order : import 자동 정렬
      * order > warnOnUnassignedImports는 항상 default값(false)로 놔둘 것. true로 할 경우 import 정렬 관련 경고가 발생하는데, 이 문제는 import/order 또는 sort-import 설정만으로는 해결 불가
      * order > caseInsensitive의 값은 항상 eslint 기본 rule 중 sort-imports > ignoreCase와 동일하게 맞출 것
      */
+    'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
     'import/newline-after-import': 'warn',
     'import/no-anonymous-default-export': [
       'warn',
       {
         allowArray: true,
         allowObject: true,
+      },
+    ],
+    'import/no-duplicates': [
+      'error',
+      {
+        'prefer-inline': true,
       },
     ],
     'import/no-unresolved': 'off',

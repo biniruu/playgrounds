@@ -1,8 +1,4 @@
 # files
-**/.eslintrc.cjs
-**/.prettierrc.cjs
-**/.stylelintrc.cjs
-**/jest.config.js
 **/tsconfig.json
 
 # paths
