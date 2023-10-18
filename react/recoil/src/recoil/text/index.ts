@@ -1,6 +1,7 @@
 import textAtom from './text'
+import withPrefix from './withPrefix'
 import withSuffix from './withSuffix'
 
-export { withSuffix }
+export { withPrefix, withSuffix }
 
 export default textAtom
