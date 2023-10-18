@@ -1,12 +1,14 @@
 import AtomGet from 'components/AtomGet'
 import AtomSet from 'components/AtomSet'
+import SelectorGet from 'components/SelectorGet'
 import './App.css'
 
 function App() {
   return (
     <>
-      <AtomSet></AtomSet>
-      <AtomGet></AtomGet>
+      <AtomSet />
+      <AtomGet />
+      <SelectorGet />
     </>
   )
 }
