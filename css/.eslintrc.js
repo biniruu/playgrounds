@@ -13,30 +13,17 @@ module.exports = {
    * Extends
    *
    * eslint:recommended : eslint 추천 rule set
-   * plugin:@typescript-eslint/recommended-requiring-type-checking : 타입스크립트 추천 룰셋 {@link https://typescript-eslint.io/linting/typed-linting/}
    * plugin:import/recommended : eslint-plugin-import 추천 rule set
    * plugin:import/typescript : eslint-plugin-import 플러그인
    * plugin:prettier/recommended : eslint-config-prettier 추천 rule set
    */
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:import/recommended',
     'plugin:import/typescript',
     'plugin:prettier/recommended',
   ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    /**
-     * @typescript-eslint/parser
-     * {@link https://typescript-eslint.io/packages/parser}
-     *
-     * project : tsconfig.json 경로 설정. true로 설정하면 각 소스파일에서 가장 가까운 경로에 있는 tsconfig.json 파일을 자동으로 찾는다.
-     * tsconfigRootDir : project에서 제공한 tsconfig의 상대 경로에 대한 루트 디렉토리 제공
-     */
-    project: true,
-    tsconfigRootDir: __dirname,
-  },
+  parser: '@babel/eslint-parser',
   root: true, // 현재 설정 파일이 root임을 명시하는 옵션. true로 설정하면 상위 설정 파일 찾기를 여기서 멈춘다.
   rules: {
     /**
@@ -136,60 +123,6 @@ module.exports = {
       },
     ],
     /**
-     * Typescript-eslint supported rules
-     * {@link https://typescript-eslint.io/rules/}
-     *
-     * ban-ts-comment : 설명을 추가하는 조건으로 @ts-expect-error, @ts-ignore, @ts-nocheck, @ts-check 주석을 허용
-     * no-explicit-any
-     * no-floating-promises
-     * no-unsafe-argument
-     * no-unsafe-assignment : any 타입 사용 시 알림을 띄움
-     * no-unsafe-call
-     * no-unsafe-member-access
-     * no-unused-vars : eslint에서 제공하는 no-unused-vars와 동일. no-unused-vars를 비활성화 한 후에 사용할 것
-     * no-var-requires : require 문을 변수에 할당 금지. 특정 모듈 문법에 구애 받지 않는 상황이라면 비활성화 할 것
-     * restrict-plus-operands
-     * restrict-template-expressions
-     * space-before-function-paren : *공식 문서에서는 사용하지 말 것을 적극 권고한다* space-before-function-paren과 동일. space-before-function-paren을 비활성화 한 후에 사용할 것
-     */
-    '@typescript-eslint/ban-ts-comment': [
-      'error',
-      {
-        'ts-expect-error': 'allow-with-description',
-        'ts-ignore': 'allow-with-description',
-        'ts-nocheck': 'allow-with-description',
-        'ts-check': 'allow-with-description',
-      },
-    ],
-    '@typescript-eslint/no-explicit-any': [
-      'error',
-      {
-        ignoreRestArgs: true,
-      },
-    ],
-    '@typescript-eslint/no-floating-promises': 'warn',
-    '@typescript-eslint/no-unsafe-argument': 'error',
-    '@typescript-eslint/no-unsafe-assignment': 'error',
-    '@typescript-eslint/no-unsafe-call': 'error',
-    '@typescript-eslint/no-unsafe-member-access': 'error',
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        args: 'all',
-      },
-    ],
-    '@typescript-eslint/no-var-requires': 'off',
-    '@typescript-eslint/restrict-plus-operands': 'warn',
-    '@typescript-eslint/restrict-template-expressions': 'warn',
-    '@typescript-eslint/space-before-function-paren': [
-      'warn',
-      {
-        anonymous: 'always',
-        named: 'never',
-        asyncArrow: 'always',
-      },
-    ],
-    /**
      * Eslint-config-prettier options
      * {@link https://github.com/prettier/eslint-plugin-prettier#options}
      *
@@ -248,8 +181,17 @@ module.exports = {
      */
     'import/resolver': {
       node: {
-        extensions: ['*.js', '*.jsx', '*.ts', '*.tsx'],
+        extensions: ['*.js', '*.jsx'],
       },
+    },
+    /**
+     * Jest version setting
+     * {@link https://github.com/jest-community/eslint-plugin-jest#jest-version-setting}
+     *
+     * fetch the installed version of Jest
+     */
+    jest: {
+      version: require('jest/package.json').version,
     },
   },
 }
