@@ -9,11 +9,11 @@ function SelectorGet() {
     <div>
       <h1>SelectorGet</h1>
       <dl>
-        <dt>text with suffix</dt>
+        <dt className="font-bold">text with suffix</dt>
         <dd>{textWithSuffix}</dd>
       </dl>
       <dl>
-        <dt>text with prefix</dt>
+        <dt className="font-bold">text with prefix</dt>
         <dd>{textWithPrefix}</dd>
       </dl>
     </div>
