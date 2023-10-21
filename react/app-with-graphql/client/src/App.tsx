@@ -1,4 +1,4 @@
-import { Box, ChakraProvider, Code, Grid, Link, Text, theme, VStack } from '@chakra-ui/react'
+import { Box, ChakraProvider, Code, Grid, Link, Text, VStack, theme } from '@chakra-ui/react'
 
 import { ColorModeSwitcher } from './ColorModeSwitcher'
 import { Logo } from './Logo'
