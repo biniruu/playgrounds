@@ -36,8 +36,10 @@
     "@types/react": "^18.2.28",
     "@types/react-dom": "^18.2.13",
     "@types/react-test-renderer": "^18.0.3",
+    "autoprefixer": "^10.4.16",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
+    "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "postcss-html": "^1.5.0",
     "postcss-syntax": "^0.36.2",
@@ -48,6 +50,7 @@
     "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-order": "^6.0.3",
+    "tailwindcss": "^3.3.3",
     "ts-jest": "^29.1.1",
     "typescript": "^5.2.2"
   }

@@ -15,20 +15,8 @@ module.exports = {
       customSyntax: 'postcss-html',
       files: ['**/*.{html,jsx,tsx}'],
     },
-    // {
-    //   /**
-    //    * PostCSS for styled-components
-    //    *
-    //    * postcss-styled-syntax : styled-components 지원 {@link https://styled-components.com/docs/tooling#stylelint}
-    //    */
-    //   customSyntax: 'postcss-styled-syntax',
-    //   files: ['**/*.{html,jsx,tsx}'],
-    // },
   ],
-  plugins: [
-    // 'stylelint-scss', // scss 사용 시 활성화
-    'stylelint-order',
-  ],
+  plugins: ['stylelint-order'],
   rules: {
     /**
      * Rules

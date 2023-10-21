@@ -21,15 +21,13 @@
 module.exports = {
   syntax: 'postcss-syntax', //  automatically switch the required PostCSS syntax by file extension/source
   plugins: {
-    'postcss-preset-env': {
-      autoprefixer: {
-        // grid: 'autoplace', // ie 10-11 대응 grid layout 속성 prefix
-      },
-      features: {
-        'nesting-rules': true,
-      },
-    },
+    // 'postcss-preset-env': {
+    //   features: {
+    //     'nesting-rules': true,
+    //   },
+    // },
+    autoprefixer: {},
     tailwindcss: {}, // tailwindcss 사용 시 필요
-    ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {}), // production 환경에서 css minify 구현
+    // ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {}), // production 환경에서 css minify 구현
   },
 }
