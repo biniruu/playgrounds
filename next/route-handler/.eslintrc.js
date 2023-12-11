@@ -252,12 +252,6 @@ module.exports = {
       },
     ],
     'import/no-unresolved': 'off',
-      'error',
-      {
-        'prefer-inline': true,
-      },
-    ],
-    'import/no-unresolved': 'off',
     'import/order': [
       'warn',
       {
