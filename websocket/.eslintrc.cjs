@@ -18,14 +18,12 @@ module.exports = {
    * {@link https://typescript-eslint.io/blog/announcing-typescript-eslint-v6/#user-facing-breaking-changes}
    * plugin:import/recommended : eslint-plugin-import 추천 rule set
    * plugin:import/typescript : eslint-plugin-import 플러그인
-   * plugin:prettier/recommended : eslint-config-prettier 추천 rule set
    */
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:import/recommended',
     'plugin:import/typescript',
-    'plugin:prettier/recommended',
   ],
   overrides: [
     {
@@ -191,15 +189,6 @@ module.exports = {
         asyncArrow: 'always',
       },
     ],
-    /**
-     * Eslint-config-prettier options
-     * {@link https://github.com/prettier/eslint-plugin-prettier#options}
-     *
-     * 공식 문서에서는 옵션 설정을 추천하지 않는다. prettier-vscode 확장 프로그램이 .prettierrc 파일을 읽고 이곳에 있는 옵션은 무시하는데, 이 때문에 예상치 못한 문제가 발생할 수도 있기 때문.
-     *
-     * prettier : 이곳에 설정한 옵션은 .prettier 파일에 있는 옵션을 덮어쓴다.
-     */
-    'prettier/prettier': 'warn',
     /**
      * Eslint-plugin-import rules
      * {@link https://github.com/import-js/eslint-plugin-import#rules}
