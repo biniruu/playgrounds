@@ -1,4 +1,9 @@
 {
-  "exec": "ts-node src/index.ts",
-  "ignore": ["dist/*"]
+  "execMap": {
+    "ts": "ts-node"
+  },
+  "ext": "ts",
+  "ignore": ["**/dist/", "**/mode_modules/", "**/*.cjs", "**/*.json", ".gitignore", ".eslintignore", ".prettierignore"],
+  "verbose": true,
+  "watch": ["./client/src", "./server"]
 }
