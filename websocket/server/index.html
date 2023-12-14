@@ -60,6 +60,7 @@
     <form id="form" action="">
       <input id="input" autocomplete="off" />
       <button>Send</button>
+      <button id="toggle-btn">Disconnect</button>
     </form>
     <script src="/socket.io/socket.io.js"></script>
     <script>
@@ -95,6 +96,21 @@
 
       socket.on('greetings', obj => {
         addMsgElem(obj.summer)
+      })
+
+      // for demonstration purposes to show disconnect statement
+      const toggleButton = document.getElementById('toggle-btn')
+
+      toggleButton.addEventListener('click', e => {
+        e.preventDefault()
+
+        if (socket.connected) {
+          toggleButton.innerText = 'Connect'
+          socket.disconnect()
+        } else {
+          toggleButton.innerText = 'Disconnect'
+          socket.connect()
+        }
       })
     </script>
   </body>

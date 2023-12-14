@@ -15,7 +15,9 @@ import {
 const app = express()
 const server = createServer(app)
 
-const io = new Server<ClientToServerEvents, ServerToClientEvents, InterServerEvents, SocketData>(server)
+const io = new Server<ClientToServerEvents, ServerToClientEvents, InterServerEvents, SocketData>(server, {
+  connectionStateRecovery: {},
+})
 // const io = new Server(server)
 
 const path = import.meta.url
@@ -38,6 +40,7 @@ io.on('connection', socket => {
 
   socket.on('chat message', msg => {
     io.emit('chat message', msg)
+    console.log(socket.data)
   })
 
   socket.on('disconnect', () => {
