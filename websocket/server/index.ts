@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { createServer } from 'node:http'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -18,7 +19,6 @@ const server = createServer(app)
 const io = new Server<ClientToServerEvents, ServerToClientEvents, InterServerEvents, SocketData>(server, {
   connectionStateRecovery: {},
 })
-// const io = new Server(server)
 
 const path = import.meta.url
 // eslint-disable-next-line no-underscore-dangle
@@ -31,8 +31,6 @@ app.get('/', (req, res) => {
 
 io.on('connection', socket => {
   console.log('a user connected')
-
-  // io.emit('hello', 'world')
 
   io.emit('greetings', { spring: '🌸', summer: '🏄🏻‍♂️', fall: '🍁', winter: '☃️' })
 
