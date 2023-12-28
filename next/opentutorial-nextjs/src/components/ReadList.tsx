@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useLayoutEffect, useState } from 'react'
 
-import { Data } from '@/app/api/route'
+import { type Data } from '../app/api/route'
 
 function ReadList() {
   const [topics, setTopics] = useState<Data['topics']>([])
