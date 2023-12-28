@@ -1,14 +1,14 @@
 import { useRecoilValue } from 'recoil'
-import textAtom from 'recoil/text'
+import text from 'recoil/text'
 
 function AtomGet() {
-  const text = useRecoilValue(textAtom)
+  const inputValue = useRecoilValue(text)
 
   return (
-    <div>
+    <>
       <h1>AtomGet</h1>
-      <p>{text}</p>
-    </div>
+      <p>{inputValue}</p>
+    </>
   )
 }
 
