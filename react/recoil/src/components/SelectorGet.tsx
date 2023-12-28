@@ -2,21 +2,21 @@ import { useRecoilValue } from 'recoil'
 import { withPrefix, withSuffix } from 'recoil/text'
 
 function SelectorGet() {
-  const textWithSuffix = useRecoilValue(withSuffix)
-  const textWithPrefix = useRecoilValue(withPrefix)
+  const inputValueWithSuffix = useRecoilValue(withSuffix)
+  const inputValueWithPrefix = useRecoilValue(withPrefix)
 
   return (
-    <div>
+    <>
       <h1>SelectorGet</h1>
       <dl>
         <dt className="font-bold">text with suffix</dt>
-        <dd>{textWithSuffix}</dd>
+        <dd>{inputValueWithSuffix}</dd>
       </dl>
       <dl>
         <dt className="font-bold">text with prefix</dt>
-        <dd>{textWithPrefix}</dd>
+        <dd>{inputValueWithPrefix}</dd>
       </dl>
-    </div>
+    </>
   )
 }
 
