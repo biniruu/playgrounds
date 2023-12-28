@@ -1,4 +1,4 @@
-import textAtom from './text'
+import textAtom from './atom'
 import withPrefix from './withPrefix'
 import withSuffix from './withSuffix'
 

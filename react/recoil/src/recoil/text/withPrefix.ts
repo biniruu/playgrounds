@@ -1,6 +1,6 @@
 import { selector } from 'recoil'
 
-import textAtom from './text'
+import textAtom from './atom'
 
 const textWithPrefix = selector({
   key: 'textWithPrefix',
