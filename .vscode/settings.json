@@ -9,6 +9,9 @@
   "bookmarks.saveBookmarksInProject": true,
   "bookmarks.keepBookmarksOnLineDelete": true,
   "breadcrumbs.enabled": true,
+  "code-runner.executorMap": {
+    "python": "$pythonPath -u $fullFileName"
+  },
   "color-highlight.markRuler": false, // minimap에서 color-highlight 활성화
   "compile-hero.disable-compile-files-on-did-save-code": false, // 저장 시 파일 자동 변환 방지
   "compile-hero.ignore": ["**/node_modules/*"],
