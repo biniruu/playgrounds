@@ -1,0 +1,7 @@
+# files
+**/tsconfig.json
+# **/*.spec.ts
+
+# paths
+node_modules/
+src/client/dist/
