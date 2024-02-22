@@ -1,0 +1,10 @@
+{
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "exec": "ts-node ./index.ts",
+  "ext": "ts,json",
+  "ignore": [".git", ".github", ".idea", ".vscode", "node_modules"],
+  "verbose": true,
+  "watch": ["./"]
+}
