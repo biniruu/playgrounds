@@ -1,0 +1,6 @@
+# files
+**/.eslintrc.js
+**/.prettierrc.js
+
+# paths
+**/node_modules/
