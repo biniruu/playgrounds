@@ -1,5 +1,3 @@
-# Playground
+# Playgrounds
 
-개인 학습용 코드 낙서.
-
-개발에 필요한 패키지를 테스트해보거나 각 언어별로 학습 과정에서 실제로 구현해봐야 하는 코드를 작성해보는 곳이에요.
+This repo is a spot for code doodle sessions. It’s all about playing with different coding tools and picking up new tricks to level up dev skills.
