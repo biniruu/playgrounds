@@ -85,6 +85,7 @@
   "files.insertFinalNewline": true,
   "git.autofetch": true, // 일정 시간마다 default 브랜치를 자동으로 fetch 하기
   "git.fetchOnPull": true,
+  "git.mergeEditor": true, // conflict 시 diff 화면 스타일을 3-way merge로 표시
   "git.showPushSuccessNotification": true,
   "githubPullRequests.fileListLayout": "tree",
   "github.copilot.enable": {
@@ -109,7 +110,6 @@
   "liveServer.settings.ChromeDebuggingAttachment": true,
   "liveServer.settings.donotShowInfoMsg": true,
   "npm.keybindingsChangedWarningShown": true,
-  "git.mergeEditor": true, // conflict 시 diff 화면 스타일을 3-way merge로 표시
   "playwright.showTrace": true,
   "problems.autoReveal": false,
   "projectManager.git.baseFolders": [
