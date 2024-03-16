@@ -28,9 +28,9 @@
     "module": "ESNext", // Specify what module code is generated.
     // "rootDir": "./", // Specify the root folder within your source files.
     "moduleResolution": "Node", // Specify how TypeScript looks up a file from a given module specifier.
-    "baseUrl": ".", // Specify the base directory to resolve non-relative module names.
+    "baseUrl": "./src", // Specify the base directory to resolve non-relative module names.
     "paths": {
-      "@/*": ["./src/*"]
+      "@mock/*": ["mock/*"]
     }, // Specify a set of entries that re-map imports to additional lookup locations.
     // "rootDirs": [], // Allow multiple folders to be treated as one when resolving modules.
     // "typeRoots": ["node_modules/@types"], // Specify multiple folders that act like './node_modules/@types'.
@@ -115,6 +115,7 @@
       // but *only* in ts-node. Useful if you want ts-node and tsc to use
       // different options with a single tsconfig.json.
       "module": "ESNext"
-    }
+    },
+    "require": ["tsconfig-paths/register"]
   }
 }
