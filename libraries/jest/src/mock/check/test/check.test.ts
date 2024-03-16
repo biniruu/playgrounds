@@ -1,4 +1,4 @@
-import { check } from '@/mock/check'
+import { check } from '@mock/check/check'
 
 describe('check', () => {
   let onSuccess: (param: 'yes') => void

@@ -1,4 +1,4 @@
-import { ProductClient } from '@mock/product/productClient'
+import { ProductClient } from '@mock/product-anti-pattern/productClient'
 
 class ProductService {
   private productClient: ProductClient
