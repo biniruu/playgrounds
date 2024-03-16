@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "outDir": "out/spec"
+  },
+  "extends": "./tsconfig.default.json",
+  "include": ["**/*.ts", "tests/**/*.spec.ts", "tests/**/*.test.ts"]
+}
