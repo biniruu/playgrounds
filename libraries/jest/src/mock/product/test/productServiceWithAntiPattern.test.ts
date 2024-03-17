@@ -1,7 +1,7 @@
 import { ProductClient } from '@mock/product/productClient'
-import { ProductService } from '@mock/product/productServiceNoDi'
+import { ProductService } from '@mock/product/productServiceWithAntiPattern'
 
-jest.mock('@mock/product-anti-pattern/productClient')
+jest.mock('@mock/product/productClient')
 
 describe('product service', () => {
   let productService: ProductService
