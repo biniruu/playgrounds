@@ -1,5 +1,5 @@
-import { ProductClient } from '@mock/product-anti-pattern/productClient'
-import { ProductService } from '@mock/product-anti-pattern/productServiceNoDi'
+import { ProductClient } from '@mock/product/productClient'
+import { ProductService } from '@mock/product/productServiceNoDi'
 
 jest.mock('@mock/product-anti-pattern/productClient')
 
