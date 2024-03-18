@@ -14,21 +14,26 @@
  * Additional options in autoprefixer
  * {@link https://github.com/postcss/autoprefixer#options}
  *
- * Optimising tailwindcss for production
+ * Optimising Tailwind CSS for production
  * {@link https://tailwindcss.com/docs/optimizing-for-production}
+ *
+ * Nesting support in the Tailwind CSS plugin API (tailwindcss/nesting)
+ * {@link https://tailwindcss.com/docs/using-with-preprocessors#nesting}
  */
 
 module.exports = {
+  syntax: 'postcss-syntax', //  automatically switch the required PostCSS syntax by file extension/source
   plugins: {
+    '@tailwindcss/nesting': {}, // this plugin has to come before 'tailwindcss'
     'postcss-preset-env': {
       autoprefixer: {
-        // grid: 'autoplace', // ie 10-11 대응 grid layout 속성 prefix
+        // grid: 'autoplace', // adding prefixes of grid layout properties for IE 10-11
       },
       features: {
-        'nesting-rules': true,
+        'nesting-rules': false, // ensure this value as false when using @tailwindcss/nesting
       },
     },
-    tailwindcss: {}, // tailwindcss 사용 시 필요
-    ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {}), // production 환경에서 css minify 구현
+    tailwindcss: {}, // for using tailwindcss
+    ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {}), // invoking CSS minification in production environment
   },
 }

@@ -1,5 +1,4 @@
 # files
-**/*.html
 **/*.js
 **/*.json
 **/*.lock
@@ -13,6 +12,8 @@
 **/*.test.ts
 **/*.test.tsx
 **/*.ts
+**/*.md
+**/*.ico
 
 # paths
-**/node_modules/*
+node_modules/

@@ -1,13 +1,5 @@
-### VisualStudioCode ###
-# For VS Code, you should use the following list instead
-# When resetting this file, please make sure that the following .vscode list is safe
-.vscode/*
-!.vscode/css_custom_data.json
-!.vscode/tasks.json
-!.vscode/launch.json
-
-# Created by https://www.toptal.com/developers/gitignore/api/git,node,yarn,macos,dotenv,windows,intellij,webstorm,visualstudiocode,react
-# Edit at https://www.toptal.com/developers/gitignore?templates=git,node,yarn,macos,dotenv,windows,intellij,webstorm,visualstudiocode,react
+# Created by https://www.toptal.com/developers/gitignore/api/git,node,yarn,macos,dotenv,nextjs,windows,intellij,webstorm,storybookjs,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=git,node,yarn,macos,dotenv,nextjs,windows,intellij,webstorm,storybookjs,visualstudiocode
 
 ### dotenv ###
 .env
@@ -173,15 +165,46 @@ Temporary Items
 # iCloud generated files
 *.icloud
 
+### NextJS ###
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
 ### Node ###
 # Logs
 logs
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 lerna-debug.log*
-.pnpm-debug.log*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -222,7 +245,6 @@ jspm_packages/
 web_modules/
 
 # TypeScript cache
-*.tsbuildinfo
 
 # Optional npm cache directory
 .npm
@@ -312,18 +334,19 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
-### react ###
-.DS_*
-**/*.backup.*
-**/*.back.*
+### StorybookJs ###
+# gitignore template for the Storybook, UI guide for front apps
+# website: https://storybook.js.org/
 
-node_modules
+storybook-static/
 
-*.sublime*
-
-psd
-thumb
-sketch
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
 
 # Local History for Visual Studio Code
 .history/
@@ -454,4 +477,4 @@ $RECYCLE.BIN/
 # and uncomment the following lines
 # .pnp.*
 
-# End of https://www.toptal.com/developers/gitignore/api/git,node,yarn,macos,dotenv,windows,intellij,webstorm,visualstudiocode,react
+# End of https://www.toptal.com/developers/gitignore/api/git,node,yarn,macos,dotenv,nextjs,windows,intellij,webstorm,storybookjs,visualstudiocode
