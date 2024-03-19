@@ -1,9 +1,4 @@
-export interface Post {
-  id: number
-  title: string
-  body: string
-  userId: number
-}
+import type { Post } from 'types'
 
 const fetchPosts = async (pageNum = 1) => {
   const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${pageNum}`)
