@@ -1,10 +1,9 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ReactNode } from 'react'
-import './globals.css'
 
-const queryClient = new QueryClient()
+import ReactQueryProvider from 'providers/reactQueryProivder'
+import './globals.css'
 
 // eslint-disable-next-line new-cap
 const inter = Inter({ subsets: ['latin'] })
@@ -20,10 +19,10 @@ export default function RootLayout({
   children: ReactNode
 }>) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <html lang="en">
-        <body className={inter.className}>{children}</body>
-      </html>
-    </QueryClientProvider>
+    <html lang="en">
+      <body className={inter.className}>
+        <ReactQueryProvider>{children}</ReactQueryProvider>
+      </body>
+    </html>
   )
 }
