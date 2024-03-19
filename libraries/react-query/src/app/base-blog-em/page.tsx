@@ -27,25 +27,25 @@ function Posts() {
     queryFn: () => fetchPosts(currentPage),
   }
 
-  const { data } = useQuery(options)
-
-  if (!data?.length) {
-    return <div>🙀</div>
-  }
+  const { data, isLoading } = useQuery(options)
 
   return (
     <>
       <ul>
-        {data.map(post => {
-          const { id, title } = post
+        {isLoading ? (
+          <div>🙀</div>
+        ) : (
+          data?.map(post => {
+            const { id, title } = post
 
-          return (
-            // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
-            <li key={id} className={styles['post-title']} onClick={() => setSelectedPost(post)}>
-              {title}
-            </li>
-          )
-        })}
+            return (
+              // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
+              <li key={id} className={styles['post-title']} onClick={() => setSelectedPost(post)}>
+                {title}
+              </li>
+            )
+          })
+        )}
       </ul>
       <div className={styles['pages']}>
         <button disabled onClick={() => {}}>
