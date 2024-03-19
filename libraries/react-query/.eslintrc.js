@@ -14,6 +14,7 @@ module.exports = {
    *
    * eslint:recommended : eslint 추천 rule set
    * next/core-web-vitals : create next app으로 프로젝트 시작 시 기본 설정
+   * plugin:@tanstack/eslint-plugin-query/recommended : recommended rules for tanstack-query
    * plugin:@typescript-eslint/recommended-type-checked : typescript-eslint v6 이상 추천 룰셋
    * {@link https://typescript-eslint.io/linting/typed-linting/}
    * {@link https://typescript-eslint.io/blog/announcing-typescript-eslint-v6/#user-facing-breaking-changes}
@@ -28,6 +29,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'next/core-web-vitals',
+    'plugin:@tanstack/eslint-plugin-query/recommended',
     'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:import/recommended',
     'plugin:import/typescript',
