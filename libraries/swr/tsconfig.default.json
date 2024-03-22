@@ -100,15 +100,7 @@
 
     /* Completeness */
     // "skipDefaultLibCheck": true, // Skip type checking .d.ts files that are included with TypeScript.
-    "skipLibCheck": true, // Skip type checking all .d.ts files.
-
-    /* Editor Support */
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "skipLibCheck": true // Skip type checking all .d.ts files.
   },
-  "exclude": ["node_modules", "dist"],
-  "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts", "tests/**/*.spec.ts", "tests/**/*.test.ts"]
+  "exclude": ["node_modules", "dist"]
 }

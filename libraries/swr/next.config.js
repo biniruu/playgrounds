@@ -19,6 +19,15 @@ const nextConfig = {
     ],
   },
   reactStrictMode: true,
+  async rewrites() {
+    return [
+      {
+        source: `/:path*`,
+        destination: 'https://news.naver.com/:path*',
+      },
+    ]
+  },
+  trailingSlash: true,
   typescript: {
     tsconfigPath: isProduction ? 'tsconfig.build.json' : 'tsconfig.json',
   },

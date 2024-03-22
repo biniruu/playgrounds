@@ -355,7 +355,7 @@ module.exports = {
      * react-hooks/exhaustive-deps : useEffect 안에서 사용하는 함수나 변수를 dependency로 등록하지 않았을 때 경고 발생
      */
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'off',
+    // 'react-hooks/exhaustive-deps': 'warn',
     /**
      * Eslint-plugin-tailwindcss rules
      * {@link https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules}
