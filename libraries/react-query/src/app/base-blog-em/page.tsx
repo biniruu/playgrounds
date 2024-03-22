@@ -1,7 +1,7 @@
 'use client'
 
-import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useEffect, useState } from 'react'
 
 import { fetchPosts } from './api'
 import PostDetail from './postDetail'
@@ -22,12 +22,25 @@ function Posts() {
   const [currentPage, setCurrentPage] = useState(1)
   const [selectedPost, setSelectedPost] = useState<Post>(initValue)
 
+  const queryClient = useQueryClient()
+
+  useEffect(() => {
+    const lastPage = currentPage >= maxPostPage
+    if (!lastPage) {
+      const nextPage = currentPage + 1
+      const options = {
+        queryKey: ['posts', nextPage],
+        queryFn: () => fetchPosts(nextPage),
+      }
+      void queryClient.prefetchQuery(options)
+    }
+  }, [currentPage, queryClient])
+
   const options = {
     queryKey: ['posts', currentPage],
     queryFn: () => fetchPosts(currentPage),
     staleTime: 2000,
   }
-
   const { data, isLoading, isError, error } = useQuery(options)
 
   return (
