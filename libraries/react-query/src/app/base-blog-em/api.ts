@@ -1,4 +1,4 @@
-import type { Post } from 'types'
+import type { Comment, Post } from 'types'
 
 const fetchPosts = async (pageNum = 1) => {
   const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${pageNum}`)
@@ -13,7 +13,7 @@ const fetchComments = async (postId: string) => {
   if (!response.ok) {
     throw new Error('Network response was not ok')
   }
-  return response.json()
+  return response.json() as Promise<Comment[]>
 }
 
 const deletePost = async (postId: string) => {
