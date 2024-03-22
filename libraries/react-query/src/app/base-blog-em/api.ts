@@ -10,11 +10,17 @@ const fetchPosts = async (pageNum = 1) => {
 
 const fetchComments = async (postId: string) => {
   const response = await fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
+  if (!response.ok) {
+    throw new Error('Network response was not ok')
+  }
   return response.json()
 }
 
 const deletePost = async (postId: string) => {
   const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, { method: 'DELETE' })
+  if (!response.ok) {
+    throw new Error('Network response was not ok')
+  }
   return response.json()
 }
 
@@ -23,6 +29,9 @@ const updatePost = async (postId: string) => {
     method: 'PATCH',
     body: JSON.stringify({ title: 'REACT QUERY FOREVER!!!!' }),
   })
+  if (!response.ok) {
+    throw new Error('Network response was not ok')
+  }
   return response.json()
 }
 
