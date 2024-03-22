@@ -12,19 +12,20 @@ import type { Post } from 'types'
 const maxPostPage = 10
 
 const initValue = {
+  userId: 0,
   id: 0,
   title: '',
   body: '',
-  userId: 0,
 }
 
 function Posts() {
-  const [currentPage, setCurrentPage] = useState(0)
+  const [currentPage, setCurrentPage] = useState(1)
   const [selectedPost, setSelectedPost] = useState<Post>(initValue)
 
   const options = {
     queryKey: ['posts', currentPage],
     queryFn: () => fetchPosts(currentPage),
+    staleTime: 2000,
   }
 
   const { data, isLoading, isError, error } = useQuery(options)
