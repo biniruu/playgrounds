@@ -1,3 +1,7 @@
+import { useQuery } from '@tanstack/react-query'
+
+import { fetchComments } from './api'
+
 import type { Post } from 'types'
 
 interface Props {
@@ -5,9 +9,15 @@ interface Props {
 }
 
 function PostDetail({ post }: Props) {
-  const { title, body } = post
-  // replace with useQuery
-  const data = []
+  const { title, body, id } = post
+
+  const options = {
+    queryKey: ['comments', id],
+    queryFn: () => fetchComments(String(id)),
+    staleTime: 2000,
+  }
+
+  const { data } = useQuery(options)
 
   return (
     <>
@@ -16,11 +26,15 @@ function PostDetail({ post }: Props) {
       <button>Update title</button>
       <p>{body}</p>
       <h4>Comments</h4>
-      {data?.map(comment => (
-        <li key={comment.id}>
-          {comment.email}: {comment.body}
-        </li>
-      ))}
+      {data?.map(comment => {
+        const { id, email, body } = comment
+
+        return (
+          <li key={id}>
+            {email}: {body}
+          </li>
+        )
+      })}
     </>
   )
 }
