@@ -1,8 +1,16 @@
 interface Post {
+  userId: number
   id: number
   title: string
   body: string
-  userId: number
 }
 
-export { Post }
+interface Comment {
+  postId: number
+  id: number
+  name: string
+  email: string
+  body: string
+}
+
+export { Comment, Post }
