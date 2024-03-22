@@ -352,10 +352,8 @@ module.exports = {
      * {@link https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks}
      *
      * react-hooks/rules-of-hooks : react hooks 공식 문서에서 제공하는 규칙을 준수하도록 강제. {@link https://legacy.reactjs.org/docs/hooks-rules.html Roles of Hooks}
-     * react-hooks/exhaustive-deps : useEffect 안에서 사용하는 함수나 변수를 dependency로 등록하지 않았을 때 경고 발생
      */
     'react-hooks/rules-of-hooks': 'error',
-    // 'react-hooks/exhaustive-deps': 'warn',
     /**
      * Eslint-plugin-tailwindcss rules
      * {@link https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules}
