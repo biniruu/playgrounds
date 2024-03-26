@@ -8,7 +8,7 @@ describe('stub product client', () => {
     productService = new ProductService<StubProductClient>(new StubProductClient())
   })
 
-  test('should fetch available items succesfully when productClient.fetchItems() returns available items', async () => {
+  test('should fetch available items successfully when productClient.fetchItems() returns available items', async () => {
     const result = await productService.fetchAvailableItems()
     const expected = [
       { id: 1, name: 'Item 1', available: true },
