@@ -29,6 +29,12 @@
     ],
     "description": "Add arrow function"
   },
+  "arrow return function": {
+    "scope": "javascript, javascriptreact",
+    "prefix": "arr",
+    "body": ["($1) => $0"],
+    "description": "Add arrow return function"
+  },
   "arrow function (ts)": {
     "scope": "typescript, typescriptreact",
     "prefix": "arr",
@@ -38,5 +44,11 @@
       "}"
     ],
     "description": "Add arrow function"
+  },
+  "arrow return function (ts)": {
+    "scope": "typescript, typescriptreact",
+    "prefix": "arr",
+    "body": ["($1: ${2:any}) => $0"],
+    "description": "Add arrow return function"
   }
 }
