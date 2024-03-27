@@ -2,10 +2,10 @@ import { ProductService } from '@mock/product/productService'
 import { StubProductClient } from '@mock/product/stubProductClient'
 
 describe('stub product client', () => {
-  let productService: ProductService<StubProductClient>
+  let productService: ProductService
 
   beforeEach(() => {
-    productService = new ProductService<StubProductClient>(new StubProductClient())
+    productService = new ProductService(new StubProductClient())
   })
 
   test('should fetch available items successfully when productClient.fetchItems() returns available items', async () => {

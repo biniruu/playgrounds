@@ -2,10 +2,8 @@ interface ProductServiceInterface {
   fetchItems: () => Promise<{ id: number; name: string; available: boolean }[]>
 }
 
-class ProductService<T extends ProductServiceInterface> {
-  private productClient: T
-
-  constructor(productClient: T) {
+class ProductService {
+  constructor(private productClient: ProductServiceInterface) {
     this.productClient = productClient
   }
 

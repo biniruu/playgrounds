@@ -2,10 +2,10 @@ interface UserClient {
   login: (id: string, password: string) => Promise<'success' | 'fail'>
 }
 
-class UserServer<T extends UserClient> {
+class UserServer {
   isLoggedIn = false
 
-  constructor(private userClient: T) {
+  constructor(private userClient: UserClient) {
     this.userClient = userClient
   }
 

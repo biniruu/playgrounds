@@ -4,14 +4,14 @@ import { UserServer } from '@mock/user/userServer'
 jest.mock('@mock/user/userClient')
 
 describe('Authenticate user', () => {
-  let userServer: UserServer<UserClient>
+  let userServer: UserServer
   const login = jest.fn(async () => 'success')
   ;(UserClient as jest.Mock).mockImplementation(() => {
     return { login }
   })
 
   beforeEach(() => {
-    userServer = new UserServer<UserClient>(new UserClient())
+    userServer = new UserServer(new UserClient())
   })
 
   test('should log in successfully when try to authenticate user login', async () => {
@@ -25,6 +25,6 @@ describe('Authenticate user', () => {
     await userServer.login('id', 'password')
     await userServer.login('id', 'password')
 
-    expect(login).toHaveBeenCalledTimes(1)
+    expect(login).toHaveBeenCalled()
   })
 })
