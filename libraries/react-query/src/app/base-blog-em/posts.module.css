@@ -1,4 +1,4 @@
-li.post-title {
+.post-title {
   cursor: pointer;
 
   &:hover {
@@ -6,7 +6,7 @@ li.post-title {
   }
 }
 
-div.pages {
+.pages {
   display: flex;
   justify-content: space-between;
   width: 100%;

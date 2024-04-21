@@ -1,9 +1,9 @@
 'use client'
 
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 
-import { fetchPosts } from './api'
+import { deletePost, fetchPosts } from './api'
 import PostDetail from './postDetail'
 import styles from './posts.module.css'
 
@@ -35,6 +35,9 @@ function Posts() {
       void queryClient.prefetchQuery(options)
     }
   }, [currentPage, queryClient])
+
+  const mutationFn = deletePost
+  const deleteMutation = useMutation({ mutationFn })
 
   const options = {
     queryKey: ['posts', currentPage],
@@ -69,7 +72,7 @@ function Posts() {
         </button>
       </div>
       <hr />
-      {selectedPost && <PostDetail post={selectedPost} />}
+      {selectedPost && <PostDetail post={selectedPost} deleteMutation={deleteMutation} />}
     </>
   )
 }
