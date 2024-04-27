@@ -2,6 +2,7 @@ import type { UseMutationResult } from '@tanstack/react-query'
 import { useQuery } from '@tanstack/react-query'
 
 import { fetchComments } from './api'
+import styles from './postDetail.module.css'
 
 import type { Post } from 'types'
 
@@ -38,8 +39,13 @@ function PostDetail({ post, deleteMutation }: Props) {
   return (
     <>
       <h3 style={{ color: 'blue' }}>{title}</h3>
-      <button onClick={() => deleteMutation.mutate(String(id))}>Delete</button>
-      <button>Update title</button>
+      <button
+        className="my-2 block rounded-none border border-solid bg-white px-2 py-1"
+        onClick={() => deleteMutation.mutate(String(id))}
+      >
+        Delete
+      </button>
+      <button className="my-2 block rounded-none border border-solid bg-white px-2 py-1">Update title</button>
       <p>{body}</p>
       <h4>Comments</h4>
       {data?.map(comment => {
