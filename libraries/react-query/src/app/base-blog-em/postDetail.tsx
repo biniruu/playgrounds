@@ -20,7 +20,20 @@ function PostDetail({ post, deleteMutation }: Props) {
     staleTime: 2000,
   }
 
-  const { data } = useQuery(options)
+  const { data, isError, error, isLoading } = useQuery(options)
+
+  if (isLoading) {
+    return <h3>Loading...</h3>
+  }
+
+  if (isError) {
+    return (
+      <>
+        <h3>Error</h3>
+        <p>{error.toString()}</p>
+      </>
+    )
+  }
 
   return (
     <>

@@ -46,11 +46,22 @@ function Posts() {
   }
   const { data, isLoading, isError, error } = useQuery(options)
 
+  if (isLoading) {
+    return <h3>Loading...</h3>
+  }
+
+  if (isError) {
+    return (
+      <>
+        <h3>Something went wrong</h3>
+        <p>{error.toString()}</p>
+      </>
+    )
+  }
+
   return (
     <>
       <ul>
-        {isError && <div>{error.toString()}</div>}
-        {isLoading && <div>🙀</div>}
         {data?.map(post => {
           const { id, title } = post
 
