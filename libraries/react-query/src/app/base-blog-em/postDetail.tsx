@@ -45,6 +45,11 @@ function PostDetail({ post, deleteMutation }: Props) {
       >
         Delete
       </button>
+      {deleteMutation.isPending && <p className={styles.loading}>Deleting the post</p>}
+      {deleteMutation.isError && (
+        <p className={styles.error}>Error deleting the post: {deleteMutation.error.toString()}</p>
+      )}
+      {deleteMutation.isSuccess && <p className={styles.success}>Post was deleted</p>}
       <button className="my-2 block rounded-none border border-solid bg-white px-2 py-1">Update title</button>
       <p>{body}</p>
       <h4>Comments</h4>
