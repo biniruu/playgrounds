@@ -46,6 +46,11 @@ function Posts() {
   }
   const { data, isLoading, isError, error } = useQuery(options)
 
+  const onClickPost = (post: Post) => {
+    deleteMutation.reset()
+    setSelectedPost(post)
+  }
+
   if (isLoading) {
     return <h3>Loading...</h3>
   }
@@ -67,7 +72,7 @@ function Posts() {
 
           return (
             // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
-            <li key={id} className={styles['post-title']} onClick={() => setSelectedPost(post)}>
+            <li key={id} className={styles['post-title']} onClick={() => onClickPost(post)}>
               {title}
             </li>
           )
