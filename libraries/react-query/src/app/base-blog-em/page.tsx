@@ -36,8 +36,7 @@ function Posts() {
     }
   }, [currentPage, queryClient])
 
-  const mutationFn = deletePost
-  const deleteMutation = useMutation({ mutationFn })
+  const deleteMutation = useMutation({ mutationFn: deletePost })
 
   const options = {
     queryKey: ['posts', currentPage],
