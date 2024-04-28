@@ -3,7 +3,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 
-import { deletePost, fetchPosts } from './api'
+import { deletePost, fetchPosts, updatePost } from './api'
 import PostDetail from './postDetail'
 import styles from './posts.module.css'
 
@@ -37,6 +37,7 @@ function Posts() {
   }, [currentPage, queryClient])
 
   const deleteMutation = useMutation({ mutationFn: deletePost })
+  const updateMutation = useMutation({ mutationFn: updatePost })
 
   const options = {
     queryKey: ['posts', currentPage],
@@ -47,6 +48,7 @@ function Posts() {
 
   const onClickPost = (post: Post) => {
     deleteMutation.reset()
+    updateMutation.reset()
     setSelectedPost(post)
   }
 
@@ -87,7 +89,9 @@ function Posts() {
         </button>
       </div>
       <hr />
-      {selectedPost && <PostDetail post={selectedPost} deleteMutation={deleteMutation} />}
+      {selectedPost && (
+        <PostDetail post={selectedPost} deleteMutation={deleteMutation} updateMutation={updateMutation} />
+      )}
     </>
   )
 }

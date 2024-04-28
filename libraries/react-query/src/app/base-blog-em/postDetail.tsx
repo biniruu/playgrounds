@@ -8,11 +8,11 @@ import type { Post } from 'types'
 
 interface Props {
   post: Post
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   deleteMutation: UseMutationResult<string, Error, string, unknown>
+  updateMutation: UseMutationResult<string, Error, string, unknown>
 }
 
-function PostDetail({ post, deleteMutation }: Props) {
+function PostDetail({ post, deleteMutation, updateMutation }: Props) {
   const { title, body, id } = post
 
   const options = {
@@ -49,8 +49,13 @@ function PostDetail({ post, deleteMutation }: Props) {
       {deleteMutation.isError && (
         <p className={styles.error}>Error deleting the post: {deleteMutation.error.toString()}</p>
       )}
-      {deleteMutation.isSuccess && <p className={styles.success}>Post was deleted</p>}
+      {deleteMutation.isSuccess && <p className={styles.success}>Post was (not) deleted</p>}
       <button className="my-2 block rounded-none border border-solid bg-white px-2 py-1">Update title</button>
+      {updateMutation.isPending && <p className={styles.loading}>Updating the post</p>}
+      {updateMutation.isError && (
+        <p className={styles.error}>Error updating the post: {updateMutation.error.toString()}</p>
+      )}
+      {updateMutation.isSuccess && <p className={styles.success}>Post was (not) updated</p>}
       <p>{body}</p>
       <h4>Comments</h4>
       {data?.map(comment => {
