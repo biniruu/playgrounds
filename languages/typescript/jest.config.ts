@@ -3,7 +3,32 @@
  * https://jestjs.io/docs/configuration
  */
 
-module.exports = {
+import type { JestConfigWithTsJest } from 'ts-jest'
+
+/**
+ * @property {String[]} moduleDirectories - root directories of the files you will test
+ * {@link https://jestjs.io/docs/configuration#moduledirectories-arraystring}
+ *
+ * @property {Object} moduleNameMapper - match aliases with its paths
+ * {@link https://jestjs.io/docs/configuration#modulenamemapper-objectstring-string--arraystring}
+ * [it doesn't work on this configuration]{@link https://kulshekhar.github.io/ts-jest/docs/getting-started/paths-mapping#jest-config-with-helper}
+ *
+ * @property {string} preset - presets such as ts-jest or vue-jest
+ * {@link https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#basic-usage}
+ *
+ * @property {string} rootDir - keep it as default if there are no issues there
+ *
+ * @property {string} roots - the path where the test files are
+ *
+ * @property {string} testEnvironment - if it is set as 'node', it makes any tests intended for a browser environment invalid.
+ *
+ * @property {Object} transform - specify presets to transform non-javascript files to javascript ones
+ * {@link https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced}
+ *
+ * Paths mapping
+ * {@link https://kulshekhar.github.io/ts-jest/docs/getting-started/paths-mapping}
+ */
+const jestConfig: JestConfigWithTsJest = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -23,7 +48,7 @@ module.exports = {
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: 'coverage',
+  coverageDirectory: '../coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -66,9 +91,7 @@ module.exports = {
   // maxWorkers: "50%",
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  // moduleDirectories: [
-  //   "node_modules"
-  // ],
+  moduleDirectories: ['node_modules', 'src'],
 
   // An array of file extensions your modules use
   // moduleFileExtensions: [
@@ -81,7 +104,10 @@ module.exports = {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    '@utils/(.*)': 'utils/$1',
+    'lodash-es': 'lodash', // resolve an error that import methods from lodash-es
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -93,7 +119,7 @@ module.exports = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  // preset: undefined,
+  preset: 'ts-jest',
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -114,12 +140,10 @@ module.exports = {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  // rootDir: undefined,
+  rootDir: 'src',
 
   // A list of paths to directories that Jest should use to search for files in
-  // roots: [
-  //   "<rootDir>"
-  // ],
+  roots: ['tests'],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
@@ -137,8 +161,7 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  // testEnvironment: "jest-environment-node",
-  testEnvironment: 'node',
+  testEnvironment: 'jest-environment-jsdom',
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -170,11 +193,11 @@ module.exports = {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  // transform: {
-  //   '^.+\\.jsx$': 'babel-jest',
-  //   '^.+\\.(ts|tsx)$': 'ts-jest',
-  //   '^.+\\.vue$': 'vue-jest',
-  // }, // 자바스크립트 코드로 변환할 파일 확장자 입력
+  transform: {
+    // '^.+\\.jsx$': 'babel-jest',
+    '^.+\\.(ts|tsx)$': 'ts-jest',
+    // '^.+\\.vue$': 'vue-jest',
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
@@ -194,3 +217,5 @@ module.exports = {
   // Whether to use watchman for file crawling
   // watchman: true,
 }
+
+export default jestConfig

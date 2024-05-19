@@ -1,5 +1,7 @@
 # files
 **/tsconfig.json
+**/tsconfig.default.json
+**/tsconfig.build.json
 
 # paths
 node_modules/
