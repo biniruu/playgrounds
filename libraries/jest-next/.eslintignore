@@ -1,0 +1,9 @@
+# files
+**/tsconfig.json
+**/tsconfig.build.json
+**/tsconfig.default.json
+**/tsconfig.test.json
+
+# paths
+node_modules/
+storybook-static/
