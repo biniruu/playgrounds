@@ -39,7 +39,7 @@
     "scope": "typescript, typescriptreact",
     "prefix": "arr",
     "body": [
-      "($1: ${2:any}) => {", //
+      "($1:${2:any}) => {", //
       "  $0",
       "}"
     ],
@@ -48,7 +48,7 @@
   "arrow return function (ts)": {
     "scope": "typescript, typescriptreact",
     "prefix": "arr",
-    "body": ["($1: ${2:any}) => $0"],
+    "body": ["($1:${2:any}) => $0"],
     "description": "Add arrow return function"
   }
 }
