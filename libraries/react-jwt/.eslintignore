@@ -1,0 +1,7 @@
+# files
+**/tsconfig.json
+**/tsconfig.node.json
+
+# paths
+node_modules/
+dist/
