@@ -1,4 +1,10 @@
+import UserModel from '@models/user'
 import { compare, genSalt, hash } from 'bcryptjs'
+
+interface LoggedUser {
+  username: string
+  password: string
+}
 
 const setHashedPassword = async (password: string) => {
   const salt = await genSalt(10)
@@ -14,4 +20,6 @@ const checkPassword = async (password: string) => {
   return result
 }
 
-export { checkPassword, setHashedPassword }
+const findByUsername = async (username: string) => (await UserModel.findOne({ username })) as LoggedUser
+
+export { checkPassword, findByUsername, setHashedPassword }

@@ -33,7 +33,7 @@
     "paths": {
       "@components/*": ["components/*"],
       "@models/*": ["models/*"],
-      "@api-auth/*": ["api/auth/*"],
+      "@api/*": ["api/*"],
       "@libs/*": ["libs/*"],
       "@utils/*": ["utils/*"]
     }, // Specify a set of entries that re-map imports to additional lookup locations.
