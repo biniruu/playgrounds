@@ -1,0 +1,20 @@
+# files
+**/*.cjs
+**/*.html
+**/*.js
+**/*.json
+**/*.lock
+**/*.spec.js
+**/*.spec.ts
+**/*.svg
+**/*.test.js
+**/*.test.ts
+**/*.ts
+**/*.md
+**/*.ico
+**/*.png
+**/*.txt
+**/*.log
+
+# paths
+node_modules/
