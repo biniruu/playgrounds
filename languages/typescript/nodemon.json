@@ -1,4 +1,4 @@
 {
   "exec": "ts-node src/index.ts",
-  "ignore": ["dist/*"]
+  "ignore": ["dist/*", "./*.config.ts"]
 }
