@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "declaration": true
+    // "declaration": true, // Generate .d.ts files from TypeScript and JavaScript files in your project.
+    "sourceMap": false // Create source map files for emitted JavaScript files.
   },
+  "exclude": ["node_modules", "dist", "*.config.ts", "src/server"],
   "extends": "./tsconfig.default.json",
-  "files": ["./src/index.ts"]
+  "include": ["src/**/*.ts"]
 }
