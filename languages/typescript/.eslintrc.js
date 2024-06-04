@@ -109,7 +109,7 @@ module.exports = {
       },
     ],
     'no-debugger': process.env.NODE_ENV === 'development' ? 'warn' : 'error',
-    'no-duplicate-imports': 'off',
+    // 'no-duplicate-imports': 'off', // to be enable if a value of 'prefer-inline' on 'import/no-duplicates' is true
     'no-inner-declarations': 'warn',
     'no-nested-ternary': 'warn',
     'no-new-object': 'warn',
@@ -228,7 +228,7 @@ module.exports = {
     //   {
     //     'prefer-inline': true,
     //   },
-    // ], // to be enabled if 'consistent-type-specifier-style' is 'prefer-inline'
+    // ], // to be enabled if 'import/consistent-type-specifier-style' accepts a 'prefer-inline' option
     'import/no-unresolved': 'off',
     'import/order': [
       'warn',

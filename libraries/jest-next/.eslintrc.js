@@ -8,7 +8,6 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
-    'jest/globals': true,
   },
   /**
    * Extends
@@ -21,9 +20,9 @@ module.exports = {
    * plugin:import/recommended : eslint-plugin-import 추천 rule set
    * plugin:import/typescript : eslint-plugin-import 플러그인
    * plugin:jsx-a11y/recommended : 웹 접근성 관련 추천 rule set
-   * plugin:react/recommended : (make sure this is always before react/jsx-runtime) recommended eslint-plugin-react rules
-   * plugin:react/jsx-runtime : when using the new JSX transform from React 17, it will disable the relevant rules
-   * plugin:react-hooks/recommended : recommended eslint-plugin-react-hooks rules
+   * plugin:react-hooks/recommended
+   * plugin:react/jsx-runtime : If you are using the new JSX transform from React 17, you should enable this
+   * plugin:react/recommended
    * plugin:tailwindcss/recommended : Rules enforcing best practices and consistency using Tailwind CSS
    */
   extends: [
@@ -33,41 +32,21 @@ module.exports = {
     'plugin:import/recommended',
     'plugin:import/typescript',
     'plugin:jsx-a11y/recommended',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:react/recommended',
     'plugin:tailwindcss/recommended',
   ],
   overrides: [
     {
       /**
-       * Jest
-       *
-       * plugin:jest/recommended : recommended eslint-plugin-jest rules
-       * plugin:jest-dom/recommended : recommended jest-dom rules
-       * plugin:testing-library/react : eslint-plugin-testing-library rules or preset
-       */
-      extends: ['plugin:jest/recommended', 'plugin:jest-dom/recommended', 'plugin:testing-library/react'],
-      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
-      rules: {
-        /**
-         * Rules
-         *
-         * [eslint-plugin-jest]{@link https://github.com/jest-community/eslint-plugin-jest#rules}
-         * [eslint-plugin-jest-dom]{@link https://www.npmjs.com/package/eslint-plugin-jest-dom#supported-rules}
-         * [eslint-plugin-testing-library]{@link https://www.npmjs.com/package/eslint-plugin-testing-library#supported-rules}
-         */
-      },
-    },
-    {
-      /**
        * Specifying TSConfigs
-       * {@link https://typescript-eslint.io/getting-started/typed-linting/#how-can-i-disable-type-aware-linting-for-a-subset-of-files}
+       * {@link https://typescript-eslint.io/linting/typed-linting/#specifying-tsconfigs}
        *
        * plugin:@typescript-eslint/disable-type-checked : turn off type-aware linting on specific subsets of files with a disabled-type-checked config {@link https://typescript-eslint.io/linting/typed-linting/#how-can-i-disable-type-aware-linting-for-a-subset-of-files}
        */
       extends: ['plugin:@typescript-eslint/disable-type-checked'],
-      files: ['*.js', '*.cjs', '*.config.js', '*.config.ts', '*.test.js', '*.test.ts', '*.spec.js', '*.spec.ts'],
+      files: ['*.js', '*.cjs', '*.config.ts'],
     },
   ],
   parser: '@typescript-eslint/parser',
@@ -82,12 +61,6 @@ module.exports = {
     project: true,
     tsconfigRootDir: __dirname,
   },
-  plugins: [
-    /**
-     * react-refresh : use eslint-plugin-react-refresh
-     */
-    'react-refresh',
-  ],
   root: true, // 현재 설정 파일이 root임을 명시하는 옵션. true로 설정하면 상위 설정 파일 찾기를 여기서 멈춘다.
   rules: {
     /**
@@ -133,7 +106,7 @@ module.exports = {
       },
     ],
     'no-debugger': process.env.NODE_ENV === 'development' ? 'warn' : 'error',
-    'no-duplicate-imports': 'off',
+    // 'no-duplicate-imports': 'off', // to be enable if a value of 'prefer-inline' on 'import/no-duplicates' is true
     'no-inner-declarations': 'warn',
     'no-nested-ternary': 'warn',
     'no-new-object': 'warn',
@@ -233,7 +206,6 @@ module.exports = {
      * no-duplicates : enforce all imports to be inline or top-level when importing multiple times the same module.
      * no-unresolved : import한 파일/모듈이 unresolved 되는 일이 없도록 방지
      * order : import 자동 정렬
-     * order > alphabetize : Make sure it is always set as the default. If not, it can cause conflicts with prettier.
      * order > warnOnUnassignedImports는 항상 default값(false)으로 놔둘 것. true로 할 경우 import 정렬 관련 경고가 발생하는데, 이 문제는 import/order 또는 sort-import 설정만으로는 해결 불가
      * order > caseInsensitive의 값은 항상 default값(false)으로 놔둘 것. true로 했을 때 가끔 다른 import 정렬 관련 rule과 충돌 발생
      */
@@ -256,10 +228,10 @@ module.exports = {
     'import/order': [
       'warn',
       {
-        // alphabetize: {
-        //   order: 'asc',
-        //   orderImportKind: 'asc',
-        // },
+        alphabetize: {
+          order: 'asc',
+          orderImportKind: 'asc',
+        },
         'newlines-between': 'always',
       },
     ],
@@ -365,18 +337,6 @@ module.exports = {
      */
     'react-hooks/rules-of-hooks': 'error',
     /**
-     * Eslint-plugin-react-refresh rules
-     * {@link https://github.com/ArnaudBarre/eslint-plugin-react-refresh?tab=readme-ov-file#options}
-     *
-     * react-refresh/only-export-components : Don't warn when a constant (string, number, boolean, templateLiteral) is exported aside one or more components
-     */
-    'react-refresh/only-export-components': [
-      'warn',
-      {
-        allowConstantExport: true,
-      },
-    ],
-    /**
      * Eslint-plugin-tailwindcss rules
      * {@link https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules}
      *
@@ -396,15 +356,6 @@ module.exports = {
       node: {
         extensions: ['*.js', '*.jsx', '*.ts', '*.tsx'],
       },
-    },
-    /**
-     * Jest version setting
-     * {@link https://github.com/jest-community/eslint-plugin-jest#jest-version-setting}
-     *
-     * fetch the installed version of Jest
-     */
-    jest: {
-      version: require('jest/package.json').version,
     },
     /**
      * Eslint-plugin-react configuration
