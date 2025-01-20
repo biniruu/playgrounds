@@ -118,6 +118,7 @@
     "/Users/biniruu/Learning"
   ],
   "puglint.enable": true,
+  "python.analysis.reportExtraTelemetry": true,
   "python.jediEnabled": false,
   "pythonPreview.codeFooterDocs.fontSize": 13,
   "quokka.automaticRestart": true,
